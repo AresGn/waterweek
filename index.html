@@ -1,0 +1,1654 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Semaine de l'Eau - Cotonou 2025</title>
+    <link rel="stylesheet" href="css/styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Outfit:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <!-- Swiper CSS -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
+    <!-- Préchargement des polices pour améliorer les performances -->
+    <link rel="preload" href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Outfit:wght@400;500;600;700;800&display=swap" as="style">
+    <!-- Meta tags SEO -->
+    <meta name="description" content="Semaine de l'Eau 2025 - Événement international sur les enjeux de l'eau à Cotonou, Bénin.">
+    <meta name="keywords" content="eau, Cotonou, Bénin, conférence, développement durable, ressources hydriques">
+    <!-- Favicon pour les différents appareils -->
+    <link rel="icon" type="image/png" sizes="32x32" href="https://i.ibb.co/TxchknJh/IMG-9191.jpg">
+    <!-- Script de traduction -->
+    <script src="js/translation.js"></script>
+    <style>
+        /* Style pour réduire la hauteur de la section d'accueil */
+        .hero {
+            height: 60vh;
+            min-height: 450px;
+            max-height: 600px;
+            position: relative;
+            overflow: hidden;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+        }
+        
+        .video-background {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: 1;
+        }
+        
+        .video-background video {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+        
+        .video-overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.5);
+            z-index: 2;
+        }
+        
+        .hero-content {
+            position: relative;
+            z-index: 3;
+            padding: 1.5rem 1rem;
+            max-width: 90%;
+            margin: 0 auto;
+            text-align: center;
+            margin-top: 1rem;
+        }
+        
+        .hero-content h1 {
+            margin-bottom: 0.5rem;
+        }
+        
+        .hero-content p {
+            margin-bottom: 0.5rem;
+        }
+        
+        /* Improved partners banner styles */
+        .partners-banner {
+            position: relative;
+            z-index: 3;
+            background: linear-gradient(to right, rgba(255, 255, 255, 0.92), rgba(255, 255, 255, 0.98), rgba(255, 255, 255, 0.92));
+            padding: 0.8rem 0;
+            margin-top: auto;
+            box-shadow: 0 -4px 20px rgba(0, 0, 0, 0.1);
+            border-top: 1px solid rgba(0, 0, 0, 0.05);
+        }
+        
+        .partners-banner .container {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            width: 100%;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 1rem;
+        }
+        
+        .partners-banner p {
+            font-weight: 600;
+            color: var(--primary-blue);
+            margin-bottom: 0.6rem;
+            font-size: 0.95rem;
+            letter-spacing: 0.5px;
+            text-transform: uppercase;
+        }
+        
+        .organizers-logos {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 2.5rem;
+            flex-wrap: wrap;
+            width: 100%;
+            padding: 0.3rem 0;
+        }
+        
+        .organizers-logos img {
+            max-height: 48px;
+            width: auto;
+            filter: grayscale(0);
+            transition: all 0.3s ease;
+            opacity: 0.9;
+        }
+        
+        .organizers-logos img:hover {
+            transform: translateY(-2px);
+            filter: grayscale(0);
+            opacity: 1;
+        }
+        
+        .countdown {
+            margin: 1rem 0;
+        }
+        
+        #countdown-timer {
+            display: flex;
+            justify-content: center;
+            gap: 0.75rem;
+        }
+        
+        .time-unit {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            min-width: 50px;
+        }
+        
+        .time-unit span:first-child {
+            font-size: 1.75rem;
+            font-weight: 700;
+            line-height: 1;
+        }
+        
+        .time-unit span:last-child {
+            font-size: 0.75rem;
+            margin-top: 0.2rem;
+        }
+        
+        .cta-buttons {
+            display: flex;
+            justify-content: center;
+            gap: 1rem;
+            margin-top: 1rem;
+            flex-wrap: wrap;
+        }
+        
+        .cta-buttons .btn {
+            padding: 0.6rem 1.2rem;
+            font-size: 0.9rem;
+        }
+                
+        @media (max-width: 768px) {
+            .hero {
+                min-height: 350px;
+                height: 60vh;
+            }
+            
+            .time-unit {
+                min-width: 45px;
+            }
+            
+            .time-unit span:first-child {
+                font-size: 1.4rem;
+            }
+            
+            .time-unit span:last-child {
+                font-size: 0.7rem;
+            }
+            
+            .organizers-logos {
+                gap: 1.5rem;
+            }
+            
+            .organizers-logos img {
+                max-height: 35px;
+            }
+        }
+        
+        /* Modern header styles */
+        header {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            z-index: 1000;
+            background-color: rgba(255, 255, 255, 0.98);
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.15);
+            backdrop-filter: blur(12px);
+            transition: all 0.3s ease;
+        }
+        
+        header.scrolled {
+            padding: 0.2rem 0;
+            background-color: rgba(255, 255, 255, 0.98);
+            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.18);
+        }
+        
+        .navbar {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 0.6rem 1.5rem;
+            max-width: 1400px;
+            margin: 0 auto;
+            transition: all 0.3s ease;
+        }
+        
+        header.scrolled .navbar {
+            padding: 0.4rem 1.5rem;
+        }
+        
+        header.scrolled .logo-container img {
+            height: 40px;
+        }
+        
+        .navbar-start {
+            display: flex;
+            align-items: center;
+        }
+        
+        .language-switch {
+            display: flex;
+            gap: 0.5rem;
+            border-radius: 2rem;
+            background-color: rgba(0, 0, 0, 0.1);
+            padding: 0.3rem;
+            margin-left: 0.5rem;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+        }
+        
+        .language-switch a {
+            font-size: 0.8rem;
+            font-weight: 600;
+            color: var(--slate);
+            padding: 0.25rem 0.75rem;
+            border-radius: 1.5rem;
+            transition: all 0.3s ease;
+        }
+        
+        .language-switch a.active {
+            background-color: var(--primary-blue);
+            color: white;
+            box-shadow: 0 2px 4px rgba(0, 102, 204, 0.3);
+        }
+        
+        .logo-container {
+            display: flex;
+            align-items: center;
+        }
+        
+        .logo-container img {
+            height: 45px;
+            width: auto;
+            margin-right: 1rem;
+        }
+        
+        .navbar-center {
+            display: none;
+        }
+        
+        .navbar-end {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+        }
+        
+        .menu {
+            display: flex;
+            list-style: none;
+            margin: 0;
+            padding: 0;
+            gap: 0.25rem;
+        }
+        
+        .menu-horizontal {
+            flex-direction: row;
+        }
+        
+        .menu li {
+            position: relative;
+        }
+        
+        .menu li a {
+            display: flex;
+            align-items: center;
+            padding: 0.6rem 1rem;
+            color: var(--slate);
+            font-weight: 500;
+            font-size: 0.95rem;
+            text-decoration: none;
+            border-radius: 0.5rem;
+            transition: all 0.2s ease;
+            background-color: rgba(255, 255, 255, 0.9);
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.05);
+        }
+        
+        .menu li a:hover {
+            background-color: rgba(0, 0, 0, 0.05);
+            color: var(--primary-blue);
+            box-shadow: 0 3px 8px rgba(0, 0, 0, 0.1);
+        }
+        
+        .dropdown {
+            position: relative;
+        }
+        
+        .dropdown-content {
+            display: none;
+            position: absolute;
+            top: 100%;
+            left: 0;
+            min-width: 220px;
+            background-color: white;
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+            border-radius: 0.5rem;
+            overflow: hidden;
+            z-index: 1000;
+            transform: translateY(10px);
+            opacity: 0;
+            transition: all 0.3s ease;
+            padding: 0.5rem;
+        }
+        
+        .dropdown:hover .dropdown-content {
+            display: block;
+            transform: translateY(0);
+            opacity: 1;
+        }
+        
+        .mobile-menu-toggle {
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            width: 24px;
+            height: 20px;
+            cursor: pointer;
+            z-index: 1001;
+            background-color: rgba(255, 255, 255, 0.9);
+            border-radius: 0.5rem;
+            padding: 0.7rem;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+        }
+        
+        .mobile-menu-toggle span {
+            display: block;
+            width: 100%;
+            height: 2px;
+            background-color: var(--slate);
+            border-radius: 2px;
+            transition: all 0.3s ease;
+        }
+        
+        .mobile-menu-toggle:hover span {
+            background-color: var(--primary-blue);
+        }
+        
+        .menu-sm {
+            padding: 1rem !important;
+        }
+        
+        .menu-sm li a {
+            margin-bottom: 0.5rem;
+            background-color: rgba(255, 255, 255, 0.95);
+            box-shadow: 0 2px 6px rgba(0, 0, 0, 0.08);
+            border-radius: 0.5rem;
+            font-weight: 500;
+        }
+        
+        .menu-sm li a:hover {
+            background-color: rgba(0, 0, 0, 0.05);
+            color: var(--primary-blue);
+            box-shadow: 0 3px 8px rgba(0, 0, 0, 0.12);
+        }
+        
+        .menu-sm ul.p-2 {
+            background-color: rgba(248, 249, 250, 0.9);
+            margin-top: 0.25rem;
+            margin-bottom: 0.75rem;
+            border-radius: 0.5rem;
+            box-shadow: inset 0 2px 5px rgba(0, 0, 0, 0.05);
+        }
+        
+        .mobile-nav {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(255, 255, 255, 0.98);
+            z-index: 999;
+            padding: 5rem 2rem 2rem;
+            transform: translateY(-100%);
+            transition: transform 0.4s ease;
+            overflow-y: auto;
+        }
+        
+        .mobile-nav.active {
+            transform: translateY(0);
+        }
+        
+        .mobile-nav ul {
+            list-style: none;
+            margin: 0;
+            padding: 0;
+        }
+        
+        .mobile-nav li {
+            margin-bottom: 0.5rem;
+        }
+        
+        .mobile-nav a {
+            display: block;
+            padding: 0.75rem;
+            color: var(--slate);
+            font-weight: 500;
+            font-size: 1.1rem;
+            text-decoration: none;
+            border-radius: 0.5rem;
+            transition: all 0.2s ease;
+        }
+        
+        .mobile-nav a:hover {
+            background-color: rgba(0, 0, 0, 0.05);
+            color: var(--primary-blue);
+        }
+        
+        @media (min-width: 992px) {
+            .navbar-center {
+                display: block;
+            }
+            
+            .mobile-menu-toggle {
+                display: none;
+            }
+        }
+        
+        /* Styles pour Swiper Galerie */
+        .gallery-swiper {
+            width: 100%;
+            height: 500px;
+            margin-bottom: 2rem;
+            border-radius: var(--radius-lg);
+            overflow: hidden;
+        }
+        
+        .gallery-swiper .swiper-slide {
+            position: relative;
+            border-radius: var(--radius-lg);
+            overflow: hidden;
+        }
+        
+        .gallery-swiper .swiper-slide img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            display: block;
+        }
+        
+        .gallery-swiper .slide-caption {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            background: linear-gradient(to top, rgba(0, 0, 0, 0.7), transparent);
+            color: var(--white);
+            padding: 2rem 1.5rem 1rem;
+            font-size: var(--font-size-md);
+        }
+        
+        .gallery-swiper .swiper-button-next,
+        .gallery-swiper .swiper-button-prev {
+            color: var(--white);
+            background: rgba(0, 0, 0, 0.3);
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            transition: all 0.3s ease;
+        }
+        
+        .gallery-swiper .swiper-button-next:hover,
+        .gallery-swiper .swiper-button-prev:hover {
+            background: rgba(0, 0, 0, 0.5);
+            transform: scale(1.1);
+        }
+        
+        .gallery-swiper .swiper-button-next:after,
+        .gallery-swiper .swiper-button-prev:after {
+            font-size: 1.2rem;
+        }
+        
+        .gallery-swiper .swiper-pagination-bullet {
+            width: 12px;
+            height: 12px;
+            background: var(--white);
+            opacity: 0.6;
+        }
+        
+        .gallery-swiper .swiper-pagination-bullet-active {
+            opacity: 1;
+            background: var(--accent-blue);
+        }
+        
+        .gallery-tabs {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 0.8rem;
+            margin-bottom: 2rem;
+        }
+        
+        .gallery-tab {
+            background: var(--white);
+            border: none;
+            padding: 0.8rem 1.5rem;
+            border-radius: var(--radius-full);
+            font-family: var(--font-primary);
+            font-weight: 500;
+            font-size: var(--font-size-sm);
+            color: var(--slate);
+            cursor: pointer;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05);
+        }
+        
+        .gallery-tab:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 6px 15px rgba(0, 0, 0, 0.08);
+        }
+        
+        .gallery-tab.active {
+            background: linear-gradient(90deg, var(--primary-blue), var(--secondary-blue));
+            color: var(--white);
+        }
+        
+        @media (max-width: 768px) {
+            .gallery-swiper {
+                height: 350px;
+            }
+            
+            .gallery-tab {
+                padding: 0.6rem 1.2rem;
+                font-size: var(--font-size-xs);
+            }
+        }
+        
+        .menu li details summary {
+            display: flex;
+            align-items: center;
+            padding: 0.6rem 1rem;
+            color: var(--slate);
+            font-weight: 500;
+            font-size: 0.95rem;
+            text-decoration: none;
+            border-radius: 0.5rem;
+            transition: all 0.2s ease;
+            cursor: pointer;
+            background-color: rgba(255, 255, 255, 0.9);
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.05);
+        }
+        
+        .menu li details summary:hover {
+            background-color: rgba(0, 0, 0, 0.05);
+            color: var(--primary-blue);
+            box-shadow: 0 3px 8px rgba(0, 0, 0, 0.1);
+        }
+        
+        .menu li details summary:after {
+            content: '';
+            display: inline-block;
+            width: 0.5rem;
+            height: 0.5rem;
+            border-right: 2px solid currentColor;
+            border-bottom: 2px solid currentColor;
+            margin-left: 0.5rem;
+            transform: rotate(45deg);
+            transition: transform 0.3s ease;
+        }
+        
+        .menu li details[open] summary:after {
+            transform: rotate(-135deg);
+        }
+        
+        .menu li details ul {
+            position: absolute;
+            top: 100%;
+            left: 0;
+            width: 200px;
+            z-index: 100;
+            background-color: white;
+            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.15);
+            border-radius: 0.5rem;
+            padding: 0.5rem;
+        }
+        
+        .menu li details ul li a {
+            padding: 0.5rem 1rem;
+            display: block;
+            color: var(--slate);
+            transition: all 0.2s ease;
+            border-radius: 0.3rem;
+        }
+        
+        .menu li details ul li a:hover {
+            background-color: rgba(0, 0, 0, 0.05);
+            color: var(--primary-blue);
+        }
+        
+        /* Mobile menu enhancements */
+        @media (max-width: 991px) {
+            .dropdown-content {
+                display: block;
+                position: static;
+                transform: none;
+                box-shadow: none;
+                opacity: 1;
+                max-height: 0;
+                overflow: hidden;
+                transition: max-height 0.3s ease;
+                background-color: white;
+                border-radius: 0.5rem;
+                margin-top: 0.25rem;
+            }
+            
+            .dropdown-content.active {
+                max-height: 500px;
+                box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+            }
+            
+            .menu-sm {
+                background-color: white !important;
+                box-shadow: 0 5px 25px rgba(0, 0, 0, 0.2) !important;
+            }
+            
+            .dropdown > a:after {
+                content: '';
+                display: inline-block;
+                width: 0.5rem;
+                height: 0.5rem;
+                border-right: 2px solid currentColor;
+                border-bottom: 2px solid currentColor;
+                margin-left: 0.5rem;
+                transform: rotate(45deg);
+                transition: transform 0.3s ease;
+            }
+            
+            .dropdown > a.submenu-open:after {
+                transform: rotate(-135deg);
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="navbar bg-base-100 shadow-sm">
+            <div class="navbar-start">
+                <div class="dropdown">
+                    <div tabindex="0" role="button" class="mobile-menu-toggle btn-ghost lg:hidden">
+                        <span></span>
+                        <span></span>
+                        <span></span>
+                    </div>
+                    <ul tabindex="0" class="menu menu-sm dropdown-content bg-base-100 rounded-box z-[1000] mt-3 w-52 p-2 shadow">
+                        <li><a href="#accueil" data-translate="navigation.home">Accueil</a></li>
+                        <li>
+                            <a>Événement</a>
+                            <ul class="p-2">
+                                <li><a href="#a-propos" data-translate="navigation.about">À propos</a></li>
+                                <li><a href="#thematiques" data-translate="navigation.themes">Thématiques</a></li>
+                                <li><a href="#partenaires" data-translate="navigation.partners">Partenaires</a></li>
+                            </ul>
+                        </li>
+                        <li>
+                            <a>Programme</a>
+                            <ul class="p-2">
+                                <li><a href="#appel-communications" data-translate="navigation.callForPapers">Appel à Communications</a></li>
+                                <li><a href="#programme" data-translate="navigation.program">Programme</a></li>
+                                <li><a href="#intervenants" data-translate="navigation.speakers">Intervenants</a></li>
+                            </ul>
+                        </li>
+                        <li>
+                            <a>Informations</a>
+                            <ul class="p-2">
+                                <li><a href="#infos-pratiques" data-translate="navigation.practicalInfo">Infos pratiques</a></li>
+                                <li><a href="#actualites" data-translate="navigation.news">Actualités</a></li>
+                                <li><a href="#galerie" data-translate="navigation.gallery">Galerie</a></li>
+                                <li><a href="#contact" data-translate="navigation.contact">Contact</a></li>
+                            </ul>
+                        </li>
+                    </ul>
+                </div>
+                <div class="logo-container">
+                    <img src="https://i.ibb.co/8gpXjPcs/logo-C2-EA.png" alt="Logo Semaine de l'Eau">
+                </div>
+            </div>
+            <div class="navbar-center hidden lg:flex">
+                <ul class="menu menu-horizontal px-1">
+                    <li><a href="#accueil" data-translate="navigation.home">Accueil</a></li>
+                    <li>
+                        <details>
+                            <summary>Événement</summary>
+                            <ul class="p-2 bg-base-100 rounded-box shadow-md">
+                                <li><a href="#a-propos" data-translate="navigation.about">À propos</a></li>
+                                <li><a href="#thematiques" data-translate="navigation.themes">Thématiques</a></li>
+                                <li><a href="#partenaires" data-translate="navigation.partners">Partenaires</a></li>
+                            </ul>
+                        </details>
+                    </li>
+                    <li>
+                        <details>
+                            <summary>Programme</summary>
+                            <ul class="p-2 bg-base-100 rounded-box shadow-md">
+                                <li><a href="#appel-communications" data-translate="navigation.callForPapers">Appel à Communications</a></li>
+                                <li><a href="#programme" data-translate="navigation.program">Programme</a></li>
+                                <li><a href="#intervenants" data-translate="navigation.speakers">Intervenants</a></li>
+                            </ul>
+                        </details>
+                    </li>
+                    <li>
+                        <details>
+                            <summary>Informations</summary>
+                            <ul class="p-2 bg-base-100 rounded-box shadow-md">
+                                <li><a href="#infos-pratiques" data-translate="navigation.practicalInfo">Infos pratiques</a></li>
+                                <li><a href="#actualites" data-translate="navigation.news">Actualités</a></li>
+                                <li><a href="#galerie" data-translate="navigation.gallery">Galerie</a></li>
+                                <li><a href="#contact" data-translate="navigation.contact">Contact</a></li>
+                            </ul>
+                        </details>
+                    </li>
+                </ul>
+            </div>
+            <div class="navbar-end">
+                <div class="language-switch">
+                    <a href="#" data-lang="fr" class="active">FR</a>
+                    <a href="#" data-lang="en">EN</a>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <main>
+        <!-- Section Accueil -->
+        <section id="accueil" class="hero">
+            <div class="video-background">
+                <video autoplay muted loop id="hero-video">
+                    <source src="videos/video1.mp4" type="video/mp4">
+                    <!-- Fallback en cas de non-support de la vidéo -->
+                    <div class="fallback-background"></div>
+                </video>
+                <div class="video-overlay"></div>
+            </div>
+            <div class="hero-content">
+                <h1 data-translate="home.title">Semaine de l'Eau 2025</h1>
+                <p data-translate="home.date">3-7 juin 2025 | Palais des Congrès de Cotonou, Bénin</p>
+                <div class="countdown">
+                    <div id="countdown-timer">
+                        <div class="time-unit">
+                            <span id="days">000</span>
+                            <span data-translate="home.countdownDays">Jours</span>
+                        </div>
+                        <div class="time-unit">
+                            <span id="hours">00</span>
+                            <span data-translate="home.countdownHours">Heures</span>
+                        </div>
+                        <div class="time-unit">
+                            <span id="minutes">00</span>
+                            <span data-translate="home.countdownMinutes">Minutes</span>
+                        </div>
+                        <div class="time-unit">
+                            <span id="seconds">00</span>
+                            <span data-translate="home.countdownSeconds">Secondes</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="cta-buttons">
+                    <a href="#appel-communications" class="btn primary" data-translate="home.submitAbstract">Soumettre un résumé</a>
+                    <a href="#programme" class="btn secondary" data-translate="home.viewProgram">Voir le programme</a>
+                </div>
+            </div>
+            <div class="partners-banner">
+                <div class="container">
+                    <p data-translate="home.organizedBy">Organisé par:</p>
+                    <div class="organizers-logos">
+                        <img src="https://i.ibb.co/8gpXjPcs/logo-C2-EA.png" alt="C2EA">
+                        <img src="https://i.ibb.co/6c7sDPbQ/Logo-INE.png" alt="INE/UAC">
+                        <img src="https://i.ibb.co/8gpXjPcs/logo-C2-EA.png" alt="IAHS">
+                        <img src="https://i.ibb.co/6c7sDPbQ/Logo-INE.png" alt="FRIEND AOC">
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Section À propos -->
+        <section id="a-propos" class="section">
+            <div class="container">
+                <h2 class="section-title animate-on-scroll" data-animation="fade-up" data-translate="about.title">À propos de l'événement</h2>
+                <div class="about-content">
+                    <div class="about-text animate-on-scroll" data-animation="fade-up" data-delay="200">
+                        <p>La Semaine de l'Eau 2025 est un événement international qui rassemble experts, chercheurs, décideurs politiques, entreprises et organisations de la société civile autour des enjeux liés à l'eau dans le contexte des changements climatiques.</p>
+                        <p>Durant cette semaine, nous explorerons les défis et les solutions innovantes pour garantir un accès durable à l'eau potable, assurer la conservation des ressources hydriques et promouvoir une gestion intégrée de l'eau.</p>
+                        <p>Rejoignez-nous pour participer à des conférences de haut niveau, des ateliers pratiques, des sessions de networking et des visites techniques qui vous permettront d'élargir vos connaissances et de développer votre réseau professionnel.</p>
+                        
+                        <div class="about-stats">
+                            <div class="stat-item">
+                                <span class="stat-number">1500+</span>
+                                <span class="stat-label" data-translate="about.stats.participants.label">Participants attendus</span>
+                            </div>
+                            <div class="stat-item">
+                                <span class="stat-number">25+</span>
+                                <span class="stat-label" data-translate="about.stats.countries.label">Pays représentés</span>
+                            </div>
+                            <div class="stat-item">
+                                <span class="stat-number">50+</span>
+                                <span class="stat-label" data-translate="about.stats.speakers.label">Conférenciers experts</span>
+                            </div>
+                        </div>
+                        
+                        <a href="#programme" class="btn btn-primary" data-translate="about.discoverProgram">Découvrir le programme</a>
+                    </div>
+                    <div class="about-image animate-on-scroll" data-animation="fade-up" data-delay="400">
+                        <img src="https://i.ibb.co/fzgrRDQk/DSC7016.jpg" alt="Conférence sur l'eau">
+                    </div>
+                </div>
+            </div>
+            <div class="shape-divider">
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 120" preserveAspectRatio="none">
+                    <path d="M321.39,56.44c58-10.79,114.16-30.13,172-41.86,82.39-16.72,168.19-17.73,250.45-.39C823.78,31,906.67,72,985.66,92.83c70.05,18.48,146.53,26.09,214.34,3V0H0V27.35A600.21,600.21,0,0,0,321.39,56.44Z" class="shape-fill"></path>
+                </svg>
+            </div>
+        </section>
+
+        <!-- Section Thématiques -->
+        <section id="thematiques" class="themes">
+            <div class="container">
+                <h2 class="section-title" data-translate="themes.title">Thématiques</h2>
+                <p class="section-subtitle" data-translate="themes.subtitle">Explorez les principaux sujets qui seront abordés lors de la Semaine de l'Eau 2025</p>
+                <div class="themes-grid">
+                    <div class="theme-card">
+                        <div class="theme-icon">
+                            <i class="fas fa-water"></i>
+                        </div>
+                        <h3 data-translate="themes.waterResources.title">Ressources en eau et écosystèmes transfrontaliers</h3>
+                        <p data-translate="themes.waterResources.description">Gestion des bassins partagés, coopération internationale, préservation des écosystèmes aquatiques et biodiversité.</p>
+                        <a href="thematiques/ressources-transfrontaliers.html" class="theme-link">
+                            <span data-translate="themes.waterResources.readMore">En savoir plus</span> <i class="fas fa-arrow-right"></i>
+                        </a>
+                    </div>
+                    <div class="theme-card">
+                        <div class="theme-icon">
+                            <i class="fas fa-recycle"></i>
+                        </div>
+                        <h3 data-translate="themes.innovations.title">Innovations en traitement et réutilisation de l'eau</h3>
+                        <p data-translate="themes.innovations.description">Technologies durables, économie circulaire de l'eau, valorisation des eaux usées et solutions innovantes.</p>
+                        <a href="thematiques/innovations-traitement.html" class="theme-link">
+                            <span data-translate="themes.innovations.readMore">En savoir plus</span> <i class="fas fa-arrow-right"></i>
+                        </a>
+                    </div>
+                    <div class="theme-card">
+                        <div class="theme-icon">
+                            <i class="fas fa-shield-alt"></i>
+                        </div>
+                        <h3 data-translate="themes.disasterManagement.title">Technologies de prévention et de gestion des catastrophes</h3>
+                        <p data-translate="themes.disasterManagement.description">Inondations, sécheresses, systèmes d'alertes précoces, résilience des infrastructures et des communautés.</p>
+                        <a href="thematiques/technologies-catastrophes.html" class="theme-link">
+                            <span data-translate="themes.disasterManagement.readMore">En savoir plus</span> <i class="fas fa-arrow-right"></i>
+                        </a>
+                    </div>
+                    <div class="theme-card">
+                        <div class="theme-icon">
+                            <i class="fas fa-seedling"></i>
+                        </div>
+                        <h3 data-translate="themes.agriculture.title">Gestion intelligente de l'eau et agriculture durable</h3>
+                        <p data-translate="themes.agriculture.description">Irrigation de précision, technologies smart water, adaptation au changement climatique et sécurité alimentaire.</p>
+                        <a href="thematiques/agriculture-durable.html" class="theme-link">
+                            <span data-translate="themes.agriculture.readMore">En savoir plus</span> <i class="fas fa-arrow-right"></i>
+                        </a>
+                    </div>
+                </div>
+            </div>
+            <div class="shape-divider">
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 120" preserveAspectRatio="none">
+                    <path d="M985.66,92.83C906.67,72,823.78,31,743.84,14.19c-82.26-17.34-168.06-16.33-250.45.39-57.84,11.73-114,31.07-172,41.86A600.21,600.21,0,0,1,0,27.35V120H1200V95.8C1132.19,118.92,1055.71,111.31,985.66,92.83Z" class="shape-fill"></path>
+                </svg>
+            </div>
+        </section>
+
+        <!-- Section Appel à Communications -->
+        <section id="appel-communications" class="call-papers">
+            <div class="container">
+                <h2>Appel à Communications</h2>
+                <div class="call-content">
+                    <div class="call-info">
+                        <h3>Instructions pour la soumission</h3>
+                        <p>Nous invitons chercheurs, professionnels et experts à soumettre des résumés sur les thématiques de la Semaine de l'Eau 2025. Les propositions seront évaluées par un comité scientifique international selon les critères suivants :</p>
+                        <ul>
+                            <li>Pertinence par rapport aux thématiques de la conférence</li>
+                            <li>Originalité et contribution au domaine</li>
+                            <li>Qualité scientifique et méthodologique</li>
+                            <li>Applications pratiques et impact potentiel</li>
+                        </ul>
+                        
+                        <h3>Date limite</h3>
+                        <p>15 janvier 2025</p>
+                        
+                        <h3>Format attendu pour les résumés</h3>
+                        <p>Maximum 300 mots, incluant problématique, méthodologie, résultats attendus ou obtenus et conclusion. Les résumés doivent être soumis en français ou en anglais, au format PDF.</p>
+                    </div>
+                    <div class="submission-form">
+                        <i class="fas fa-upload"></i>
+                        <p>Les résumés sélectionnés feront l'objet d'une présentation orale ou d'un poster lors de la conférence, et seront publiés dans les actes de la Semaine de l'Eau 2025.</p>
+                        <a href="#" class="btn primary">Soumettre votre résumé</a>
+                    </div>
+                </div>
+                
+                <div class="highlights-list">
+                    <div class="highlight-item">
+                        <i class="fas fa-calendar-check"></i>
+                        <h4>Dates importantes</h4>
+                        <p>Date limite de soumission : 15 janvier 2025<br>Notification d'acceptation : 15 mars 2025</p>
+                    </div>
+                    <div class="highlight-item">
+                        <i class="fas fa-award"></i>
+                        <h4>Prix du meilleur résumé</h4>
+                        <p>Les meilleurs travaux seront récompensés lors de la cérémonie de clôture</p>
+                    </div>
+                    <div class="highlight-item">
+                        <i class="fas fa-book"></i>
+                        <h4>Publication</h4>
+                        <p>Les articles sélectionnés seront publiés dans un numéro spécial d'une revue internationale</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Section Programme -->
+        <section id="programme" class="program">
+            <div class="container">
+                <h2>Programme Prévisionnel</h2>
+                <div class="program-tabs">
+                    <div class="tab-buttons">
+                        <button class="tab-btn active" data-day="1">Jour 1</button>
+                        <button class="tab-btn" data-day="2">Jour 2</button>
+                        <button class="tab-btn" data-day="3">Jour 3</button>
+                        <button class="tab-btn" data-day="4">Jour 4</button>
+                        <button class="tab-btn" data-day="5">Jour 5</button>
+                    </div>
+                    <div class="tab-content">
+                        <div class="day-program active" id="day-1">
+                            <h3>Lundi 3 juin 2025</h3>
+                            <div class="program-timeline">
+                                <div class="timeline-item">
+                                    <div class="time">08:00 - 09:00</div>
+                                    <div class="event">
+                                        <h4>Accueil et enregistrement des participants</h4>
+                                        <p>Hall d'accueil du Palais des Congrès</p>
+                                    </div>
+                                </div>
+                                <div class="timeline-item">
+                                    <div class="time">09:00 - 10:00</div>
+                                    <div class="event">
+                                        <h4>Cérémonie d'ouverture <span class="event-type keynote">Officiel</span></h4>
+                                        <p>Discours de bienvenue et présentation des objectifs de la Semaine de l'Eau 2025</p>
+                                    </div>
+                                </div>
+                                <div class="timeline-item">
+                                    <div class="time">10:00 - 11:00</div>
+                                    <div class="event">
+                                        <h4>Conférence inaugurale <span class="event-type keynote">Plénière</span></h4>
+                                        <p>"L'eau dans un monde en mutation : défis et opportunités pour l'Afrique"</p>
+                                        <div class="session-details">
+                                            <ul>
+                                                <li>Intervenant principal : en attente de confirmation</li>
+                                                <li>Lieu : Auditorium principal</li>
+                                            </ul>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="timeline-item">
+                                    <div class="time">11:00 - 11:30</div>
+                                    <div class="event">
+                                        <h4>Pause café <span class="event-type break">Pause</span></h4>
+                                        <p>Espace Networking</p>
+                                    </div>
+                                </div>
+                                <div class="timeline-item">
+                                    <div class="time">11:30 - 13:00</div>
+                                    <div class="event">
+                                        <h4>Panel : Gouvernance de l'eau et coopération internationale <span class="event-type panel">Panel</span></h4>
+                                        <p>Perspectives sur les accords transfrontaliers et la gestion intégrée des ressources</p>
+                                    </div>
+                                </div>
+                                <div class="timeline-item">
+                                    <div class="time">13:00 - 14:30</div>
+                                    <div class="event">
+                                        <h4>Déjeuner <span class="event-type break">Pause</span></h4>
+                                        <p>Restaurant du Palais des Congrès</p>
+                                    </div>
+                                </div>
+                                <div class="timeline-item">
+                                    <div class="time">14:30 - 16:00</div>
+                                    <div class="event">
+                                        <h4>Sessions parallèles - Première série</h4>
+                                        <div class="session-details">
+                                            <ul>
+                                                <li>Session 1A : Gestion des bassins versants transfrontaliers (Salle A)</li>
+                                                <li>Session 1B : Technologies innovantes pour le traitement de l'eau (Salle B)</li>
+                                                <li>Session 1C : Systèmes d'alerte précoce pour les catastrophes hydriques (Salle C)</li>
+                                            </ul>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="timeline-item">
+                                    <div class="time">16:00 - 16:30</div>
+                                    <div class="event">
+                                        <h4>Pause café <span class="event-type break">Pause</span></h4>
+                                        <p>Espace Networking</p>
+                                    </div>
+                                </div>
+                                <div class="timeline-item">
+                                    <div class="time">16:30 - 18:00</div>
+                                    <div class="event">
+                                        <h4>Table ronde : Financement des infrastructures hydrauliques <span class="event-type panel">Panel</span></h4>
+                                        <p>Mécanismes innovants et partenariats public-privé</p>
+                                    </div>
+                                </div>
+                                <div class="timeline-item">
+                                    <div class="time">18:30 - 20:30</div>
+                                    <div class="event">
+                                        <h4>Cocktail de bienvenue <span class="event-type keynote">Social</span></h4>
+                                        <p>Jardin du Palais des Congrès</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="day-program" id="day-2">
+                            <h3>Mardi 4 juin 2025</h3>
+                            <div class="program-timeline">
+                                <div class="timeline-item">
+                                    <div class="time">09:00 - 10:30</div>
+                                    <div class="event">
+                                        <h4>Sessions thématiques parallèles - Deuxième série</h4>
+                                        <div class="session-details">
+                                            <ul>
+                                                <li>Session 2A : Conservation des écosystèmes aquatiques (Salle A)</li>
+                                                <li>Session 2B : Économie circulaire de l'eau (Salle B)</li>
+                                                <li>Session 2C : Adaptation au changement climatique (Salle C)</li>
+                                            </ul>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="timeline-item">
+                                    <div class="time">10:30 - 11:00</div>
+                                    <div class="event">
+                                        <h4>Pause café <span class="event-type break">Pause</span></h4>
+                                        <p>Espace Networking</p>
+                                    </div>
+                                </div>
+                                <div class="timeline-item">
+                                    <div class="time">11:00 - 12:30</div>
+                                    <div class="event">
+                                        <h4>Conférence plénière : L'eau et l'agriculture durable <span class="event-type keynote">Plénière</span></h4>
+                                        <p>Innovations pour optimiser l'usage de l'eau dans l'agriculture africaine</p>
+                                    </div>
+                                </div>
+                                <div class="timeline-item">
+                                    <div class="time">12:30 - 14:00</div>
+                                    <div class="event">
+                                        <h4>Déjeuner <span class="event-type break">Pause</span></h4>
+                                        <p>Restaurant du Palais des Congrès</p>
+                                    </div>
+                                </div>
+                                <div class="timeline-item">
+                                    <div class="time">14:00 - 15:30</div>
+                                    <div class="event">
+                                        <h4>Ateliers pratiques <span class="event-type workshop">Atelier</span></h4>
+                                        <div class="session-details">
+                                            <ul>
+                                                <li>Atelier 1 : Cartographie des risques hydrologiques (Salle A)</li>
+                                                <li>Atelier 2 : Technologies pour la qualité de l'eau (Salle B)</li>
+                                                <li>Atelier 3 : Gestion communautaire de l'eau (Salle C)</li>
+                                            </ul>
+                                        </div>
+                                    </div>
+                                </div>
+                                <p class="program-note">(Programme détaillé à venir)</p>
+                            </div>
+                        </div>
+                        <div class="day-program" id="day-3">
+                            <h3>Mercredi 5 juin 2025</h3>
+                            <div class="program-timeline">
+                                <div class="timeline-item">
+                                    <div class="time">09:00 - 12:30</div>
+                                    <div class="event">
+                                        <h4>Visites techniques <span class="event-type workshop">Terrain</span></h4>
+                                        <div class="session-details">
+                                            <ul>
+                                                <li>Circuit 1 : Infrastructures hydrauliques de Cotonou</li>
+                                                <li>Circuit 2 : Station de traitement des eaux de Godomey</li>
+                                                <li>Circuit 3 : Système de gestion des inondations du lac Nokoué</li>
+                                            </ul>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="timeline-item">
+                                    <div class="time">12:30 - 14:00</div>
+                                    <div class="event">
+                                        <h4>Déjeuner <span class="event-type break">Pause</span></h4>
+                                        <p>Restaurant du Palais des Congrès</p>
+                                    </div>
+                                </div>
+                                <div class="timeline-item">
+                                    <div class="time">14:00 - 16:00</div>
+                                    <div class="event">
+                                        <h4>Forum des jeunes chercheurs <span class="event-type panel">Panel</span></h4>
+                                        <p>Présentation des travaux de recherche innovants</p>
+                                    </div>
+                                </div>
+                                <p class="program-note">(Programme détaillé à venir)</p>
+                            </div>
+                        </div>
+                        <div class="day-program" id="day-4">
+                            <h3>Jeudi 6 juin 2025</h3>
+                            <div class="program-timeline">
+                                <div class="timeline-item">
+                                    <div class="time">09:00 - 10:30</div>
+                                    <div class="event">
+                                        <h4>Sessions parallèles - Troisième série</h4>
+                                        <p>Présentations orales des résumés sélectionnés</p>
+                                    </div>
+                                </div>
+                                <div class="timeline-item">
+                                    <div class="time">10:30 - 12:30</div>
+                                    <div class="event">
+                                        <h4>Symposium sur les politiques hydriques <span class="event-type keynote">Plénière</span></h4>
+                                        <p>Dialogue entre décideurs, chercheurs et acteurs de la société civile</p>
+                                    </div>
+                                </div>
+                                <p class="program-note">(Programme détaillé à venir)</p>
+                            </div>
+                        </div>
+                        <div class="day-program" id="day-5">
+                            <h3>Vendredi 7 juin 2025</h3>
+                            <div class="program-timeline">
+                                <div class="timeline-item">
+                                    <div class="time">09:00 - 11:00</div>
+                                    <div class="event">
+                                        <h4>Présentation des conclusions des ateliers</h4>
+                                        <p>Synthèse des travaux réalisés durant la semaine</p>
+                                    </div>
+                                </div>
+                                <div class="timeline-item">
+                                    <div class="time">11:00 - 12:30</div>
+                                    <div class="event">
+                                        <h4>Conférence de clôture <span class="event-type keynote">Plénière</span></h4>
+                                        <p>"L'avenir de la gestion de l'eau en Afrique : perspectives et recommandations"</p>
+                                    </div>
+                                </div>
+                                <div class="timeline-item">
+                                    <div class="time">12:30 - 13:30</div>
+                                    <div class="event">
+                                        <h4>Cérémonie de clôture <span class="event-type keynote">Officiel</span></h4>
+                                        <p>Remise des prix et allocutions finales</p>
+                                    </div>
+                                </div>
+                                <p class="program-note">(Programme détaillé à venir)</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Section Intervenants -->
+        <section id="intervenants" class="speakers">
+            <div class="container">
+                <h2>Intervenants</h2>
+                <p class="section-intro">Présentation des intervenants confirmés</p>
+                <div class="speakers-grid">
+                    <!-- Les cartes des intervenants seront ajoutées au fur et à mesure des confirmations -->
+                    <div class="speaker-card">
+                        <div class="speaker-photo">
+                            <img src="https://i.ibb.co/CKjG1RYd/IMG-9156.jpg" alt="Nom de l'intervenant">
+                        </div>
+                        <div class="speaker-info">
+                            <h3>Pr. Nom Prénom</h3>
+                            <p class="institution">Université/Institut</p>
+                            <p class="bio">Brève biographie de l'intervenant, domaines d'expertise</p>
+                        </div>
+                    </div>
+                    <div class="speaker-card">
+                        <div class="speaker-photo">
+                            <img src="https://i.ibb.co/GfV6ZvmN/IMG-9157.jpg" alt="Nom de l'intervenant">
+                        </div>
+                        <div class="speaker-info">
+                            <h3>Dr. Nom Prénom</h3>
+                            <p class="institution">Université/Institut</p>
+                            <p class="bio">Brève biographie de l'intervenant, domaines d'expertise</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Section Infos pratiques -->
+        <section id="infos-pratiques" class="practical-info">
+            <div class="container">
+                <h2>Infos pratiques</h2>
+                <div class="info-grid">
+                    <div class="info-card">
+                        <div class="info-icon">
+                            <i class="fas fa-map-marker-alt"></i>
+                        </div>
+                        <h3>Lieu</h3>
+                        <p>Palais des Congrès de Cotonou<br>Cotonou, Bénin</p>
+                        <div class="map-container">
+                            <img src="https://i.ibb.co/6cX26M43/carte-du-lieu.png" alt="Carte du Palais des Congrès de Cotonou">
+                        </div>
+                    </div>
+                    <div class="info-card">
+                        <div class="info-icon">
+                            <i class="fas fa-hotel"></i>
+                        </div>
+                        <h3>Hébergements recommandés</h3>
+                        <ul>
+                            <li>Hôtel 1 - <a href="#">Site web</a></li>
+                            <li>Hôtel 2 - <a href="#">Site web</a></li>
+                            <li>Hôtel 3 - <a href="#">Site web</a></li>
+                        </ul>
+                    </div>
+                    <div class="info-card">
+                        <div class="info-icon">
+                            <i class="fas fa-plane"></i>
+                        </div>
+                        <h3>Visa et transport</h3>
+                        <p>Informations sur les formalités pour les visiteurs étrangers, comment obtenir un visa, moyens de transport recommandés.</p>
+                    </div>
+                    <div class="info-card">
+                        <div class="info-icon">
+                            <i class="fas fa-map"></i>
+                        </div>
+                        <h3>Plans d'accès</h3>
+                        <p>Informations sur les accès au Palais des Congrès depuis l'aéroport et les principaux hôtels.</p>
+                        <a href="#" class="btn secondary">Télécharger le plan</a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Section Partenaires -->
+        <section id="partenaires" class="partners">
+            <div class="container">
+                <h2>Partenaires</h2>
+                <div class="partners-grid">
+                    <div class="partner-category">
+                        <h3>Organisateurs</h3>
+                        <div class="partners-logos">
+                            <div class="partner-logo">
+                                <img src="https://i.ibb.co/8gpXjPcs/logo-C2-EA.png" alt="C2EA">
+                                <p>Centre d'Excellence Africain pour la gestion de l'Eau</p>
+                            </div>
+                            <div class="partner-logo">
+                                <img src="https://i.ibb.co/6c7sDPbQ/Logo-INE.png" alt="INE/UAC">
+                                <p>Institut National de l'Eau / Université d'Abomey-Calavi</p>
+                            </div>
+                            <!-- Autres logos d'organisateurs -->
+                        </div>
+                    </div>
+                    <div class="partner-category">
+                        <h3>Sponsors</h3>
+                        <div class="partners-logos">
+                            <div class="partner-logo">
+                                <img src="https://i.ibb.co/TxQGRN6W/IMG-9201.jpg" alt="Sponsor">
+                            </div>
+                            <div class="partner-logo">
+                                <img src="https://i.ibb.co/RpKDMwS5/IMG-9207.jpg" alt="Sponsor">
+                            </div>
+                        </div>
+                    </div>
+                    <div class="partner-category">
+                        <h3>Partenaires institutionnels</h3>
+                        <div class="partners-logos">
+                            <div class="partner-logo">
+                                <img src="https://i.ibb.co/21VWGktj/IMG-9211.jpg" alt="Partenaire institutionnel">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Section Actualités -->
+        <section id="actualites" class="news">
+            <div class="container">
+                <h2>Actualités</h2>
+                <div class="news-grid">
+                    <div class="news-card news-featured">
+                        <div class="news-image">
+                            <img src="https://i.ibb.co/hJRH7zD1/IMG-9107.jpg" alt="Actualité principale">
+                        </div>
+                        <div class="news-content">
+                            <span class="news-cat">À la une</span>
+                            <span class="news-date"><span class="news-category-indicator category-event"></span>25 octobre 2024</span>
+                            <h3>Ouverture des inscriptions pour la Semaine de l'Eau 2025</h3>
+                            <p>Les inscriptions pour participer à la Semaine de l'Eau 2025 sont officiellement ouvertes. Profitez du tarif préférentiel early bird jusqu'au 31 décembre 2024 pour cet événement majeur qui rassemblera plus de 1500 experts, chercheurs et décideurs du secteur de l'eau à Cotonou.</p>
+                            <a href="#" class="read-more">Lire l'article complet</a>
+                        </div>
+                    </div>
+                    <div class="news-card">
+                        <div class="news-image">
+                            <img src="https://i.ibb.co/0VfrjJkg/IMG-9111.jpg" alt="Actualité">
+                        </div>
+                        <div class="news-content">
+                            <span class="news-date"><span class="news-category-indicator category-article"></span>15 septembre 2024</span>
+                            <h3>Lancement de l'appel à communications</h3>
+                            <p>L'appel à communications pour la Semaine de l'Eau 2025 est maintenant ouvert. Soumettez vos résumés avant le 15 janvier 2025.</p>
+                            <a href="#" class="read-more">Lire plus</a>
+                        </div>
+                    </div>
+                    <div class="news-card">
+                        <div class="news-image">
+                            <img src="https://i.ibb.co/8g7T81Nm/IMG-9115.jpg" alt="Actualité">
+                        </div>
+                        <div class="news-content">
+                            <span class="news-date"><span class="news-category-indicator category-press"></span>1 juin 2024</span>
+                            <h3>Annonce des dates de la prochaine édition</h3>
+                            <p>La prochaine édition de la Semaine de l'Eau se tiendra du 3 au 7 juin 2025 au Palais des Congrès de Cotonou.</p>
+                            <a href="#" class="read-more">Lire plus</a>
+                        </div>
+                    </div>
+                    <div class="news-card">
+                        <div class="news-image">
+                            <img src="https://i.ibb.co/84jwQbNx/IMG-9116.jpg" alt="Actualité">
+                        </div>
+                        <div class="news-content">
+                            <span class="news-date"><span class="news-category-indicator category-event"></span>15 mai 2024</span>
+                            <h3>Programme préliminaire des conférences</h3>
+                            <p>Découvrez les premières informations sur le programme des conférences et des intervenants confirmés pour l'édition 2025.</p>
+                            <a href="#" class="read-more">Lire plus</a>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="news-view-all">
+                    <a href="actualites.html" class="btn-view-all">Voir toutes les actualités <i class="fas fa-arrow-right"></i></a>
+                </div>
+            </div>
+        </section>
+
+        <!-- Section Galerie -->
+        <section id="galerie" class="section">
+            <div class="container">
+                <h2 class="section-title animate-on-scroll" data-animation="fade-up">Galerie Photos</h2>
+                <p class="section-subtitle animate-on-scroll" data-animation="fade-up" data-delay="200">Découvrez les moments forts des éditions précédentes à travers notre galerie d'images</p>
+                
+                <div class="gallery-tabs">
+                    <button class="gallery-tab active" data-filter="all">Toutes</button>
+                    <button class="gallery-tab" data-filter="conferences">Conférences</button>
+                    <button class="gallery-tab" data-filter="ateliers">Ateliers</button>
+                    <button class="gallery-tab" data-filter="networking">Networking</button>
+                </div>
+                
+                <!-- Swiper -->
+                <div class="swiper gallery-swiper animate-on-scroll" data-animation="fade-up" data-delay="400">
+                    <div class="swiper-wrapper">
+                        <div class="swiper-slide" data-category="conferences">
+                            <img src="https://i.ibb.co/q34q1mh6/IMG-9118.jpg" alt="Conférence sur les ressources en eau">
+                            <div class="slide-caption">Conférence sur les ressources en eau</div>
+                        </div>
+                        <div class="swiper-slide" data-category="conferences">
+                            <img src="https://i.ibb.co/WNDCBnFq/IMG-9119.jpg" alt="Panel d'experts internationaux">
+                            <div class="slide-caption">Panel d'experts internationaux</div>
+                        </div>
+                        <div class="swiper-slide" data-category="ateliers">
+                            <img src="https://i.ibb.co/gZFyjmhX/IMG-9150.jpg" alt="Atelier sur la gestion de l'eau">
+                            <div class="slide-caption">Atelier sur la gestion de l'eau</div>
+                        </div>
+                        <div class="swiper-slide" data-category="networking">
+                            <img src="https://i.ibb.co/JRYc5nc5/IMG-9158.jpg" alt="Session de networking">
+                            <div class="slide-caption">Session de networking</div>
+                        </div>
+                        <div class="swiper-slide" data-category="conferences">
+                            <img src="https://i.ibb.co/hJ509JT3/IMG-9217.jpg" alt="Présentation des innovations">
+                            <div class="slide-caption">Présentation des innovations</div>
+                        </div>
+                        <div class="swiper-slide" data-category="ateliers">
+                            <img src="https://i.ibb.co/5gSb1zCv/IMG-9231.jpg" alt="Atelier pratique">
+                            <div class="slide-caption">Atelier pratique</div>
+                        </div>
+                        <div class="swiper-slide" data-category="networking">
+                            <img src="https://i.ibb.co/0yhW26VZ/IMG-9262.jpg" alt="Échanges entre participants">
+                            <div class="slide-caption">Échanges entre participants</div>
+                        </div>
+                        <div class="swiper-slide" data-category="conferences">
+                            <img src="https://i.ibb.co/Df4MZy6L/IMG-9223.jpg" alt="Discours inaugural">
+                            <div class="slide-caption">Discours inaugural</div>
+                        </div>
+                    </div>
+                    <div class="swiper-button-next"></div>
+                    <div class="swiper-button-prev"></div>
+                    <div class="swiper-pagination"></div>
+                </div>
+                
+                <div class="text-center animate-on-scroll" data-animation="fade-up" data-delay="600">
+                    <a href="galerie.html" class="btn btn-primary">Voir toutes les photos</a>
+                </div>
+            </div>
+        </section>
+
+        <!-- Section Contact -->
+        <section id="contact" class="contact">
+            <div class="container">
+                <h2>Contact</h2>
+                <div class="contact-grid">
+                    <div class="contact-info">
+                        <div class="contact-method">
+                            <i class="fas fa-envelope"></i>
+                            <h3>Email</h3>
+                            <p><a href="mailto:contact@semainedeleau.org">contact@semainedeleau.org</a></p>
+                        </div>
+                        <div class="contact-method">
+                            <i class="fas fa-phone"></i>
+                            <h3>Téléphone</h3>
+                            <p><a href="tel:+22900000000">+229 00 00 00 00</a></p>
+                        </div>
+                        <div class="contact-method">
+                            <i class="fas fa-share-alt"></i>
+                            <h3>Réseaux sociaux</h3>
+                            <div class="social-links">
+                                <a href="#" aria-label="Facebook"><i class="fab fa-facebook"></i></a>
+                                <a href="#" aria-label="Twitter"><i class="fab fa-twitter"></i></a>
+                                <a href="#" aria-label="LinkedIn"><i class="fab fa-linkedin"></i></a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="contact-form">
+                        <form id="contact-form">
+                            <div class="form-group">
+                                <label for="name">Nom complet</label>
+                                <input type="text" id="name" name="name" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="email">Email</label>
+                                <input type="email" id="email" name="email" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="subject">Sujet</label>
+                                <input type="text" id="subject" name="subject" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="message">Message</label>
+                                <textarea id="message" name="message" rows="5" required></textarea>
+                            </div>
+                            <div class="form-group">
+                                <button type="submit" class="btn primary">Envoyer</button>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+
+                <div class="newsletter-signup">
+                    <h3>Inscription à la Newsletter</h3>
+                    <p>Restez informé des dernières actualités concernant la Semaine de l'Eau</p>
+                    <form id="newsletter-form">
+                        <div class="newsletter-form-group">
+                            <input type="email" id="newsletter-email" name="newsletter-email" placeholder="Votre adresse email" required>
+                            <button type="submit" class="btn primary">S'inscrire</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <div class="container">
+            <div class="footer-container">
+                <div class="footer-col">
+                    <img src="https://i.ibb.co/8gpXjPcs/logo-C2-EA.png" alt="Logo Semaine de l'Eau" class="footer-logo">
+                    <p>La Semaine de l'Eau est un événement international qui rassemble experts et chercheurs autour des enjeux liés à l'eau dans le contexte des changements climatiques.</p>
+                    <div class="social-links">
+                        <a href="#" class="social-link" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#" class="social-link" aria-label="Twitter"><i class="fab fa-twitter"></i></a>
+                        <a href="#" class="social-link" aria-label="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
+                        <a href="#" class="social-link" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+                    </div>
+                </div>
+                <div class="footer-col">
+                    <h3>Liens rapides</h3>
+                    <ul>
+                        <li><a href="#accueil">Accueil</a></li>
+                        <li><a href="#a-propos">À propos</a></li>
+                        <li><a href="#thematiques">Thématiques</a></li>
+                        <li><a href="#appel-communications">Appel à Communications</a></li>
+                        <li><a href="#programme">Programme</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h3>Informations</h3>
+                    <ul>
+                        <li><a href="#intervenants">Intervenants</a></li>
+                        <li><a href="#infos-pratiques">Infos pratiques</a></li>
+                        <li><a href="#partenaires">Partenaires</a></li>
+                        <li><a href="#actualites">Actualités</a></li>
+                        <li><a href="#galerie">Galerie</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h3>Contact</h3>
+                    <ul>
+                        <li><i class="fas fa-envelope"></i> <a href="mailto:contact@semainedeleau.org">contact@semainedeleau.org</a></li>
+                        <li><i class="fas fa-phone"></i> <a href="tel:+22900000000">+229 00 00 00 00</a></li>
+                        <li><i class="fas fa-map-marker-alt"></i> Palais des Congrès, Cotonou, Bénin</li>
+                    </ul>
+                </div>
+            </div>
+            <div class="copyright">
+                <p>&copy; 2024 Semaine de l'Eau. Tous droits réservés. <a href="#">Mentions légales</a> | <a href="#">Politique de confidentialité</a></p>
+            </div>
+        </div>
+    </footer>
+
+    <a href="#accueil" class="back-to-top" aria-label="Retour en haut">
+        <i class="fas fa-arrow-up"></i>
+    </a>
+
+    <script src="js/main.js"></script>
+    <!-- Swiper JS -->
+    <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+    
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            // Initialization code for Swiper Gallery
+            var swiper = new Swiper('.gallery-swiper', {
+                slidesPerView: 1,
+                spaceBetween: 20,
+                loop: true,
+                autoplay: {
+                    delay: 5000,
+                },
+                pagination: {
+                    el: '.swiper-pagination',
+                    clickable: true,
+                },
+                navigation: {
+                    nextEl: '.swiper-button-next',
+                    prevEl: '.swiper-button-prev',
+                },
+                breakpoints: {
+                    640: {
+                        slidesPerView: 2,
+                    },
+                    1024: {
+                        slidesPerView: 3,
+                    },
+                },
+            });
+
+            // Gallery tabs filtering
+            const galleryTabs = document.querySelectorAll('.gallery-tab');
+            const gallerySlides = document.querySelectorAll('.swiper-slide');
+            
+            galleryTabs.forEach(tab => {
+                tab.addEventListener('click', () => {
+                    const filter = tab.getAttribute('data-filter');
+                    
+                    galleryTabs.forEach(t => t.classList.remove('active'));
+                    tab.classList.add('active');
+                    
+                    if (filter === 'all') {
+                        gallerySlides.forEach(slide => {
+                            slide.style.display = 'block';
+                        });
+                    } else {
+                        gallerySlides.forEach(slide => {
+                            if (slide.classList.contains(filter)) {
+                                slide.style.display = 'block';
+                            } else {
+                                slide.style.display = 'none';
+                            }
+                        });
+                    }
+                    
+                    swiper.update();
+                    swiper.slideTo(0);
+                });
+            });
+
+            // Mobile menu toggle
+            const mobileMenuToggle = document.querySelector('.mobile-menu-toggle');
+            const mobileMenu = document.querySelector('.menu-sm.dropdown-content');
+            
+            if (mobileMenuToggle && mobileMenu) {
+                mobileMenuToggle.addEventListener('click', function() {
+                    mobileMenu.classList.toggle('active');
+                    this.classList.toggle('open');
+                });
+
+                // Close mobile menu when clicking outside
+                document.addEventListener('click', function(event) {
+                    if (!mobileMenu.contains(event.target) && !mobileMenuToggle.contains(event.target)) {
+                        mobileMenu.classList.remove('active');
+                        mobileMenuToggle.classList.remove('open');
+                    }
+                });
+            }
+
+            // Submenu toggle for mobile
+            const mobileSubmenus = document.querySelectorAll('.dropdown > a');
+            
+            mobileSubmenus.forEach(submenu => {
+                submenu.addEventListener('click', function(e) {
+                    if (window.innerWidth < 992) {
+                        e.preventDefault();
+                        this.classList.toggle('submenu-open');
+                        const dropdownContent = this.nextElementSibling;
+                        dropdownContent.classList.toggle('active');
+                    }
+                });
+            });
+
+            // Header scroll effect
+            const header = document.querySelector('header');
+            
+            window.addEventListener('scroll', function() {
+                if (window.scrollY > 50) {
+                    header.classList.add('scrolled');
+                } else {
+                    header.classList.remove('scrolled');
+                }
+            });
+        });
+    </script>
+</body>
+</html> 
