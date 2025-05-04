@@ -3,817 +3,396 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Semaine de l'Eau - Cotonou 2025</title>
+    <title data-i18n="title">Semaine de l'Eau - Cotonou 2025</title>
     <link rel="stylesheet" href="css/styles.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Outfit:wght@400;500;600;700;800&display=swap" rel="stylesheet">
-    <!-- Swiper CSS -->
+    <!-- Link Swiper's CSS -->
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
     <!-- Préchargement des polices pour améliorer les performances -->
     <link rel="preload" href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Outfit:wght@400;500;600;700;800&display=swap" as="style">
     <!-- Meta tags SEO -->
-    <meta name="description" content="Semaine de l'Eau 2025 - Événement international sur les enjeux de l'eau à Cotonou, Bénin.">
+    <meta name="description" data-i18n="meta_description" content="Semaine de l'Eau 2025 - Événement international sur les enjeux de l'eau à Cotonou, Bénin.">
     <meta name="keywords" content="eau, Cotonou, Bénin, conférence, développement durable, ressources hydriques">
     <!-- Favicon pour les différents appareils -->
-    <link rel="icon" type="image/png" sizes="32x32" href="https://i.ibb.co/TxchknJh/IMG-9191.jpg">
-    <!-- Script de traduction -->
-    <script src="js/translation.js"></script>
+    <link rel="icon" type="image/png" sizes="32x32" href="https://i.ibb.co/bRJqChct/carte-du-lieu.png">
     <style>
-        /* Style pour réduire la hauteur de la section d'accueil */
-        .hero {
-            height: 60vh;
-            min-height: 450px;
-            max-height: 600px;
-            position: relative;
+        /* Styles spécifiques pour Swiper dans la section galerie */
+        .home-swiper {
+            width: 100%;
+            border-radius: var(--radius-lg);
             overflow: hidden;
-            display: flex;
-            flex-direction: column;
-            justify-content: space-between;
-        }
-        
-        .video-background {
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            z-index: 1;
-        }
-        
-        .video-background video {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-        }
-        
-        .video-overlay {
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background-color: rgba(0, 0, 0, 0.5);
-            z-index: 2;
-        }
-        
-        .hero-content {
-            position: relative;
-            z-index: 3;
-            padding: 1.5rem 1rem;
-            max-width: 90%;
-            margin: 0 auto;
-            text-align: center;
-            margin-top: 1rem;
-        }
-        
-        .hero-content h1 {
-            margin-bottom: 0.5rem;
-        }
-        
-        .hero-content p {
-            margin-bottom: 0.5rem;
-        }
-        
-        /* Improved partners banner styles */
-        .partners-banner {
-            position: relative;
-            z-index: 3;
-            background: linear-gradient(to right, rgba(255, 255, 255, 0.92), rgba(255, 255, 255, 0.98), rgba(255, 255, 255, 0.92));
-            padding: 0.8rem 0;
-            margin-top: auto;
-            box-shadow: 0 -4px 20px rgba(0, 0, 0, 0.1);
-            border-top: 1px solid rgba(0, 0, 0, 0.05);
-        }
-        
-        .partners-banner .container {
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            justify-content: center;
-            width: 100%;
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 0 1rem;
-        }
-        
-        .partners-banner p {
-            font-weight: 600;
-            color: var(--primary-blue);
-            margin-bottom: 0.6rem;
-            font-size: 0.95rem;
-            letter-spacing: 0.5px;
-            text-transform: uppercase;
-        }
-        
-        .organizers-logos {
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            gap: 2.5rem;
-            flex-wrap: wrap;
-            width: 100%;
-            padding: 0.3rem 0;
-        }
-        
-        .organizers-logos img {
-            max-height: 48px;
-            width: auto;
-            filter: grayscale(0);
-            transition: all 0.3s ease;
-            opacity: 0.9;
-        }
-        
-        .organizers-logos img:hover {
-            transform: translateY(-2px);
-            filter: grayscale(0);
-            opacity: 1;
-        }
-        
-        .countdown {
-            margin: 1rem 0;
-        }
-        
-        #countdown-timer {
-            display: flex;
-            justify-content: center;
-            gap: 0.75rem;
-        }
-        
-        .time-unit {
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            min-width: 50px;
-        }
-        
-        .time-unit span:first-child {
-            font-size: 1.75rem;
-            font-weight: 700;
-            line-height: 1;
-        }
-        
-        .time-unit span:last-child {
-            font-size: 0.75rem;
-            margin-top: 0.2rem;
-        }
-        
-        .cta-buttons {
-            display: flex;
-            justify-content: center;
-            gap: 1rem;
-            margin-top: 1rem;
-            flex-wrap: wrap;
-        }
-        
-        .cta-buttons .btn {
-            padding: 0.6rem 1.2rem;
-            font-size: 0.9rem;
-        }
-                
-        @media (max-width: 768px) {
-            .hero {
-                min-height: 350px;
-                height: 60vh;
-            }
-            
-            .time-unit {
-                min-width: 45px;
-            }
-            
-            .time-unit span:first-child {
-                font-size: 1.4rem;
-            }
-            
-            .time-unit span:last-child {
-                font-size: 0.7rem;
-            }
-            
-            .organizers-logos {
-                gap: 1.5rem;
-            }
-            
-            .organizers-logos img {
-                max-height: 35px;
-            }
-        }
-        
-        /* Modern header styles */
-        header {
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            z-index: 1000;
-            background-color: rgba(255, 255, 255, 0.98);
-            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.15);
-            backdrop-filter: blur(12px);
-            transition: all 0.3s ease;
-        }
-        
-        header.scrolled {
-            padding: 0.2rem 0;
-            background-color: rgba(255, 255, 255, 0.98);
-            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.18);
-        }
-        
-        .navbar {
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
-            padding: 0.6rem 1.5rem;
-            max-width: 1400px;
-            margin: 0 auto;
-            transition: all 0.3s ease;
-        }
-        
-        header.scrolled .navbar {
-            padding: 0.4rem 1.5rem;
-        }
-        
-        header.scrolled .logo-container img {
-            height: 40px;
-        }
-        
-        .navbar-start {
-            display: flex;
-            align-items: center;
-        }
-        
-        .language-switch {
-            display: flex;
-            gap: 0.5rem;
-            border-radius: 2rem;
-            background-color: rgba(0, 0, 0, 0.1);
-            padding: 0.3rem;
-            margin-left: 0.5rem;
-            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
-        }
-        
-        .language-switch a {
-            font-size: 0.8rem;
-            font-weight: 600;
-            color: var(--slate);
-            padding: 0.25rem 0.75rem;
-            border-radius: 1.5rem;
-            transition: all 0.3s ease;
-        }
-        
-        .language-switch a.active {
-            background-color: var(--primary-blue);
-            color: white;
-            box-shadow: 0 2px 4px rgba(0, 102, 204, 0.3);
-        }
-        
-        .logo-container {
-            display: flex;
-            align-items: center;
-        }
-        
-        .logo-container img {
-            height: 45px;
-            width: auto;
-            margin-right: 1rem;
-        }
-        
-        .navbar-center {
-            display: none;
-        }
-        
-        .navbar-end {
-            display: flex;
-            align-items: center;
-            gap: 1rem;
-        }
-        
-        .menu {
-            display: flex;
-            list-style: none;
-            margin: 0;
-            padding: 0;
-            gap: 0.25rem;
-        }
-        
-        .menu-horizontal {
-            flex-direction: row;
-        }
-        
-        .menu li {
-            position: relative;
-        }
-        
-        .menu li a {
-            display: flex;
-            align-items: center;
-            padding: 0.6rem 1rem;
-            color: var(--slate);
-            font-weight: 500;
-            font-size: 0.95rem;
-            text-decoration: none;
-            border-radius: 0.5rem;
-            transition: all 0.2s ease;
-            background-color: rgba(255, 255, 255, 0.9);
-            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.05);
-        }
-        
-        .menu li a:hover {
-            background-color: rgba(0, 0, 0, 0.05);
-            color: var(--primary-blue);
-            box-shadow: 0 3px 8px rgba(0, 0, 0, 0.1);
-        }
-        
-        .dropdown {
-            position: relative;
-        }
-        
-        .dropdown-content {
-            display: none;
-            position: absolute;
-            top: 100%;
-            left: 0;
-            min-width: 220px;
-            background-color: white;
-            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
-            border-radius: 0.5rem;
-            overflow: hidden;
-            z-index: 1000;
-            transform: translateY(10px);
-            opacity: 0;
-            transition: all 0.3s ease;
-            padding: 0.5rem;
-        }
-        
-        .dropdown:hover .dropdown-content {
-            display: block;
-            transform: translateY(0);
-            opacity: 1;
-        }
-        
-        .mobile-menu-toggle {
-            display: flex;
-            flex-direction: column;
-            justify-content: space-between;
-            width: 24px;
-            height: 20px;
-            cursor: pointer;
-            z-index: 1001;
-            background-color: rgba(255, 255, 255, 0.9);
-            border-radius: 0.5rem;
-            padding: 0.7rem;
-            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
-        }
-        
-        .mobile-menu-toggle span {
-            display: block;
-            width: 100%;
-            height: 2px;
-            background-color: var(--slate);
-            border-radius: 2px;
-            transition: all 0.3s ease;
-        }
-        
-        .mobile-menu-toggle:hover span {
-            background-color: var(--primary-blue);
-        }
-        
-        .menu-sm {
-            padding: 1rem !important;
-        }
-        
-        .menu-sm li a {
-            margin-bottom: 0.5rem;
-            background-color: rgba(255, 255, 255, 0.95);
-            box-shadow: 0 2px 6px rgba(0, 0, 0, 0.08);
-            border-radius: 0.5rem;
-            font-weight: 500;
-        }
-        
-        .menu-sm li a:hover {
-            background-color: rgba(0, 0, 0, 0.05);
-            color: var(--primary-blue);
-            box-shadow: 0 3px 8px rgba(0, 0, 0, 0.12);
-        }
-        
-        .menu-sm ul.p-2 {
-            background-color: rgba(248, 249, 250, 0.9);
-            margin-top: 0.25rem;
-            margin-bottom: 0.75rem;
-            border-radius: 0.5rem;
-            box-shadow: inset 0 2px 5px rgba(0, 0, 0, 0.05);
-        }
-        
-        .mobile-nav {
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background-color: rgba(255, 255, 255, 0.98);
-            z-index: 999;
-            padding: 5rem 2rem 2rem;
-            transform: translateY(-100%);
-            transition: transform 0.4s ease;
-            overflow-y: auto;
-        }
-        
-        .mobile-nav.active {
-            transform: translateY(0);
-        }
-        
-        .mobile-nav ul {
-            list-style: none;
-            margin: 0;
-            padding: 0;
-        }
-        
-        .mobile-nav li {
-            margin-bottom: 0.5rem;
-        }
-        
-        .mobile-nav a {
-            display: block;
-            padding: 0.75rem;
-            color: var(--slate);
-            font-weight: 500;
-            font-size: 1.1rem;
-            text-decoration: none;
-            border-radius: 0.5rem;
-            transition: all 0.2s ease;
-        }
-        
-        .mobile-nav a:hover {
-            background-color: rgba(0, 0, 0, 0.05);
-            color: var(--primary-blue);
-        }
-        
-        @media (min-width: 992px) {
-            .navbar-center {
-                display: block;
-            }
-            
-            .mobile-menu-toggle {
-                display: none;
-            }
-        }
-        
-        /* Styles pour Swiper Galerie */
-        .gallery-swiper {
-            width: 100%;
+            margin-bottom: var(--spacing-md);
             height: 500px;
-            margin-bottom: 2rem;
-            border-radius: var(--radius-lg);
-            overflow: hidden;
+            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.1);
         }
         
-        .gallery-swiper .swiper-slide {
+        .home-swiper .swiper-slide {
+            text-align: center;
+            background: #fff;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            border-radius: var(--radius-lg);
+            overflow: hidden;
             position: relative;
-            border-radius: var(--radius-lg);
-            overflow: hidden;
         }
         
-        .gallery-swiper .swiper-slide img {
+        .home-swiper .swiper-slide img {
+            display: block;
             width: 100%;
             height: 100%;
             object-fit: cover;
-            display: block;
+            transition: transform 0.6s ease;
         }
         
-        .gallery-swiper .slide-caption {
+        .home-swiper .swiper-slide:hover img {
+            transform: scale(1.05);
+        }
+        
+        .home-swiper .swiper-slide-caption {
             position: absolute;
             bottom: 0;
             left: 0;
             right: 0;
-            background: linear-gradient(to top, rgba(0, 0, 0, 0.7), transparent);
+            background: linear-gradient(to top, rgba(0, 0, 0, 0.8), transparent);
             color: var(--white);
-            padding: 2rem 1.5rem 1rem;
-            font-size: var(--font-size-md);
+            padding: 2.5rem 1.5rem 1.5rem;
+            text-align: left;
         }
         
-        .gallery-swiper .swiper-button-next,
-        .gallery-swiper .swiper-button-prev {
+        .home-swiper .swiper-pagination {
+            margin-top: 20px;
+        }
+        
+        .home-swiper .swiper-button-next,
+        .home-swiper .swiper-button-prev {
             color: var(--white);
             background: rgba(0, 0, 0, 0.3);
-            width: 50px;
-            height: 50px;
+            width: 45px;
+            height: 45px;
             border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
             transition: all 0.3s ease;
         }
         
-        .gallery-swiper .swiper-button-next:hover,
-        .gallery-swiper .swiper-button-prev:hover {
-            background: rgba(0, 0, 0, 0.5);
-            transform: scale(1.1);
+        .home-swiper .swiper-button-next:hover,
+        .home-swiper .swiper-button-prev:hover {
+            background: var(--primary-blue);
+            transform: translateY(-2px);
         }
         
-        .gallery-swiper .swiper-button-next:after,
-        .gallery-swiper .swiper-button-prev:after {
-            font-size: 1.2rem;
+        .home-swiper .swiper-button-next:after,
+        .home-swiper .swiper-button-prev:after {
+            font-size: 18px;
+            font-weight: bold;
         }
         
-        .gallery-swiper .swiper-pagination-bullet {
-            width: 12px;
-            height: 12px;
+        .home-swiper .swiper-pagination-bullet {
+            width: 10px;
+            height: 10px;
             background: var(--white);
-            opacity: 0.6;
+            opacity: 0.7;
         }
         
-        .gallery-swiper .swiper-pagination-bullet-active {
+        .home-swiper .swiper-pagination-bullet-active {
+            background: var(--primary-blue);
             opacity: 1;
-            background: var(--accent-blue);
+        }
+        
+        .home-swiper .autoplay-progress {
+            position: absolute;
+            right: 16px;
+            bottom: 16px;
+            z-index: 10;
+            width: 48px;
+            height: 48px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: bold;
+            color: var(--primary-blue);
+        }
+        
+        .home-swiper .autoplay-progress svg {
+            --progress: 0;
+            position: absolute;
+            left: 0;
+            top: 0px;
+            z-index: 10;
+            width: 100%;
+            height: 100%;
+            stroke-width: 4px;
+            stroke: var(--primary-blue);
+            fill: none;
+            stroke-dashoffset: calc(125.6px * (1 - var(--progress)));
+            stroke-dasharray: 125.6;
+            transform: rotate(-90deg);
+        }
+        
+        .gallery-category-tag {
+            position: absolute;
+            top: 1rem;
+            right: 1rem;
+            background: var(--primary-blue);
+            color: var(--white);
+            padding: 0.5rem 1rem;
+            border-radius: 20px;
+            font-size: 0.85rem;
+            font-weight: 600;
+            z-index: 2;
         }
         
         .gallery-tabs {
             display: flex;
             justify-content: center;
             flex-wrap: wrap;
-            gap: 0.8rem;
+            gap: 1rem;
             margin-bottom: 2rem;
+            padding: 0.8rem;
+            background: rgba(255, 255, 255, 0.9);
+            backdrop-filter: blur(10px);
+            border-radius: 50px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+            margin-left: auto;
+            margin-right: auto;
+            max-width: 700px;
+            transition: all 0.3s ease;
         }
         
         .gallery-tab {
             background: var(--white);
             border: none;
-            padding: 0.8rem 1.5rem;
-            border-radius: var(--radius-full);
+            padding: 0.9rem 1.8rem;
+            border-radius: 50px;
             font-family: var(--font-primary);
-            font-weight: 500;
-            font-size: var(--font-size-sm);
-            color: var(--slate);
+            font-weight: 600;
+            font-size: 1rem;
+            color: var(--text-dark);
             cursor: pointer;
-            transition: all 0.3s ease;
-            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05);
+            transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.08);
+            position: relative;
+            overflow: hidden;
         }
         
         .gallery-tab:hover {
-            transform: translateY(-2px);
-            box-shadow: 0 6px 15px rgba(0, 0, 0, 0.08);
+            transform: translateY(-3px);
+            box-shadow: 0 8px 15px rgba(0, 0, 0, 0.1);
         }
         
         .gallery-tab.active {
-            background: linear-gradient(90deg, var(--primary-blue), var(--secondary-blue));
+            background: linear-gradient(135deg, var(--primary-blue), var(--secondary-blue));
             color: var(--white);
+            box-shadow: 0 8px 20px rgba(0, 120, 231, 0.3);
+            transform: translateY(-2px);
         }
         
-        @media (max-width: 768px) {
-            .gallery-swiper {
-                height: 350px;
+        .gallery-tab.active::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 40%;
+            height: 3px;
+            background-color: white;
+            border-radius: 3px;
+        }
+
+        .gallery-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+            gap: 1.5rem;
+            margin-top: 2rem;
+            margin-bottom: 2rem;
+        }
+        
+        .gallery-item {
+            position: relative;
+            overflow: hidden;
+            border-radius: var(--radius-lg);
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.08);
+            aspect-ratio: 1/1;
+            cursor: pointer;
+            transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+        }
+        
+        .gallery-item:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.15);
+        }
+        
+        .gallery-item img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.6s ease;
+        }
+        
+        .gallery-item:hover img {
+            transform: scale(1.08);
+        }
+        
+        .gallery-caption {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            background: linear-gradient(to top, rgba(0, 0, 0, 0.8), transparent);
+            color: var(--white);
+            padding: 2rem 1.5rem 1.5rem;
+            opacity: 0;
+            transform: translateY(30px);
+            transition: all 0.4s ease;
+        }
+        
+        .gallery-item:hover .gallery-caption {
+            opacity: 1;
+            transform: translateY(0);
+        }
+        
+        .gallery-item::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: linear-gradient(to bottom, rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0.6));
+            opacity: 0;
+            transition: opacity 0.4s ease;
+            z-index: 1;
+        }
+        
+        .gallery-item:hover::before {
+            opacity: 1;
+        }
+        
+        @media screen and (max-width: 768px) {
+            .gallery-tabs {
+                overflow-x: auto;
+                justify-content: flex-start;
+                padding: 0.6rem;
+                border-radius: 15px;
             }
             
             .gallery-tab {
-                padding: 0.6rem 1.2rem;
-                font-size: var(--font-size-xs);
-            }
-        }
-        
-        .menu li details summary {
-            display: flex;
-            align-items: center;
-            padding: 0.6rem 1rem;
-            color: var(--slate);
-            font-weight: 500;
-            font-size: 0.95rem;
-            text-decoration: none;
-            border-radius: 0.5rem;
-            transition: all 0.2s ease;
-            cursor: pointer;
-            background-color: rgba(255, 255, 255, 0.9);
-            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.05);
-        }
-        
-        .menu li details summary:hover {
-            background-color: rgba(0, 0, 0, 0.05);
-            color: var(--primary-blue);
-            box-shadow: 0 3px 8px rgba(0, 0, 0, 0.1);
-        }
-        
-        .menu li details summary:after {
-            content: '';
-            display: inline-block;
-            width: 0.5rem;
-            height: 0.5rem;
-            border-right: 2px solid currentColor;
-            border-bottom: 2px solid currentColor;
-            margin-left: 0.5rem;
-            transform: rotate(45deg);
-            transition: transform 0.3s ease;
-        }
-        
-        .menu li details[open] summary:after {
-            transform: rotate(-135deg);
-        }
-        
-        .menu li details ul {
-            position: absolute;
-            top: 100%;
-            left: 0;
-            width: 200px;
-            z-index: 100;
-            background-color: white;
-            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.15);
-            border-radius: 0.5rem;
-            padding: 0.5rem;
-        }
-        
-        .menu li details ul li a {
-            padding: 0.5rem 1rem;
-            display: block;
-            color: var(--slate);
-            transition: all 0.2s ease;
-            border-radius: 0.3rem;
-        }
-        
-        .menu li details ul li a:hover {
-            background-color: rgba(0, 0, 0, 0.05);
-            color: var(--primary-blue);
-        }
-        
-        /* Mobile menu enhancements */
-        @media (max-width: 991px) {
-            .dropdown-content {
-                display: block;
-                position: static;
-                transform: none;
-                box-shadow: none;
-                opacity: 1;
-                max-height: 0;
-                overflow: hidden;
-                transition: max-height 0.3s ease;
-                background-color: white;
-                border-radius: 0.5rem;
-                margin-top: 0.25rem;
+                padding: 0.7rem 1.4rem;
+                white-space: nowrap;
+                font-size: 0.9rem;
             }
             
-            .dropdown-content.active {
-                max-height: 500px;
-                box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
-            }
-            
-            .menu-sm {
-                background-color: white !important;
-                box-shadow: 0 5px 25px rgba(0, 0, 0, 0.2) !important;
-            }
-            
-            .dropdown > a:after {
-                content: '';
-                display: inline-block;
-                width: 0.5rem;
-                height: 0.5rem;
-                border-right: 2px solid currentColor;
-                border-bottom: 2px solid currentColor;
-                margin-left: 0.5rem;
-                transform: rotate(45deg);
-                transition: transform 0.3s ease;
-            }
-            
-            .dropdown > a.submenu-open:after {
-                transform: rotate(-135deg);
+            .home-swiper {
+                height: 350px;
             }
         }
     </style>
 </head>
 <body>
     <header>
-        <div class="navbar bg-base-100 shadow-sm">
-            <div class="navbar-start">
-                <div class="dropdown">
-                    <div tabindex="0" role="button" class="mobile-menu-toggle btn-ghost lg:hidden">
-                        <span></span>
-                        <span></span>
-                        <span></span>
+        <div class="logo-container">
+            <img src="https://i.ibb.co/8nLpXxbm/Logo-INE.png" alt="Water Week Logo">
+        </div>
+        <nav>
+            <ul>
+                <li class="dropdown">
+                    <a href="#home" data-i18n="nav_home">Accueil</a>
+                    <div class="dropdown-content">
+                        <a href="#about" data-i18n="nav_about">À propos</a>
                     </div>
-                    <ul tabindex="0" class="menu menu-sm dropdown-content bg-base-100 rounded-box z-[1000] mt-3 w-52 p-2 shadow">
-                        <li><a href="#accueil" data-translate="navigation.home">Accueil</a></li>
-                        <li>
-                            <a>Événement</a>
-                            <ul class="p-2">
-                                <li><a href="#a-propos" data-translate="navigation.about">À propos</a></li>
-                                <li><a href="#thematiques" data-translate="navigation.themes">Thématiques</a></li>
-                                <li><a href="#partenaires" data-translate="navigation.partners">Partenaires</a></li>
-                            </ul>
-                        </li>
-                        <li>
-                            <a>Programme</a>
-                            <ul class="p-2">
-                                <li><a href="#appel-communications" data-translate="navigation.callForPapers">Appel à Communications</a></li>
-                                <li><a href="#programme" data-translate="navigation.program">Programme</a></li>
-                                <li><a href="#intervenants" data-translate="navigation.speakers">Intervenants</a></li>
-                            </ul>
-                        </li>
-                        <li>
-                            <a>Informations</a>
-                            <ul class="p-2">
-                                <li><a href="#infos-pratiques" data-translate="navigation.practicalInfo">Infos pratiques</a></li>
-                                <li><a href="#actualites" data-translate="navigation.news">Actualités</a></li>
-                                <li><a href="#galerie" data-translate="navigation.gallery">Galerie</a></li>
-                                <li><a href="#contact" data-translate="navigation.contact">Contact</a></li>
-                            </ul>
-                        </li>
-                    </ul>
-                </div>
-                <div class="logo-container">
-                    <img src="https://i.ibb.co/8gpXjPcs/logo-C2-EA.png" alt="Logo Semaine de l'Eau">
-                </div>
-            </div>
-            <div class="navbar-center hidden lg:flex">
-                <ul class="menu menu-horizontal px-1">
-                    <li><a href="#accueil" data-translate="navigation.home">Accueil</a></li>
-                    <li>
-                        <details>
-                            <summary>Événement</summary>
-                            <ul class="p-2 bg-base-100 rounded-box shadow-md">
-                                <li><a href="#a-propos" data-translate="navigation.about">À propos</a></li>
-                                <li><a href="#thematiques" data-translate="navigation.themes">Thématiques</a></li>
-                                <li><a href="#partenaires" data-translate="navigation.partners">Partenaires</a></li>
-                            </ul>
-                        </details>
-                    </li>
-                    <li>
-                        <details>
-                            <summary>Programme</summary>
-                            <ul class="p-2 bg-base-100 rounded-box shadow-md">
-                                <li><a href="#appel-communications" data-translate="navigation.callForPapers">Appel à Communications</a></li>
-                                <li><a href="#programme" data-translate="navigation.program">Programme</a></li>
-                                <li><a href="#intervenants" data-translate="navigation.speakers">Intervenants</a></li>
-                            </ul>
-                        </details>
-                    </li>
-                    <li>
-                        <details>
-                            <summary>Informations</summary>
-                            <ul class="p-2 bg-base-100 rounded-box shadow-md">
-                                <li><a href="#infos-pratiques" data-translate="navigation.practicalInfo">Infos pratiques</a></li>
-                                <li><a href="#actualites" data-translate="navigation.news">Actualités</a></li>
-                                <li><a href="#galerie" data-translate="navigation.gallery">Galerie</a></li>
-                                <li><a href="#contact" data-translate="navigation.contact">Contact</a></li>
-                            </ul>
-                        </details>
-                    </li>
-                </ul>
-            </div>
-            <div class="navbar-end">
-                <div class="language-switch">
-                    <a href="#" data-lang="fr" class="active">FR</a>
-                    <a href="#" data-lang="en">EN</a>
-                </div>
-            </div>
+                </li>
+                <li class="dropdown">
+                    <a href="#themes" data-i18n="nav_program">Programme</a>
+                    <div class="dropdown-content">
+                        <a href="#themes" data-i18n="nav_topics">Thèmes</a>
+                        <a href="#call-papers" data-i18n="nav_call_papers">Appel à communications</a>
+                        <a href="#program" data-i18n="nav_program">Programme</a>
+                        <a href="#speakers" data-i18n="nav_speakers">Intervenants</a>
+                    </div>
+                </li>
+                <li class="dropdown">
+                    <a href="#practical-info" data-i18n="nav_info_media">Infos & Médias</a>
+                    <div class="dropdown-content">
+                        <a href="#practical-info" data-i18n="nav_practical_info">Infos pratiques</a>
+                        <a href="#partners" data-i18n="nav_partners">Partenaires</a>
+                        <a href="#news" data-i18n="nav_news">Actualités</a>
+                        <a href="gallery.html" data-i18n="nav_gallery">Galerie</a>
+                        <a href="#contact" data-i18n="nav_contact">Contact</a>
+                    </div>
+                </li>
+            </ul>
+        </nav>
+        <div class="language-switch">
+            <a href="#" data-lang="fr" class="active">FR</a>
+            <a href="#" data-lang="en">EN</a>
+        </div>
+        <div class="mobile-menu-toggle">
+            <span></span>
+            <span></span>
+            <span></span>
+            <span></span>
         </div>
     </header>
 
     <main>
-        <!-- Section Accueil -->
-        <section id="accueil" class="hero">
+        <!-- Section Home -->
+        <section id="home" class="hero">
             <div class="video-background">
                 <video autoplay muted loop id="hero-video">
                     <source src="videos/video1.mp4" type="video/mp4">
-                    <!-- Fallback en cas de non-support de la vidéo -->
+                    <!-- Fallback if video is not supported -->
                     <div class="fallback-background"></div>
                 </video>
                 <div class="video-overlay"></div>
             </div>
             <div class="hero-content">
-                <h1 data-translate="home.title">Semaine de l'Eau 2025</h1>
-                <p data-translate="home.date">3-7 juin 2025 | Palais des Congrès de Cotonou, Bénin</p>
+                <h1 data-i18n="hero_title">Semaine de l'Eau 2025</h1>
+                <p data-i18n="hero_subtitle">3-7 juin 2025 | Palais des Congrès de Cotonou, Bénin</p>
                 <div class="countdown">
                     <div id="countdown-timer">
                         <div class="time-unit">
                             <span id="days">000</span>
-                            <span data-translate="home.countdownDays">Jours</span>
+                            <span data-i18n="hero_countdown_days">Jours</span>
                         </div>
                         <div class="time-unit">
                             <span id="hours">00</span>
-                            <span data-translate="home.countdownHours">Heures</span>
+                            <span data-i18n="hero_countdown_hours">Heures</span>
                         </div>
                         <div class="time-unit">
                             <span id="minutes">00</span>
-                            <span data-translate="home.countdownMinutes">Minutes</span>
+                            <span data-i18n="hero_countdown_minutes">Minutes</span>
                         </div>
                         <div class="time-unit">
                             <span id="seconds">00</span>
-                            <span data-translate="home.countdownSeconds">Secondes</span>
+                            <span data-i18n="hero_countdown_seconds">Secondes</span>
                         </div>
                     </div>
                 </div>
                 <div class="cta-buttons">
-                    <a href="#appel-communications" class="btn primary" data-translate="home.submitAbstract">Soumettre un résumé</a>
-                    <a href="#programme" class="btn secondary" data-translate="home.viewProgram">Voir le programme</a>
+                    <a href="#call-papers" class="btn primary" data-i18n="hero_cta_submit">Soumettre un résumé</a>
+                    <a href="#program" class="btn secondary" data-i18n="hero_cta_program">Voir le programme</a>
                 </div>
             </div>
             <div class="partners-banner">
                 <div class="container">
-                    <p data-translate="home.organizedBy">Organisé par:</p>
+                    <p data-i18n="hero_organized_by">Organisé par :</p>
                     <div class="organizers-logos">
-                        <img src="https://i.ibb.co/8gpXjPcs/logo-C2-EA.png" alt="C2EA">
-                        <img src="https://i.ibb.co/6c7sDPbQ/Logo-INE.png" alt="INE/UAC">
-                        <img src="https://i.ibb.co/8gpXjPcs/logo-C2-EA.png" alt="IAHS">
-                        <img src="https://i.ibb.co/6c7sDPbQ/Logo-INE.png" alt="FRIEND AOC">
+                        <img src="https://i.ibb.co/rGL6BZs2/logo-C2-EA.png" alt="C2EA">
+                        <img src="https://i.ibb.co/8nLpXxbm/Logo-INE.png" alt="INE/UAC">
+                        <img src="https://i.ibb.co/FqNdWtsh/DSC7120.jpg" alt="IAHS" class="organizer-logo">
+                        <img src="https://i.ibb.co/MyTTJf3P/DSC7121.jpg" alt="FRIEND AOC" class="organizer-logo">
                     </div>
                 </div>
             </div>
         </section>
 
         <!-- Section À propos -->
-        <section id="a-propos" class="section">
+        <section id="about" class="section">
             <div class="container">
-                <h2 class="section-title animate-on-scroll" data-animation="fade-up" data-translate="about.title">À propos de l'événement</h2>
+                <h2 class="section-title animate-on-scroll" data-animation="fade-up">À propos de l'événement</h2>
                 <div class="about-content">
                     <div class="about-text animate-on-scroll" data-animation="fade-up" data-delay="200">
                         <p>La Semaine de l'Eau 2025 est un événement international qui rassemble experts, chercheurs, décideurs politiques, entreprises et organisations de la société civile autour des enjeux liés à l'eau dans le contexte des changements climatiques.</p>
@@ -823,22 +402,22 @@
                         <div class="about-stats">
                             <div class="stat-item">
                                 <span class="stat-number">1500+</span>
-                                <span class="stat-label" data-translate="about.stats.participants.label">Participants attendus</span>
+                                <span class="stat-label">Participants attendus</span>
                             </div>
                             <div class="stat-item">
                                 <span class="stat-number">25+</span>
-                                <span class="stat-label" data-translate="about.stats.countries.label">Pays représentés</span>
+                                <span class="stat-label">Pays représentés</span>
                             </div>
                             <div class="stat-item">
                                 <span class="stat-number">50+</span>
-                                <span class="stat-label" data-translate="about.stats.speakers.label">Conférenciers experts</span>
+                                <span class="stat-label">Conférenciers experts</span>
                             </div>
                         </div>
                         
-                        <a href="#programme" class="btn btn-primary" data-translate="about.discoverProgram">Découvrir le programme</a>
+                        <a href="#program" class="btn btn-primary">Découvrir le programme</a>
                     </div>
                     <div class="about-image animate-on-scroll" data-animation="fade-up" data-delay="400">
-                        <img src="https://i.ibb.co/fzgrRDQk/DSC7016.jpg" alt="Conférence sur l'eau">
+                        <img src="https://i.ibb.co/SXqjWW05/DSC7012.jpg" alt="Conférence sur l'eau">
                     </div>
                 </div>
             </div>
@@ -850,50 +429,42 @@
         </section>
 
         <!-- Section Thématiques -->
-        <section id="thematiques" class="themes">
+        <section id="themes" class="themes">
             <div class="container">
-                <h2 class="section-title" data-translate="themes.title">Thématiques</h2>
-                <p class="section-subtitle" data-translate="themes.subtitle">Explorez les principaux sujets qui seront abordés lors de la Semaine de l'Eau 2025</p>
+                <h2 class="section-title">Thématiques</h2>
+                <p class="section-subtitle">Explorez les principaux sujets qui seront abordés lors de la Semaine de l'Eau 2025</p>
                 <div class="themes-grid">
                     <div class="theme-card">
                         <div class="theme-icon">
                             <i class="fas fa-water"></i>
                         </div>
-                        <h3 data-translate="themes.waterResources.title">Ressources en eau et écosystèmes transfrontaliers</h3>
-                        <p data-translate="themes.waterResources.description">Gestion des bassins partagés, coopération internationale, préservation des écosystèmes aquatiques et biodiversité.</p>
-                        <a href="thematiques/ressources-transfrontaliers.html" class="theme-link">
-                            <span data-translate="themes.waterResources.readMore">En savoir plus</span> <i class="fas fa-arrow-right"></i>
-                        </a>
+                        <h3>Ressources en eau et écosystèmes transfrontaliers</h3>
+                        <p>Gestion des bassins partagés, coopération internationale, préservation des écosystèmes aquatiques et biodiversité.</p>
+                        <a href="thematiques/ressources-transfrontaliers.html" class="theme-link">En savoir plus <i class="fas fa-arrow-right"></i></a>
                     </div>
                     <div class="theme-card">
                         <div class="theme-icon">
                             <i class="fas fa-recycle"></i>
                         </div>
-                        <h3 data-translate="themes.innovations.title">Innovations en traitement et réutilisation de l'eau</h3>
-                        <p data-translate="themes.innovations.description">Technologies durables, économie circulaire de l'eau, valorisation des eaux usées et solutions innovantes.</p>
-                        <a href="thematiques/innovations-traitement.html" class="theme-link">
-                            <span data-translate="themes.innovations.readMore">En savoir plus</span> <i class="fas fa-arrow-right"></i>
-                        </a>
+                        <h3>Innovations en traitement et réutilisation de l'eau</h3>
+                        <p>Technologies durables, économie circulaire de l'eau, valorisation des eaux usées et solutions innovantes.</p>
+                        <a href="thematiques/innovations-traitement.html" class="theme-link">En savoir plus <i class="fas fa-arrow-right"></i></a>
                     </div>
                     <div class="theme-card">
                         <div class="theme-icon">
                             <i class="fas fa-shield-alt"></i>
                         </div>
-                        <h3 data-translate="themes.disasterManagement.title">Technologies de prévention et de gestion des catastrophes</h3>
-                        <p data-translate="themes.disasterManagement.description">Inondations, sécheresses, systèmes d'alertes précoces, résilience des infrastructures et des communautés.</p>
-                        <a href="thematiques/technologies-catastrophes.html" class="theme-link">
-                            <span data-translate="themes.disasterManagement.readMore">En savoir plus</span> <i class="fas fa-arrow-right"></i>
-                        </a>
+                        <h3>Technologies de prévention et de gestion des catastrophes</h3>
+                        <p>Inondations, sécheresses, systèmes d'alertes précoces, résilience des infrastructures et des communautés.</p>
+                        <a href="thematiques/technologies-catastrophes.html" class="theme-link">En savoir plus <i class="fas fa-arrow-right"></i></a>
                     </div>
                     <div class="theme-card">
                         <div class="theme-icon">
                             <i class="fas fa-seedling"></i>
                         </div>
-                        <h3 data-translate="themes.agriculture.title">Gestion intelligente de l'eau et agriculture durable</h3>
-                        <p data-translate="themes.agriculture.description">Irrigation de précision, technologies smart water, adaptation au changement climatique et sécurité alimentaire.</p>
-                        <a href="thematiques/agriculture-durable.html" class="theme-link">
-                            <span data-translate="themes.agriculture.readMore">En savoir plus</span> <i class="fas fa-arrow-right"></i>
-                        </a>
+                        <h3>Gestion intelligente de l'eau et agriculture durable</h3>
+                        <p>Irrigation de précision, technologies smart water, adaptation au changement climatique et sécurité alimentaire.</p>
+                        <a href="thematiques/agriculture-durable.html" class="theme-link">En savoir plus <i class="fas fa-arrow-right"></i></a>
                     </div>
                 </div>
             </div>
@@ -905,7 +476,7 @@
         </section>
 
         <!-- Section Appel à Communications -->
-        <section id="appel-communications" class="call-papers">
+        <section id="call-papers" class="call-papers">
             <div class="container">
                 <h2>Appel à Communications</h2>
                 <div class="call-content">
@@ -953,7 +524,7 @@
         </section>
 
         <!-- Section Programme -->
-        <section id="programme" class="program">
+        <section id="program" class="program">
             <div class="container">
                 <h2>Programme Prévisionnel</h2>
                 <div class="program-tabs">
@@ -1191,7 +762,7 @@
         </section>
 
         <!-- Section Intervenants -->
-        <section id="intervenants" class="speakers">
+        <section id="speakers" class="speakers">
             <div class="container">
                 <h2>Intervenants</h2>
                 <p class="section-intro">Présentation des intervenants confirmés</p>
@@ -1199,7 +770,7 @@
                     <!-- Les cartes des intervenants seront ajoutées au fur et à mesure des confirmations -->
                     <div class="speaker-card">
                         <div class="speaker-photo">
-                            <img src="https://i.ibb.co/CKjG1RYd/IMG-9156.jpg" alt="Nom de l'intervenant">
+                            <img src="https://i.ibb.co/SjTr7wK/DSC7016.jpg" alt="Nom de l'intervenant">
                         </div>
                         <div class="speaker-info">
                             <h3>Pr. Nom Prénom</h3>
@@ -1209,7 +780,7 @@
                     </div>
                     <div class="speaker-card">
                         <div class="speaker-photo">
-                            <img src="https://i.ibb.co/GfV6ZvmN/IMG-9157.jpg" alt="Nom de l'intervenant">
+                            <img src="https://i.ibb.co/gbsqmh2X/DSC7035.jpg" alt="Nom de l'intervenant">
                         </div>
                         <div class="speaker-info">
                             <h3>Dr. Nom Prénom</h3>
@@ -1222,7 +793,7 @@
         </section>
 
         <!-- Section Infos pratiques -->
-        <section id="infos-pratiques" class="practical-info">
+        <section id="practical-info" class="practical-info">
             <div class="container">
                 <h2>Infos pratiques</h2>
                 <div class="info-grid">
@@ -1233,7 +804,7 @@
                         <h3>Lieu</h3>
                         <p>Palais des Congrès de Cotonou<br>Cotonou, Bénin</p>
                         <div class="map-container">
-                            <img src="https://i.ibb.co/6cX26M43/carte-du-lieu.png" alt="Carte du Palais des Congrès de Cotonou">
+                            <img src="https://i.ibb.co/bRJqChct/carte-du-lieu.png" alt="Carte du Palais des Congrès de Cotonou">
                         </div>
                     </div>
                     <div class="info-card">
@@ -1267,7 +838,7 @@
         </section>
 
         <!-- Section Partenaires -->
-        <section id="partenaires" class="partners">
+        <section id="partners" class="partners">
             <div class="container">
                 <h2>Partenaires</h2>
                 <div class="partners-grid">
@@ -1275,11 +846,11 @@
                         <h3>Organisateurs</h3>
                         <div class="partners-logos">
                             <div class="partner-logo">
-                                <img src="https://i.ibb.co/8gpXjPcs/logo-C2-EA.png" alt="C2EA">
+                                <img src="https://i.ibb.co/rGL6BZs2/logo-C2-EA.png" alt="C2EA">
                                 <p>Centre d'Excellence Africain pour la gestion de l'Eau</p>
                             </div>
                             <div class="partner-logo">
-                                <img src="https://i.ibb.co/6c7sDPbQ/Logo-INE.png" alt="INE/UAC">
+                                <img src="https://i.ibb.co/8nLpXxbm/Logo-INE.png" alt="INE/UAC">
                                 <p>Institut National de l'Eau / Université d'Abomey-Calavi</p>
                             </div>
                             <!-- Autres logos d'organisateurs -->
@@ -1288,19 +859,21 @@
                     <div class="partner-category">
                         <h3>Sponsors</h3>
                         <div class="partners-logos">
+                            <!-- Logos des sponsors à ajouter -->
                             <div class="partner-logo">
-                                <img src="https://i.ibb.co/TxQGRN6W/IMG-9201.jpg" alt="Sponsor">
+                                <img src="https://i.ibb.co/p6zSXm5Y/DSC7036.jpg" alt="Sponsor">
                             </div>
                             <div class="partner-logo">
-                                <img src="https://i.ibb.co/RpKDMwS5/IMG-9207.jpg" alt="Sponsor">
+                                <img src="https://i.ibb.co/vxZ8Fs5F/DSC7037.jpg" alt="Sponsor">
                             </div>
                         </div>
                     </div>
                     <div class="partner-category">
                         <h3>Partenaires institutionnels</h3>
                         <div class="partners-logos">
+                            <!-- Logos des partenaires institutionnels à ajouter -->
                             <div class="partner-logo">
-                                <img src="https://i.ibb.co/21VWGktj/IMG-9211.jpg" alt="Partenaire institutionnel">
+                                <img src="https://i.ibb.co/B56gXk6K/DSC7039.jpg" alt="Partenaire institutionnel">
                             </div>
                         </div>
                     </div>
@@ -1309,13 +882,13 @@
         </section>
 
         <!-- Section Actualités -->
-        <section id="actualites" class="news">
+        <section id="news" class="news">
             <div class="container">
                 <h2>Actualités</h2>
                 <div class="news-grid">
                     <div class="news-card news-featured">
                         <div class="news-image">
-                            <img src="https://i.ibb.co/hJRH7zD1/IMG-9107.jpg" alt="Actualité principale">
+                            <img src="https://i.ibb.co/bgKNpKbx/DSC7041.jpg" alt="Actualité principale">
                         </div>
                         <div class="news-content">
                             <span class="news-cat">À la une</span>
@@ -1327,7 +900,7 @@
                     </div>
                     <div class="news-card">
                         <div class="news-image">
-                            <img src="https://i.ibb.co/0VfrjJkg/IMG-9111.jpg" alt="Actualité">
+                            <img src="https://i.ibb.co/tPhjCg6k/DSC7042.jpg" alt="Actualité">
                         </div>
                         <div class="news-content">
                             <span class="news-date"><span class="news-category-indicator category-article"></span>15 septembre 2024</span>
@@ -1338,7 +911,7 @@
                     </div>
                     <div class="news-card">
                         <div class="news-image">
-                            <img src="https://i.ibb.co/8g7T81Nm/IMG-9115.jpg" alt="Actualité">
+                            <img src="https://i.ibb.co/8DjWBV3R/DSC7043.jpg" alt="Actualité">
                         </div>
                         <div class="news-content">
                             <span class="news-date"><span class="news-category-indicator category-press"></span>1 juin 2024</span>
@@ -1349,7 +922,7 @@
                     </div>
                     <div class="news-card">
                         <div class="news-image">
-                            <img src="https://i.ibb.co/84jwQbNx/IMG-9116.jpg" alt="Actualité">
+                            <img src="https://i.ibb.co/XZZTQncs/DSC7048.jpg" alt="Actualité">
                         </div>
                         <div class="news-content">
                             <span class="news-date"><span class="news-category-indicator category-event"></span>15 mai 2024</span>
@@ -1367,61 +940,41 @@
         </section>
 
         <!-- Section Galerie -->
-        <section id="galerie" class="section">
+        <section id="gallery" class="section">
             <div class="container">
                 <h2 class="section-title animate-on-scroll" data-animation="fade-up">Galerie Photos</h2>
                 <p class="section-subtitle animate-on-scroll" data-animation="fade-up" data-delay="200">Découvrez les moments forts des éditions précédentes à travers notre galerie d'images</p>
                 
-                <div class="gallery-tabs">
-                    <button class="gallery-tab active" data-filter="all">Toutes</button>
-                    <button class="gallery-tab" data-filter="conferences">Conférences</button>
-                    <button class="gallery-tab" data-filter="ateliers">Ateliers</button>
-                    <button class="gallery-tab" data-filter="networking">Networking</button>
+                <div class="gallery-tabs animate-on-scroll" data-animation="fade-up" data-delay="250">
+                    <button class="gallery-tab active" data-tab="all">Toutes</button>
+                    <button class="gallery-tab" data-tab="conferences">Conférences</button>
+                    <button class="gallery-tab" data-tab="ateliers">Ateliers</button>
+                    <button class="gallery-tab" data-tab="networking">Networking</button>
+                    <button class="gallery-tab" data-tab="visites">Visites techniques</button>
                 </div>
                 
                 <!-- Swiper -->
-                <div class="swiper gallery-swiper animate-on-scroll" data-animation="fade-up" data-delay="400">
-                    <div class="swiper-wrapper">
-                        <div class="swiper-slide" data-category="conferences">
-                            <img src="https://i.ibb.co/q34q1mh6/IMG-9118.jpg" alt="Conférence sur les ressources en eau">
-                            <div class="slide-caption">Conférence sur les ressources en eau</div>
-                        </div>
-                        <div class="swiper-slide" data-category="conferences">
-                            <img src="https://i.ibb.co/WNDCBnFq/IMG-9119.jpg" alt="Panel d'experts internationaux">
-                            <div class="slide-caption">Panel d'experts internationaux</div>
-                        </div>
-                        <div class="swiper-slide" data-category="ateliers">
-                            <img src="https://i.ibb.co/gZFyjmhX/IMG-9150.jpg" alt="Atelier sur la gestion de l'eau">
-                            <div class="slide-caption">Atelier sur la gestion de l'eau</div>
-                        </div>
-                        <div class="swiper-slide" data-category="networking">
-                            <img src="https://i.ibb.co/JRYc5nc5/IMG-9158.jpg" alt="Session de networking">
-                            <div class="slide-caption">Session de networking</div>
-                        </div>
-                        <div class="swiper-slide" data-category="conferences">
-                            <img src="https://i.ibb.co/hJ509JT3/IMG-9217.jpg" alt="Présentation des innovations">
-                            <div class="slide-caption">Présentation des innovations</div>
-                        </div>
-                        <div class="swiper-slide" data-category="ateliers">
-                            <img src="https://i.ibb.co/5gSb1zCv/IMG-9231.jpg" alt="Atelier pratique">
-                            <div class="slide-caption">Atelier pratique</div>
-                        </div>
-                        <div class="swiper-slide" data-category="networking">
-                            <img src="https://i.ibb.co/0yhW26VZ/IMG-9262.jpg" alt="Échanges entre participants">
-                            <div class="slide-caption">Échanges entre participants</div>
-                        </div>
-                        <div class="swiper-slide" data-category="conferences">
-                            <img src="https://i.ibb.co/Df4MZy6L/IMG-9223.jpg" alt="Discours inaugural">
-                            <div class="slide-caption">Discours inaugural</div>
-                        </div>
+                <div class="swiper home-swiper animate-on-scroll" data-animation="fade-up" data-delay="300">
+                    <div class="swiper-wrapper" id="home-swiper-wrapper">
+                        <!-- Les slides seront chargées dynamiquement ici -->
                     </div>
                     <div class="swiper-button-next"></div>
                     <div class="swiper-button-prev"></div>
                     <div class="swiper-pagination"></div>
+                    <div class="autoplay-progress">
+                        <svg viewBox="0 0 48 48">
+                            <circle cx="24" cy="24" r="20"></circle>
+                        </svg>
+                        <span></span>
+                    </div>
+                </div>
+                
+                <div class="gallery-grid animate-on-scroll" data-animation="fade-up" data-delay="400" id="home-gallery">
+                    <!-- Les images seront chargées dynamiquement ici -->
                 </div>
                 
                 <div class="text-center animate-on-scroll" data-animation="fade-up" data-delay="600">
-                    <a href="galerie.html" class="btn btn-primary">Voir toutes les photos</a>
+                    <a href="gallery.html" class="btn btn-primary" data-i18n="gallery_view_all">View all photos</a>
                 </div>
             </div>
         </section>
@@ -1495,7 +1048,7 @@
         <div class="container">
             <div class="footer-container">
                 <div class="footer-col">
-                    <img src="https://i.ibb.co/8gpXjPcs/logo-C2-EA.png" alt="Logo Semaine de l'Eau" class="footer-logo">
+                    <img src="https://i.ibb.co/8nLpXxbm/Logo-INE.png" alt="Water Week Logo" class="footer-logo">
                     <p>La Semaine de l'Eau est un événement international qui rassemble experts et chercheurs autour des enjeux liés à l'eau dans le contexte des changements climatiques.</p>
                     <div class="social-links">
                         <a href="#" class="social-link" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
@@ -1507,21 +1060,21 @@
                 <div class="footer-col">
                     <h3>Liens rapides</h3>
                     <ul>
-                        <li><a href="#accueil">Accueil</a></li>
-                        <li><a href="#a-propos">À propos</a></li>
-                        <li><a href="#thematiques">Thématiques</a></li>
-                        <li><a href="#appel-communications">Appel à Communications</a></li>
-                        <li><a href="#programme">Programme</a></li>
+                        <li><a href="#home" data-i18n="nav_home">Accueil</a></li>
+                        <li><a href="#about" data-i18n="nav_about">À propos</a></li>
+                        <li><a href="#themes" data-i18n="nav_topics">Thèmes</a></li>
+                        <li><a href="#call-papers" data-i18n="nav_call_papers">Appel à communications</a></li>
+                        <li><a href="#program" data-i18n="nav_program">Programme</a></li>
                     </ul>
                 </div>
                 <div class="footer-col">
                     <h3>Informations</h3>
                     <ul>
-                        <li><a href="#intervenants">Intervenants</a></li>
-                        <li><a href="#infos-pratiques">Infos pratiques</a></li>
-                        <li><a href="#partenaires">Partenaires</a></li>
-                        <li><a href="#actualites">Actualités</a></li>
-                        <li><a href="#galerie">Galerie</a></li>
+                        <li><a href="#speakers" data-i18n="nav_speakers">Intervenants</a></li>
+                        <li><a href="#practical-info" data-i18n="nav_practical_info">Infos pratiques</a></li>
+                        <li><a href="#partners" data-i18n="nav_partners">Partenaires</a></li>
+                        <li><a href="index.html#news" data-i18n="nav_news">Actualités</a></li>
+                        <li><a href="gallery.html" data-i18n="nav_gallery">Galerie</a></li>
                     </ul>
                 </div>
                 <div class="footer-col">
@@ -1534,120 +1087,246 @@
                 </div>
             </div>
             <div class="copyright">
-                <p>&copy; 2024 Semaine de l'Eau. Tous droits réservés. <a href="#">Mentions légales</a> | <a href="#">Politique de confidentialité</a></p>
+                <p>&copy; 2024 Semaine de l'Eau. Tous droits réservés. <a href="#" data-i18n="footer_legal">Mentions légales</a> | <a href="#" data-i18n="footer_privacy">Politique de confidentialité</a></p>
             </div>
         </div>
     </footer>
 
-    <a href="#accueil" class="back-to-top" aria-label="Retour en haut">
+    <a href="#home" class="back-to-top" aria-label="Retour en haut">
         <i class="fas fa-arrow-up"></i>
     </a>
 
     <script src="js/main.js"></script>
+    <script src="js/i18n.js"></script>
     <!-- Swiper JS -->
     <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
-    
     <script>
         document.addEventListener('DOMContentLoaded', function() {
-            // Initialization code for Swiper Gallery
-            var swiper = new Swiper('.gallery-swiper', {
-                slidesPerView: 1,
-                spaceBetween: 20,
-                loop: true,
-                autoplay: {
-                    delay: 5000,
-                },
-                pagination: {
-                    el: '.swiper-pagination',
-                    clickable: true,
-                },
-                navigation: {
-                    nextEl: '.swiper-button-next',
-                    prevEl: '.swiper-button-prev',
-                },
-                breakpoints: {
-                    640: {
-                        slidesPerView: 2,
-                    },
-                    1024: {
-                        slidesPerView: 3,
-                    },
-                },
-            });
-
-            // Gallery tabs filtering
-            const galleryTabs = document.querySelectorAll('.gallery-tab');
-            const gallerySlides = document.querySelectorAll('.swiper-slide');
+            // Fonction pour charger dynamiquement les liens des images
+            async function loadImageLinks() {
+                try {
+                    const response = await fetch('les_images.md');
+                    const text = await response.text();
+                    return text.split('\n').filter(line => line.trim() !== '');
+                } catch (error) {
+                    console.error('Erreur de chargement des liens d\'images:', error);
+                    return [];
+                }
+            }
             
-            galleryTabs.forEach(tab => {
-                tab.addEventListener('click', () => {
-                    const filter = tab.getAttribute('data-filter');
+            // Fonction pour assigner une catégorie basée sur l'index de l'image
+            function assignCategory(index) {
+                const categories = ['conferences', 'ateliers', 'networking', 'visites'];
+                return categories[index % categories.length];
+            }
+            
+            // Fonction pour générer une description basée sur la catégorie
+            function generateCaption(category) {
+                const captions = {
+                    conferences: [
+                        'Session plénière sur les enjeux de l\'eau',
+                        'Présentation des résultats de recherche',
+                        'Panel d\'experts internationaux'
+                    ],
+                    ateliers: [
+                        'Atelier sur la gestion durable de l\'eau',
+                        'Travail en groupe sur les solutions innovantes',
+                        'Formation pratique aux techniques d\'analyse'
+                    ],
+                    networking: [
+                        'Networking pendant la pause-café',
+                        'Échanges entre chercheurs et décideurs',
+                        'Rencontre avec les partenaires'
+                    ],
+                    visites: [
+                        'Visite d\'une station de traitement d\'eau',
+                        'Découverte d\'un système de collecte des eaux pluviales',
+                        'Visite de terrain dans un bassin versant'
+                    ]
+                };
+                
+                const captionsForCategory = captions[category];
+                return captionsForCategory[Math.floor(Math.random() * captionsForCategory.length)];
+            }
+            
+            // Initialisation de la galerie d'accueil
+            async function initializeHomeGallery() {
+                const galleryElem = document.getElementById('home-gallery');
+                const swiperWrapper = document.getElementById('home-swiper-wrapper');
+                
+                // Vérifier si les éléments existent (on est sur la page d'accueil)
+                if (!galleryElem || !swiperWrapper) return;
+                
+                const imageLinks = await loadImageLinks();
+                
+                if (imageLinks.length === 0) {
+                    console.error('Aucun lien d\'image trouvé');
+                    return;
+                }
+                
+                // Filtrer pour ne garder que les liens de i.ibb.co
+                const validImageLinks = imageLinks.filter(link => link.includes('https://i.ibb.co/'));
+                
+                // Prendre 12 images aléatoires pour le slider et la grille
+                const randomImages = [];
+                for (let i = 0; i < 12; i++) {
+                    const randomIndex = Math.floor(Math.random() * validImageLinks.length);
+                    randomImages.push(validImageLinks[randomIndex]);
+                }
+                
+                // Créer les slides pour Swiper
+                randomImages.slice(0, 8).forEach((linkLine, index) => {
+                    const srcMatch = linkLine.match(/src="([^"]+)"/);
+                    const altMatch = linkLine.match(/alt="([^"]+)"/);
                     
-                    galleryTabs.forEach(t => t.classList.remove('active'));
-                    tab.classList.add('active');
+                    if (srcMatch && srcMatch[1]) {
+                        const imageUrl = srcMatch[1];
+                        const imageAlt = altMatch && altMatch[1] ? altMatch[1] : `Image ${index + 1}`;
+                        const category = assignCategory(index);
+                        const caption = generateCaption(category);
+                        
+                        // Créer un slide pour Swiper
+                        const swiperSlide = document.createElement('div');
+                        swiperSlide.className = 'swiper-slide';
+                        swiperSlide.setAttribute('data-category', category);
+                        
+                        const img = document.createElement('img');
+                        img.src = imageUrl;
+                        img.alt = imageAlt;
+                        
+                        const categoryTag = document.createElement('div');
+                        categoryTag.className = 'gallery-category-tag';
+                        categoryTag.textContent = getCategoryName(category);
+                        
+                        const captionDiv = document.createElement('div');
+                        captionDiv.className = 'swiper-slide-caption';
+                        captionDiv.textContent = caption;
+                        
+                        swiperSlide.appendChild(img);
+                        swiperSlide.appendChild(categoryTag);
+                        swiperSlide.appendChild(captionDiv);
+                        swiperWrapper.appendChild(swiperSlide);
+                    }
+                });
+                
+                // Initialiser Swiper une fois que les slides sont créés
+                const progressCircle = document.querySelector(".home-swiper .autoplay-progress svg");
+                const progressContent = document.querySelector(".home-swiper .autoplay-progress span");
+                
+                const homeSwiper = new Swiper(".home-swiper", {
+                    spaceBetween: 30,
+                    centeredSlides: true,
+                    autoplay: {
+                        delay: 3000,
+                        disableOnInteraction: false
+                    },
+                    pagination: {
+                        el: ".home-swiper .swiper-pagination",
+                        clickable: true
+                    },
+                    navigation: {
+                        nextEl: ".home-swiper .swiper-button-next",
+                        prevEl: ".home-swiper .swiper-button-prev"
+                    },
+                    on: {
+                        autoplayTimeLeft(s, time, progress) {
+                            progressCircle.style.setProperty("--progress", 1 - progress);
+                            progressContent.textContent = `${Math.ceil(time / 1000)}s`;
+                        }
+                    }
+                });
+                
+                // Créer les images pour la grille
+                randomImages.slice(4, 12).forEach((linkLine, index) => {
+                    const srcMatch = linkLine.match(/src="([^"]+)"/);
+                    const altMatch = linkLine.match(/alt="([^"]+)"/);
                     
-                    if (filter === 'all') {
-                        gallerySlides.forEach(slide => {
-                            slide.style.display = 'block';
+                    if (srcMatch && srcMatch[1]) {
+                        const imageUrl = srcMatch[1];
+                        const imageAlt = altMatch && altMatch[1] ? altMatch[1] : `Image ${index + 1}`;
+                        const category = assignCategory(index);
+                        const caption = generateCaption(category);
+                        
+                        const galleryItem = document.createElement('div');
+                        galleryItem.className = 'gallery-item';
+                        galleryItem.setAttribute('data-category', category);
+                        
+                        const img = document.createElement('img');
+                        img.src = imageUrl;
+                        img.alt = imageAlt;
+                        
+                        const categoryTag = document.createElement('div');
+                        categoryTag.className = 'gallery-category-tag';
+                        categoryTag.textContent = getCategoryName(category);
+                        
+                        const captionDiv = document.createElement('div');
+                        captionDiv.className = 'gallery-caption';
+                        captionDiv.textContent = caption;
+                        
+                        galleryItem.appendChild(img);
+                        galleryItem.appendChild(categoryTag);
+                        galleryItem.appendChild(captionDiv);
+                        galleryElem.appendChild(galleryItem);
+                        
+                        // Rediriger vers la galerie complète au clic
+                        galleryItem.addEventListener('click', () => {
+                            window.location.href = 'galerie.html';
                         });
-                    } else {
-                        gallerySlides.forEach(slide => {
-                            if (slide.classList.contains(filter)) {
-                                slide.style.display = 'block';
+                    }
+                });
+                
+                // Obtenir le nom d'affichage d'une catégorie
+                function getCategoryName(category) {
+                    const displayNames = {
+                        'conferences': 'Conférences',
+                        'ateliers': 'Ateliers',
+                        'networking': 'Networking',
+                        'visites': 'Visites'
+                    };
+                    return displayNames[category] || category;
+                }
+                
+                // Gérer les filtres pour la galerie d'accueil
+                const galleryTabs = document.querySelectorAll('.gallery-tab');
+                
+                galleryTabs.forEach(tab => {
+                    tab.addEventListener('click', () => {
+                        const filterCategory = tab.getAttribute('data-tab');
+                        
+                        // Mise à jour des boutons actifs
+                        galleryTabs.forEach(t => t.classList.remove('active'));
+                        tab.classList.add('active');
+                        
+                        // Filtrer la galerie
+                        const galleryItems = document.querySelectorAll('.gallery-item');
+                        galleryItems.forEach(item => {
+                            const itemCategory = item.getAttribute('data-category');
+                            if (filterCategory === 'all' || itemCategory === filterCategory) {
+                                item.style.display = 'block';
                             } else {
-                                slide.style.display = 'none';
+                                item.style.display = 'none';
                             }
                         });
-                    }
-                    
-                    swiper.update();
-                    swiper.slideTo(0);
-                });
-            });
-
-            // Mobile menu toggle
-            const mobileMenuToggle = document.querySelector('.mobile-menu-toggle');
-            const mobileMenu = document.querySelector('.menu-sm.dropdown-content');
-            
-            if (mobileMenuToggle && mobileMenu) {
-                mobileMenuToggle.addEventListener('click', function() {
-                    mobileMenu.classList.toggle('active');
-                    this.classList.toggle('open');
-                });
-
-                // Close mobile menu when clicking outside
-                document.addEventListener('click', function(event) {
-                    if (!mobileMenu.contains(event.target) && !mobileMenuToggle.contains(event.target)) {
-                        mobileMenu.classList.remove('active');
-                        mobileMenuToggle.classList.remove('open');
-                    }
+                        
+                        // Filtrer les slides Swiper
+                        const slides = document.querySelectorAll('.home-swiper .swiper-slide');
+                        slides.forEach((slide, index) => {
+                            const slideCategory = slide.getAttribute('data-category');
+                            if (filterCategory === 'all' || slideCategory === filterCategory) {
+                                slide.classList.remove('swiper-slide-hidden');
+                            } else {
+                                slide.classList.add('swiper-slide-hidden');
+                            }
+                        });
+                        
+                        homeSwiper.update();
+                        homeSwiper.slideTo(0);
+                    });
                 });
             }
-
-            // Submenu toggle for mobile
-            const mobileSubmenus = document.querySelectorAll('.dropdown > a');
             
-            mobileSubmenus.forEach(submenu => {
-                submenu.addEventListener('click', function(e) {
-                    if (window.innerWidth < 992) {
-                        e.preventDefault();
-                        this.classList.toggle('submenu-open');
-                        const dropdownContent = this.nextElementSibling;
-                        dropdownContent.classList.toggle('active');
-                    }
-                });
-            });
-
-            // Header scroll effect
-            const header = document.querySelector('header');
-            
-            window.addEventListener('scroll', function() {
-                if (window.scrollY > 50) {
-                    header.classList.add('scrolled');
-                } else {
-                    header.classList.remove('scrolled');
-                }
-            });
+            // Initialiser la galerie d'accueil
+            initializeHomeGallery();
         });
     </script>
 </body>

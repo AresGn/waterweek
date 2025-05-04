@@ -32,175 +32,6 @@ document.addEventListener('DOMContentLoaded', function() {
     
     // Fonction pour gérer le bouton "Retour en haut"
     initBackToTop();
-
-    // Initialization code for Swiper Gallery
-    var swiper = new Swiper('.gallery-swiper', {
-        slidesPerView: 1,
-        spaceBetween: 20,
-        loop: true,
-        autoplay: {
-            delay: 5000,
-        },
-        pagination: {
-            el: '.swiper-pagination',
-            clickable: true,
-        },
-        navigation: {
-            nextEl: '.swiper-button-next',
-            prevEl: '.swiper-button-prev',
-        },
-        breakpoints: {
-            640: {
-                slidesPerView: 2,
-            },
-            1024: {
-                slidesPerView: 3,
-            },
-        },
-    });
-
-    // Gallery tabs filtering
-    const galleryTabs = document.querySelectorAll('.gallery-tab');
-    const gallerySlides = document.querySelectorAll('.swiper-slide');
-    
-    galleryTabs.forEach(tab => {
-        tab.addEventListener('click', () => {
-            const filter = tab.getAttribute('data-filter');
-            
-            galleryTabs.forEach(t => t.classList.remove('active'));
-            tab.classList.add('active');
-            
-            if (filter === 'all') {
-                gallerySlides.forEach(slide => {
-                    slide.style.display = 'block';
-                });
-            } else {
-                gallerySlides.forEach(slide => {
-                    if (slide.classList.contains(filter)) {
-                        slide.style.display = 'block';
-                    } else {
-                        slide.style.display = 'none';
-                    }
-                });
-            }
-            
-            swiper.update();
-            swiper.slideTo(0);
-        });
-    });
-
-    // Mobile menu toggle
-    const mobileMenuToggle = document.querySelector('.mobile-menu-toggle');
-    const mobileMenu = document.querySelector('.menu-sm.dropdown-content');
-    
-    if (mobileMenuToggle && mobileMenu) {
-        mobileMenuToggle.addEventListener('click', function() {
-            mobileMenu.classList.toggle('active');
-            this.classList.toggle('open');
-        });
-
-        // Close mobile menu when clicking outside
-        document.addEventListener('click', function(event) {
-            if (!mobileMenu.contains(event.target) && !mobileMenuToggle.contains(event.target)) {
-                mobileMenu.classList.remove('active');
-                mobileMenuToggle.classList.remove('open');
-            }
-        });
-    }
-
-    // Submenu toggle for mobile
-    const mobileSubmenus = document.querySelectorAll('.dropdown > a');
-    
-    mobileSubmenus.forEach(submenu => {
-        submenu.addEventListener('click', function(e) {
-            if (window.innerWidth < 992) {
-                e.preventDefault();
-                this.classList.toggle('submenu-open');
-                const dropdownContent = this.nextElementSibling;
-                dropdownContent.classList.toggle('active');
-            }
-        });
-    });
-
-    // Header scroll effect
-    const header = document.querySelector('header');
-    
-    window.addEventListener('scroll', function() {
-        if (window.scrollY > 50) {
-            header.classList.add('scrolled');
-        } else {
-            header.classList.remove('scrolled');
-        }
-    });
-    
-    // Countdown timer
-    function updateCountdown() {
-        const eventDate = new Date('June 3, 2025 00:00:00').getTime();
-        const now = new Date().getTime();
-        const timeLeft = eventDate - now;
-        
-        const days = Math.floor(timeLeft / (1000 * 60 * 60 * 24));
-        const hours = Math.floor((timeLeft % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
-        const minutes = Math.floor((timeLeft % (1000 * 60 * 60)) / (1000 * 60));
-        const seconds = Math.floor((timeLeft % (1000 * 60)) / 1000);
-        
-        document.getElementById('days').textContent = days.toString().padStart(3, '0');
-        document.getElementById('hours').textContent = hours.toString().padStart(2, '0');
-        document.getElementById('minutes').textContent = minutes.toString().padStart(2, '0');
-        document.getElementById('seconds').textContent = seconds.toString().padStart(2, '0');
-    }
-    
-    // Update countdown every second
-    updateCountdown();
-    setInterval(updateCountdown, 1000);
-    
-    // Animation on scroll
-    const animatedElements = document.querySelectorAll('.animate-on-scroll');
-    
-    function checkScroll() {
-        animatedElements.forEach(element => {
-            const elementTop = element.getBoundingClientRect().top;
-            const windowHeight = window.innerHeight;
-            
-            if (elementTop < windowHeight * 0.9) {
-                const animation = element.getAttribute('data-animation');
-                const delay = element.getAttribute('data-delay') || 0;
-                
-                setTimeout(() => {
-                    element.classList.add(animation);
-                    element.style.opacity = 1;
-                }, delay);
-            }
-        });
-    }
-    
-    // Initialize element states
-    animatedElements.forEach(element => {
-        element.style.opacity = 0;
-    });
-    
-    // Check positions on page load and scroll
-    checkScroll();
-    window.addEventListener('scroll', checkScroll);
-    
-    // Program tabs
-    const programTabs = document.querySelectorAll('.tab-btn');
-    const programDays = document.querySelectorAll('.day-program');
-    
-    programTabs.forEach(tab => {
-        tab.addEventListener('click', () => {
-            const day = tab.getAttribute('data-day');
-            
-            programTabs.forEach(t => t.classList.remove('active'));
-            tab.classList.add('active');
-            
-            programDays.forEach(dayProgram => {
-                dayProgram.classList.remove('active');
-            });
-            
-            document.getElementById(`day-${day}`).classList.add('active');
-        });
-    });
 });
 
 // Fonction pour gérer le menu mobile
@@ -208,6 +39,7 @@ function initMobileMenu() {
     const mobileMenuToggle = document.querySelector('.mobile-menu-toggle');
     const nav = document.querySelector('nav');
     const navLinks = document.querySelectorAll('nav ul li a');
+    const dropdowns = document.querySelectorAll('.dropdown');
     
     if (!mobileMenuToggle) return;
     
@@ -221,10 +53,27 @@ function initMobileMenu() {
     // Click sur le bouton hamburger
     mobileMenuToggle.addEventListener('click', toggleMenu);
     
+    // Gestion des dropdowns en mobile
+    if (window.innerWidth <= 768) {
+        dropdowns.forEach(dropdown => {
+            const dropdownLink = dropdown.querySelector('a');
+            const dropdownContent = dropdown.querySelector('.dropdown-content');
+            
+            // Empêcher le lien principal du dropdown de naviguer directement sur mobile
+            dropdownLink.addEventListener('click', function(e) {
+                if (window.innerWidth <= 768) {
+                    e.preventDefault();
+                    this.classList.toggle('dropdown-active');
+                    dropdownContent.classList.toggle('dropdown-mobile-active');
+                }
+            });
+        });
+    }
+    
     // Fermer le menu après un clic sur un lien (sur mobile)
     navLinks.forEach(link => {
         link.addEventListener('click', () => {
-            if (window.innerWidth <= 768) {
+            if (window.innerWidth <= 768 && !link.classList.contains('dropdown-active')) {
                 toggleMenu();
             }
         });
@@ -286,12 +135,7 @@ function startCountdown() {
         
         if (distance < 0) {
             clearInterval(countdownTimer);
-            const currentLang = localStorage.getItem('language') || 'fr';
-            if (currentLang === 'fr') {
-                document.getElementById("countdown-timer").innerHTML = "L'événement a commencé!";
-            } else {
-                document.getElementById("countdown-timer").innerHTML = "The event has started!";
-            }
+            document.getElementById("countdown-timer").innerHTML = "L'événement a commencé!";
         }
     }, 1000);
 }
@@ -428,39 +272,21 @@ function initContactForm() {
                 }
             });
             
-            if (!isValid) {
-                const currentLang = localStorage.getItem('language') || 'fr';
-                const errorMsg = currentLang === 'fr' 
-                    ? 'Veuillez remplir correctement tous les champs obligatoires.' 
-                    : 'Please fill in all required fields correctly.';
-                alert(errorMsg);
-                return;
-            }
-            
-            // Simuler l'envoi du formulaire (à remplacer par l'API réelle)
-            const submitButton = contactForm.querySelector('button[type="submit"]');
-            const originalText = submitButton.textContent;
-
-            const currentLang = localStorage.getItem('language') || 'fr';
-            
-            submitButton.disabled = true;
-            submitButton.textContent = currentLang === 'fr' ? 'Envoi en cours...' : 'Sending...';
-            
-            setTimeout(() => {
-                submitButton.disabled = false;
-                submitButton.textContent = originalText;
-                contactForm.reset();
+            if (isValid) {
+                // Simulation d'envoi de données (à remplacer par l'appel API réel)
+                console.log('Données du formulaire de contact:', formDataObj);
                 
-                const successMsg = currentLang === 'fr' 
-                    ? 'Votre message a été envoyé avec succès !' 
-                    : 'Your message has been sent successfully!';
-                alert(successMsg);
-            }, 1500);
+                // Réinitialisation du formulaire et affichage d'un message de succès
+                contactForm.reset();
+                alert('Votre message a été envoyé avec succès !');
+            } else {
+                alert('Veuillez corriger les erreurs dans le formulaire.');
+            }
         });
     }
 }
 
-// Fonction pour initialiser le formulaire de newsletter
+// Fonction pour initialiser le formulaire d'inscription à la newsletter
 function initNewsletterForm() {
     const newsletterForm = document.getElementById('newsletter-form');
     
@@ -470,39 +296,26 @@ function initNewsletterForm() {
             
             const emailInput = newsletterForm.querySelector('input[type="email"]');
             
-            // Validation de l'email
-            if (!emailInput.value.trim()) {
-                emailInput.style.borderColor = 'red';
-                return;
-            }
-            
-            const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-            if (!emailRegex.test(emailInput.value)) {
-                emailInput.style.borderColor = 'red';
-                return;
-            }
-            
-            emailInput.style.borderColor = '';
-            
-            // Simuler l'abonnement (à remplacer par l'API réelle)
-            const submitButton = newsletterForm.querySelector('button[type="submit"]');
-            const originalText = submitButton.textContent;
-            
-            const currentLang = localStorage.getItem('language') || 'fr';
-            
-            submitButton.disabled = true;
-            submitButton.textContent = currentLang === 'fr' ? 'Traitement...' : 'Processing...';
-            
-            setTimeout(() => {
-                submitButton.disabled = false;
-                submitButton.textContent = originalText;
-                newsletterForm.reset();
+            if (emailInput && emailInput.value) {
+                const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
                 
-                const successMsg = currentLang === 'fr' 
-                    ? 'Vous êtes maintenant inscrit à notre newsletter !' 
-                    : 'You are now subscribed to our newsletter!';
-                alert(successMsg);
-            }, 1500);
+                if (emailRegex.test(emailInput.value)) {
+                    // Simulation d'envoi de données (à remplacer par l'appel API réel)
+                    console.log('Inscription à la newsletter:', emailInput.value);
+                    
+                    // Réinitialisation du formulaire et affichage d'un message de succès
+                    newsletterForm.reset();
+                    alert('Vous êtes inscrit à la newsletter !');
+                } else {
+                    alert('Veuillez entrer une adresse email valide.');
+                    emailInput.style.borderColor = 'red';
+                }
+            } else {
+                alert('Veuillez entrer votre adresse email.');
+                if (emailInput) {
+                    emailInput.style.borderColor = 'red';
+                }
+            }
         });
     }
 }
