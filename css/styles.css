@@ -1617,6 +1617,80 @@ nav ul li a:hover::after, nav ul li a.active::after {
     font-size: var(--font-size-sm);
 }
 
+/* Style pour les intervenants sans photo */
+.speaker-card.no-photo {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding-top: var(--spacing-md);
+}
+
+.speaker-card.no-photo .speaker-info {
+    padding: var(--spacing-md);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    height: 100%;
+}
+
+.speaker-role {
+    background: linear-gradient(90deg, var(--primary-blue), var(--accent-blue));
+    color: white;
+    font-size: var(--font-size-xs);
+    font-weight: 600;
+    padding: 5px 12px;
+    border-radius: var(--radius-sm);
+    margin-bottom: var(--spacing-sm);
+    display: inline-block;
+}
+
+.speaker-card.no-photo .speaker-placeholder {
+    width: 80px;
+    height: 80px;
+    border-radius: 50%;
+    background: linear-gradient(135deg, var(--light-blue), var(--accent-blue));
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0 auto var(--spacing-md);
+    color: var(--white);
+    font-size: 2rem;
+}
+
+/* Styles pour le contenu principal de la section intervenants */
+.speakers-heading {
+    text-align: center;
+    margin-bottom: var(--spacing-lg);
+}
+
+.speakers-description {
+    text-align: center;
+    max-width: 800px;
+    margin: -1rem auto var(--spacing-lg);
+    color: var(--dark-gray);
+}
+
+/* Responsive pour les cartes d'intervenants */
+@media (max-width: 768px) {
+    .speakers-grid {
+        grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+    }
+    
+    .speaker-card.no-photo .speaker-placeholder {
+        width: 60px;
+        height: 60px;
+        font-size: 1.5rem;
+    }
+}
+
+@media (max-width: 576px) {
+    .speakers-grid {
+        grid-template-columns: 1fr;
+    }
+}
+
 /* Partners styling */
 .partners {
     background-color: var(--white);
