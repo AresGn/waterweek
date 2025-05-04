@@ -17,6 +17,227 @@
     <!-- Favicon pour les différents appareils -->
     <link rel="icon" type="image/png" sizes="32x32" href="https://i.ibb.co/bRJqChct/carte-du-lieu.png">
     <style>
+        /* Style pour la navbar */
+        header {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            z-index: 1000;
+            background: white;
+            padding: 1rem 2rem;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+        }
+
+        /* Style pour la section hero */
+        .hero {
+            min-height: 100vh;
+            position: relative;
+            padding-top: 80px;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            align-items: center;
+            text-align: center;
+            color: white;
+            overflow: hidden;
+        }
+
+        .hero-video-background {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: -1;
+        }
+
+        .hero-video-background video {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .hero-video-background::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.5); /* Overlay sombre pour améliorer la lisibilité du texte */
+        }
+
+        .hero-content {
+            position: relative;
+            z-index: 1;
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            width: 100%;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 2rem;
+        }
+
+        .hero h1 {
+            font-size: 4rem;
+            margin-bottom: 1rem;
+            font-weight: 800;
+            color: white;
+        }
+
+        .hero p {
+            font-size: 1.5rem;
+            margin-bottom: 2rem;
+            color: white;
+        }
+
+        /* Style pour les organisateurs */
+        .partners-banner {
+            width: 100%;
+            padding: 2rem 0;
+        }
+
+        .partners-banner p {
+            color: white;
+            margin-bottom: 1.5rem;
+        }
+
+        .organizers-logos {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 3rem;
+            flex-wrap: wrap;
+            padding: 0 2rem;
+        }
+
+        .organizers-logos img {
+            height: 60px;
+            width: auto;
+            object-fit: contain;
+            background: white;
+            padding: 10px;
+            border-radius: 8px;
+        }
+
+        /* Style pour le countdown */
+        .countdown {
+            margin: 2rem 0;
+        }
+
+        #countdown-timer {
+            display: flex;
+            justify-content: center;
+            gap: 2rem;
+            margin: 2rem 0;
+        }
+
+        .time-unit {
+            background: rgba(255, 255, 255, 0.1);
+            padding: 1.5rem;
+            border-radius: 10px;
+            min-width: 120px;
+            backdrop-filter: blur(5px);
+        }
+
+        .time-unit span:first-child {
+            font-size: 3rem;
+            font-weight: 700;
+            display: block;
+            color: white;
+        }
+
+        .time-unit span:last-child {
+            font-size: 1rem;
+            color: rgba(255, 255, 255, 0.9);
+        }
+
+        /* Style pour les boutons CTA */
+        .cta-buttons {
+            margin-top: 2rem;
+            display: flex;
+            gap: 1.5rem;
+            justify-content: center;
+        }
+
+        .btn {
+            padding: 1rem 2.5rem;
+            border-radius: 50px;
+            font-weight: 600;
+            text-decoration: none;
+            font-size: 1.1rem;
+        }
+
+        .btn.primary {
+            background: #FFD700;
+            color: #333;
+        }
+
+        .btn.secondary {
+            background: white;
+            color: #006BA6;
+        }
+
+        /* Supprimer les effets de survol */
+        .btn:hover {
+            transform: none;
+            box-shadow: none;
+        }
+
+        /* Style pour la bannière des partenaires */
+        .partners-banner {
+            margin-top: auto;
+            width: 100%;
+            background: rgba(255, 255, 255, 0.95);
+            padding: 2rem 0;
+        }
+
+        .partners-banner p {
+            color: #333;
+            margin-bottom: 1.5rem;
+        }
+
+        .organizers-logos {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 3rem;
+            flex-wrap: wrap;
+        }
+
+        .organizers-logos img {
+            height: 60px;
+            width: auto;
+            object-fit: contain;
+        }
+
+        @media (max-width: 768px) {
+            .hero h1 {
+                font-size: 2.5rem;
+            }
+
+            .time-unit {
+                min-width: 80px;
+                padding: 1rem;
+            }
+
+            .time-unit span:first-child {
+                font-size: 2rem;
+            }
+
+            .organizers-logos {
+                gap: 2rem;
+            }
+
+            .organizers-logos img {
+                height: 50px;
+            }
+        }
+
         /* Styles spécifiques pour Swiper dans la section galerie */
         .home-swiper {
             width: 100%;
@@ -338,19 +559,16 @@
     </header>
 
     <main>
-        <!-- Section Home -->
+        <!-- Section Hero -->
         <section id="home" class="hero">
-            <div class="video-background">
-                <video autoplay muted loop id="hero-video">
+            <div class="hero-video-background">
+                <video autoplay muted loop playsinline>
                     <source src="videos/video1.mp4" type="video/mp4">
-                    <!-- Fallback if video is not supported -->
-                    <div class="fallback-background"></div>
                 </video>
-                <div class="video-overlay"></div>
             </div>
             <div class="hero-content">
-                <h1 data-i18n="hero_title">Semaine de l'Eau 2025</h1>
-                <p data-i18n="hero_subtitle">3-7 juin 2025 | Palais des Congrès de Cotonou, Bénin</p>
+                <h1>Semaine de l'Eau 2025</h1>
+                <p>3-7 juin 2025 | Palais des Congrès de Cotonou, Bénin</p>
                 <div class="countdown">
                     <div id="countdown-timer">
                         <div class="time-unit">
@@ -372,18 +590,18 @@
                     </div>
                 </div>
                 <div class="cta-buttons">
-                    <a href="#call-papers" class="btn primary" data-i18n="hero_cta_submit">Soumettre un résumé</a>
-                    <a href="#program" class="btn secondary" data-i18n="hero_cta_program">Voir le programme</a>
+                    <a href="#call-papers" class="btn primary">Soumettre un résumé</a>
+                    <a href="#program" class="btn secondary">Voir le programme</a>
                 </div>
             </div>
             <div class="partners-banner">
                 <div class="container">
-                    <p data-i18n="hero_organized_by">Organisé par :</p>
+                    <p>Organisé par :</p>
                     <div class="organizers-logos">
                         <img src="https://i.ibb.co/rGL6BZs2/logo-C2-EA.png" alt="C2EA">
                         <img src="https://i.ibb.co/8nLpXxbm/Logo-INE.png" alt="INE/UAC">
-                        <img src="https://i.ibb.co/FqNdWtsh/DSC7120.jpg" alt="IAHS" class="organizer-logo">
-                        <img src="https://i.ibb.co/MyTTJf3P/DSC7121.jpg" alt="FRIEND AOC" class="organizer-logo">
+                        <img src="https://i.ibb.co/FqNdWtsh/DSC7120.jpg" alt="IAHS">
+                        <img src="https://i.ibb.co/MyTTJf3P/DSC7121.jpg" alt="FRIEND AOC">
                     </div>
                 </div>
             </div>
@@ -1327,6 +1545,16 @@
             
             // Initialiser la galerie d'accueil
             initializeHomeGallery();
+        });
+
+        // Script pour changer le style de la navbar au scroll
+        window.addEventListener('scroll', function() {
+            const header = document.querySelector('header');
+            if (window.scrollY > 50) {
+                header.classList.add('scrolled');
+            } else {
+                header.classList.remove('scrolled');
+            }
         });
     </script>
 </body>
