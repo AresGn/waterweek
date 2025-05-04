@@ -16,7 +16,7 @@
     "nav_contact": "Contact",
     
     "hero_title": "Semaine de l'Eau 2025",
-    "hero_subtitle": "3-7 juin 2025 | Palais des Congrès de Cotonou, Bénin",
+    "hero_subtitle": "3-5 juin 2025 | Palais des Congrès de Cotonou, Bénin",
     "hero_countdown_days": "Jours",
     "hero_countdown_hours": "Heures",
     "hero_countdown_minutes": "Minutes",
@@ -27,7 +27,7 @@
     
     "about_title": "À propos de l'événement",
     "about_objectives_title": "Objectifs de la Semaine de l'Eau",
-    "about_objectives_text": "Description des objectifs de l'événement, son importance pour le secteur de l'eau et de l'environnement en Afrique.",
+    "about_objectives_text": "Le Centre d'Excellence d'Afrique pour l'Eau et l'Assainissement (C2EA) de l'Institut National de l'Eau (INE/UAC), en collaboration avec l'Association Internationale des Sciences Hydrologiques (IAHS) et le réseau FRIEND AOC, organise la deuxième édition de la Semaine de l'Eau et de l'Assainissement du 3 au 5 juin 2025 sur la thématique : de la Recherche à l'Innovation et au Transfert de Technologies.",
     "about_history_title": "Historique",
     "about_history_text": "Rappel de la 1ère édition et des réalisations précédentes.",
     "about_organizers_title": "Organisateurs",
@@ -47,9 +47,9 @@
     "call_papers_instructions_title": "Instructions de soumission",
     "call_papers_instructions_text": "Détails sur le processus de soumission, les formats acceptés et les critères d'évaluation.",
     "call_papers_deadline_title": "Date limite",
-    "call_papers_deadline_text": "15 janvier 2025",
+    "call_papers_deadline_text": "10 mai 2025",
     "call_papers_format_title": "Format attendu pour les résumés",
-    "call_papers_format_text": "Maximum 300 mots, incluant problématique, méthodologie, résultats attendus.",
+    "call_papers_format_text": "Maximum 300 mots, incluant problématique, méthodologie, résultats attendus ou obtenus et conclusion. Les résumés doivent être soumis en français ou en anglais, au format Word.",
     "call_papers_submit_button": "Soumettre votre résumé",
     
     "program_title": "Programme prévisionnel",

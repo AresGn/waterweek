@@ -308,63 +308,103 @@
    ========================================================================== */
 @media screen and (max-width: 992px) {
     .about-content {
-        flex-direction: column;
-    }
-    
-    .about-text, .about-image {
-        width: 100%;
-        padding: 0;
+        grid-template-columns: 1fr;
+        gap: 2rem;
     }
     
     .about-image {
-        margin-top: 2rem;
         order: -1;
+        margin-bottom: 1.5rem;
+        height: 400px;
+    }
+    
+    .about-text {
+        padding-right: 0;
     }
     
     .about-stats {
         justify-content: space-between;
-    }
-    
-    .stat-item {
-        width: 30%;
-    }
-    
-    .stat-number {
-        font-size: 2.2rem;
+        flex-wrap: wrap;
     }
 }
 
 @media screen and (max-width: 768px) {
+    .about-image {
+        height: 350px;
+    }
+    
+    .about-text p {
+        padding-left: 1rem;
+        font-size: 0.95rem;
+    }
+    
     .about-stats {
         flex-wrap: wrap;
+        justify-content: space-between;
     }
     
     .stat-item {
-        width: 48%;
-        margin-bottom: 1.5rem;
-    }
-    
-    .stat-number {
-        font-size: 2rem;
-    }
-    
-    .stat-label {
-        font-size: 0.9rem;
-    }
-}
-
-@media screen and (max-width: 576px) {
-    .about-stats {
-        flex-direction: column;
-    }
-    
-    .stat-item {
-        width: 100%;
-        margin-bottom: 1.2rem;
+        width: calc(50% - 0.5rem);
+        margin-bottom: 1rem;
     }
     
     .stat-number {
         font-size: 1.8rem;
+    }
+    
+    .stat-label {
+        font-size: 0.85rem;
+    }
+}
+
+@media screen and (max-width: 576px) {
+    .about-image {
+        height: 250px;
+        margin-bottom: 1.5rem;
+    }
+    
+    .about-text {
+        padding: 0;
+    }
+    
+    .about-text p {
+        padding-left: 0.75rem;
+        margin-bottom: 0.75rem;
+        font-size: 0.9rem;
+        border-left-width: 2px;
+    }
+    
+    .about-text ol {
+        padding-left: 1.5rem;
+        margin-bottom: 0.75rem;
+    }
+    
+    .about-text ol li {
+        margin-bottom: 0.5rem;
+        font-size: 0.9rem;
+    }
+    
+    .about-stats {
+        flex-direction: column;
+        margin-top: 1rem;
+        gap: 0.75rem;
+    }
+    
+    .stat-item {
+        width: 100%;
+        margin-bottom: 0.5rem;
+        padding: 0.75rem 0.5rem;
+    }
+    
+    .stat-number {
+        font-size: 1.6rem;
+    }
+    
+    .about-content .btn-primary {
+        width: 100%;
+        margin-top: 0.75rem;
+        padding: 0.75rem 1rem;
+        text-align: center;
     }
 }
 
@@ -597,17 +637,44 @@
     
     .partners-logos {
         justify-content: space-around;
+        gap: 1.5rem;
     }
     
     .partner-logo {
         width: 30%;
         margin-bottom: 1.5rem;
     }
+    
+    .partners .partner-category:nth-child(3) .partners-logos {
+        grid-template-columns: repeat(3, 1fr);
+    }
 }
 
 @media screen and (max-width: 768px) {
+    .partners::before {
+        background-size: 15px 15px;
+    }
+    
+    .partners h2 {
+        font-size: 1.8rem;
+    }
+    
+    .partner-category h3 {
+        font-size: 1.4rem;
+    }
+    
+    .partners .partner-category:nth-child(3) {
+        padding: 1.2rem;
+    }
+    
+    .partners .partner-category:nth-child(3) .partners-logos {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 1rem;
+    }
+    
     .partner-logo {
         width: 45%;
+        padding: 0.8rem;
     }
     
     .partner-logo img {
@@ -620,9 +687,38 @@
 }
 
 @media screen and (max-width: 576px) {
+    .partners h2 {
+        font-size: 1.6rem;
+        margin-bottom: 1.5rem;
+    }
+    
+    .partners .partner-category:nth-child(3) h3 {
+        font-size: 1.3rem;
+    }
+    
+    .partners .partner-category:nth-child(3) {
+        padding: 1rem;
+        margin-top: 1.5rem;
+    }
+    
+    .partners .partner-category:nth-child(3) .partners-logos {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 0.8rem;
+    }
+    
     .partner-logo {
         width: 100%;
-        text-align: center;
+        margin-bottom: 1rem;
+        padding: 0.7rem;
+    }
+    
+    .partner-logo img {
+        height: 45px;
+        margin-bottom: 0.5rem;
+    }
+    
+    .partner-logo p {
+        font-size: 0.8rem;
     }
 }
 

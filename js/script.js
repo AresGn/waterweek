@@ -1,6 +1,6 @@
 // Fonction pour le compte à rebours
 function initCountdown() {
-    const targetDate = new Date('June 3, 2025 09:00:00').getTime();
+    const targetDate = new Date('June 5, 2025 09:00:00').getTime();
     
     function updateCountdown() {
         const now = new Date().getTime();

@@ -117,7 +117,7 @@ function setActiveNavItem() {
 
 // Fonction pour gérer le compte à rebours
 function startCountdown() {
-    const targetDate = new Date("June 3, 2025 00:00:00").getTime();
+    const targetDate = new Date("June 5, 2025 00:00:00").getTime();
     
     const countdownTimer = setInterval(function() {
         const now = new Date().getTime();
