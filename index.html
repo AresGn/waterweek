@@ -593,7 +593,7 @@
                     </div>
                 </div>
                 <div class="cta-buttons">
-                    <a href="#call-papers" class="btn primary">Soumettre un résumé</a>
+                    <a href="https://forms.gle/QFxwCSnPdcYXQMuN8" class="btn primary" target="_blank">Soumettre un résumé</a>
                     <a href="#program" class="btn secondary">Voir le programme</a>
                 </div>
             </div>
@@ -720,7 +720,7 @@
                     <div class="submission-form">
                         <i class="fas fa-upload"></i>
                         <p>Les résumés sélectionnés feront l'objet d'une présentation orale ou d'un poster lors de la conférence, et seront publiés dans les actes de la Semaine de l'Eau 2025.</p>
-                        <a href="#" class="btn primary">Soumettre votre résumé</a>
+                        <a href="https://forms.gle/QFxwCSnPdcYXQMuN8" class="btn primary" target="_blank">Soumettre votre résumé</a>
                     </div>
                 </div>
                 
@@ -1209,12 +1209,14 @@
                         <div class="contact-method">
                             <i class="fas fa-envelope"></i>
                             <h3>Email</h3>
-                            <p><a href="mailto:contact@semainedeleau.org">contact@semainedeleau.org</a></p>
+                            <p><a href="mailto:audace@aims.ac.za">audace@aims.ac.za</a></p>
+                            <p><a href="mailto:bossa.aymar@gmail.com">bossa.aymar@gmail.com</a></p>
                         </div>
                         <div class="contact-method">
                             <i class="fas fa-phone"></i>
                             <h3>Téléphone</h3>
-                            <p><a href="tel:+22900000000">+229 00 00 00 00</a></p>
+                            <p><a href="tel:+2290198917029">+229 01 98 91 70 29</a></p>
+                            <p><a href="tel:+2290169432541">+229 01 69 43 25 41</a></p>
                         </div>
                         <div class="contact-method">
                             <i class="fas fa-share-alt"></i>
@@ -1227,26 +1229,27 @@
                         </div>
                     </div>
                     <div class="contact-form">
-                        <form id="contact-form">
+                        <h2 data-i18n="contact_form_title">Formulaire de contact</h2>
+                        <form action="https://formspree.io/f/xkgrjara" method="POST">
                             <div class="form-group">
-                                <label for="name">Nom complet</label>
+                                <label for="name" data-i18n="contact_form_name">Nom</label>
                                 <input type="text" id="name" name="name" required>
                             </div>
                             <div class="form-group">
-                                <label for="email">Email</label>
+                                <label for="email" data-i18n="contact_form_email">Email</label>
                                 <input type="email" id="email" name="email" required>
                             </div>
                             <div class="form-group">
-                                <label for="subject">Sujet</label>
+                                <label for="subject" data-i18n="contact_form_subject">Sujet</label>
                                 <input type="text" id="subject" name="subject" required>
                             </div>
                             <div class="form-group">
-                                <label for="message">Message</label>
+                                <label for="message" data-i18n="contact_form_message">Message</label>
                                 <textarea id="message" name="message" rows="5" required></textarea>
                             </div>
-                            <div class="form-group">
-                                <button type="submit" class="btn primary">Envoyer</button>
-                            </div>
+                            <input type="hidden" name="_subject" value="Nouveau message du site Semaine de l'Eau">
+                            <input type="hidden" name="_next" value="https://semainedeleau.org/merci.html">
+                            <button type="submit" class="btn btn-primary" data-i18n="contact_form_submit">Envoyer</button>
                         </form>
                     </div>
                 </div>
@@ -1301,8 +1304,8 @@
                 <div class="footer-col">
                     <h3>Contact</h3>
                     <ul>
-                        <li><i class="fas fa-envelope"></i> <a href="mailto:contact@semainedeleau.org">contact@semainedeleau.org</a></li>
-                        <li><i class="fas fa-phone"></i> <a href="tel:+22900000000">+229 00 00 00 00</a></li>
+                        <li><i class="fas fa-envelope"></i> <a href="mailto:audace@aims.ac.za">audace@aims.ac.za</a></li>
+                        <li><i class="fas fa-phone"></i> <a href="tel:+2290198917029">+229 01 98 91 70 29</a></li>
                         <li><i class="fas fa-map-marker-alt"></i> Palais des Congrès, Cotonou, Bénin</li>
                     </ul>
                 </div>
