@@ -1,0 +1,225 @@
+/* Mobile Menu Styles */
+
+.mobile-menu-toggle {
+    display: none;
+    flex-direction: column;
+    justify-content: space-between;
+    width: 30px;
+    height: 20px;
+    cursor: pointer;
+    z-index: 1001;
+    position: relative;
+}
+
+.mobile-menu-toggle span {
+    display: block;
+    height: 3px;
+    width: 100%;
+    background-color: var(--primary-blue);
+    border-radius: 3px;
+    transition: all 0.3s ease;
+}
+
+.mobile-menu-toggle.active span:nth-child(1) {
+    transform: translateY(8px) rotate(45deg);
+}
+
+.mobile-menu-toggle.active span:nth-child(2),
+.mobile-menu-toggle.active span:nth-child(3) {
+    opacity: 0;
+}
+
+.mobile-menu-toggle.active span:nth-child(4) {
+    transform: translateY(-8px) rotate(-45deg);
+}
+
+/* Assurer que le menu déroulant fonctionne correctement */
+nav {
+    transition: all 0.3s ease;
+}
+
+nav.active {
+    display: block !important;
+}
+
+.dropdown-content.show {
+    display: block !important;
+}
+
+/* Back to top button visibility */
+.back-to-top {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    width: 45px;
+    height: 45px;
+    background-color: var(--primary-blue);
+    color: white;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+    z-index: 99;
+    opacity: 0;
+    transform: translateY(20px);
+    transition: all 0.3s ease;
+    font-size: 1.2rem;
+    box-shadow: 0 3px 10px rgba(0, 0, 0, 0.2);
+}
+
+.back-to-top.visible {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+.back-to-top:hover {
+    background-color: var(--secondary-blue);
+    transform: translateY(-3px);
+}
+
+/* Animations for scroll */
+.animate-on-scroll {
+    opacity: 0;
+    transform: translateY(30px);
+    transition: all 0.8s cubic-bezier(0.25, 0.1, 0.25, 1);
+}
+
+.animated {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+.fade-up {
+    transform: translateY(30px);
+}
+
+.fade-down {
+    transform: translateY(-30px);
+}
+
+.fade-left {
+    transform: translateX(30px);
+}
+
+.fade-right {
+    transform: translateX(-30px);
+}
+
+.zoom-in {
+    transform: scale(0.9);
+}
+
+.zoom-out {
+    transform: scale(1.1);
+}
+
+/* Media query for mobile menu */
+@media screen and (max-width: 992px) {
+    .mobile-menu-toggle {
+        display: flex;
+    }
+    
+    /* Override any default display settings when in mobile view */
+    nav:not(.active) {
+        display: none !important;
+    }
+    
+    .dropdown-content:not(.show) {
+        display: none !important;
+    }
+    
+    /* Animation for mobile menu */
+    nav.active {
+        animation: slideDown 0.3s forwards;
+        position: absolute;
+        top: 100%;
+        left: 0;
+        right: 0;
+        background: white;
+        box-shadow: 0 5px 10px rgba(0, 0, 0, 0.1);
+        border-top: 1px solid rgba(0, 0, 0, 0.05);
+        z-index: 1000;
+    }
+    
+    nav.active ul {
+        flex-direction: column;
+        padding: 0;
+        width: 100%;
+    }
+    
+    nav.active ul li {
+        width: 100%;
+        margin: 0;
+        border-bottom: 1px solid rgba(0, 0, 0, 0.05);
+    }
+    
+    nav.active ul li a {
+        padding: 1rem;
+        display: block;
+        width: 100%;
+        text-align: left;
+    }
+    
+    .dropdown-content {
+        position: static;
+        box-shadow: none;
+        display: none;
+        padding-left: 2rem;
+        width: 100%;
+        background: #f9f9f9;
+    }
+    
+    .dropdown > a::after {
+        content: '\f107';
+        font-family: 'Font Awesome 5 Free';
+        font-weight: 900;
+        margin-left: 0.5rem;
+    }
+    
+    @keyframes slideDown {
+        from {
+            opacity: 0;
+            transform: translateY(-10px);
+        }
+        to {
+            opacity: 1;
+            transform: translateY(0);
+        }
+    }
+    
+    /* For tablets */
+    .dropdown-content.show {
+        animation: fadeIn 0.3s forwards;
+        display: block;
+    }
+    
+    @keyframes fadeIn {
+        from {
+            opacity: 0;
+        }
+        to {
+            opacity: 1;
+        }
+    }
+}
+
+/* For smaller devices, adjust the hamburger menu size */
+@media screen and (max-width: 576px) {
+    .mobile-menu-toggle {
+        width: 25px;
+        height: 18px;
+    }
+    
+    .mobile-menu-toggle span {
+        height: 2px;
+    }
+    
+    .mobile-menu-toggle.active span:nth-child(1) {
+        transform: translateY(7px) rotate(45deg);
+    }
+    
+    .mobile-menu-toggle.active span:nth-child(4) {
+        transform: translateY(-7px) rotate(-45deg);
+    }
+} 

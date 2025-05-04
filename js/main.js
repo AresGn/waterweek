@@ -403,4 +403,173 @@ function initBackToTop() {
             behavior: 'smooth'
         });
     });
+}
+
+// Menu mobile toggle - Version améliorée qui s'exécute immédiatement
+(function() {
+    const mobileMenuToggle = document.querySelector('.mobile-menu-toggle');
+    const nav = document.querySelector('nav');
+    const dropdowns = document.querySelectorAll('.dropdown > a');
+    
+    // Toggle mobile menu
+    if (mobileMenuToggle) {
+        mobileMenuToggle.addEventListener('click', function(e) {
+            e.preventDefault();
+            e.stopPropagation();
+            this.classList.toggle('active');
+            nav.classList.toggle('active');
+        });
+    }
+    
+    // Handle dropdown clicks on mobile
+    dropdowns.forEach(dropdown => {
+        dropdown.addEventListener('click', function(e) {
+            if (window.innerWidth <= 992) {
+                e.preventDefault();
+                e.stopPropagation();
+                this.nextElementSibling.classList.toggle('show');
+            }
+        });
+    });
+    
+    // Close menu when clicking outside
+    document.addEventListener('click', function(e) {
+        if (nav && mobileMenuToggle && !nav.contains(e.target) && !mobileMenuToggle.contains(e.target) && nav.classList.contains('active')) {
+            nav.classList.remove('active');
+            mobileMenuToggle.classList.remove('active');
+        }
+    });
+})();
+
+// Document ready event
+document.addEventListener('DOMContentLoaded', function() {
+    // Countdown timer
+    initCountdown();
+    
+    // Animation on scroll
+    initScrollAnimation();
+    
+    // Program tabs
+    initProgramTabs();
+    
+    // Back to top functionality
+    initBackToTop();
+});
+
+// Countdown timer function
+function initCountdown() {
+    const countdownTimer = document.getElementById('countdown-timer');
+    if (!countdownTimer) return;
+    
+    const eventDate = new Date('June 3, 2025 00:00:00').getTime();
+    
+    // Update every second
+    const countdownInterval = setInterval(function() {
+        const now = new Date().getTime();
+        const distance = eventDate - now;
+        
+        // If the event date is passed
+        if (distance < 0) {
+            clearInterval(countdownInterval);
+            document.getElementById('days').innerHTML = '00';
+            document.getElementById('hours').innerHTML = '00';
+            document.getElementById('minutes').innerHTML = '00';
+            document.getElementById('seconds').innerHTML = '00';
+            return;
+        }
+        
+        // Calculate days, hours, minutes, seconds
+        const days = Math.floor(distance / (1000 * 60 * 60 * 24));
+        const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+        const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+        const seconds = Math.floor((distance % (1000 * 60)) / 1000);
+        
+        // Add leading zeros
+        document.getElementById('days').innerHTML = days.toString().padStart(3, '0');
+        document.getElementById('hours').innerHTML = hours.toString().padStart(2, '0');
+        document.getElementById('minutes').innerHTML = minutes.toString().padStart(2, '0');
+        document.getElementById('seconds').innerHTML = seconds.toString().padStart(2, '0');
+    }, 1000);
+}
+
+// Animation on scroll
+function initScrollAnimation() {
+    const animateElements = document.querySelectorAll('.animate-on-scroll');
+    
+    if (!animateElements.length) return;
+    
+    const options = {
+        threshold: 0.2,
+        rootMargin: '0px 0px -100px 0px'
+    };
+    
+    const observer = new IntersectionObserver(function(entries) {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                const el = entry.target;
+                const delay = el.dataset.delay || 0;
+                const animation = el.dataset.animation || 'fade-up';
+                
+                setTimeout(() => {
+                    el.classList.add('animated', animation);
+                }, delay);
+                
+                observer.unobserve(el);
+            }
+        });
+    }, options);
+    
+    animateElements.forEach(el => {
+        observer.observe(el);
+    });
+}
+
+// Program tabs
+function initProgramTabs() {
+    const tabButtons = document.querySelectorAll('.tab-btn');
+    if (!tabButtons.length) return;
+    
+    tabButtons.forEach(button => {
+        button.addEventListener('click', function() {
+            // Remove active class from all buttons and content
+            document.querySelectorAll('.tab-btn').forEach(btn => btn.classList.remove('active'));
+            document.querySelectorAll('.day-program').forEach(day => day.classList.remove('active'));
+            
+            // Add active class to current button
+            this.classList.add('active');
+            
+            // Show corresponding content
+            const day = this.getAttribute('data-day');
+            document.getElementById(`day-${day}`).classList.add('active');
+        });
+    });
+}
+
+// Smooth scroll for anchor links
+document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+    anchor.addEventListener('click', function(e) {
+        const targetId = this.getAttribute('href');
+        if (targetId === '#') return;
+        
+        const targetElement = document.querySelector(targetId);
+        if (targetElement) {
+            e.preventDefault();
+            window.scrollTo({
+                top: targetElement.offsetTop - 80, // Adjust for header height
+                behavior: 'smooth'
+            });
+        }
+    });
+});
+
+// Back to top button
+const backToTopButton = document.querySelector('.back-to-top');
+if (backToTopButton) {
+    window.addEventListener('scroll', () => {
+        if (window.scrollY > 300) {
+            backToTopButton.classList.add('visible');
+        } else {
+            backToTopButton.classList.remove('visible');
+        }
+    });
 } 

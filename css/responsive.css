@@ -1,0 +1,1219 @@
+/* Responsive Styles for Semaine de l'Eau Website */
+
+/* ==========================================================================
+   Table of Contents:
+   1. Global Responsive Styles
+   2. Header & Navigation
+   3. Hero Section
+   4. About Section
+   5. Themes Section
+   6. Call Papers Section
+   7. Program Section
+   8. Speakers Section
+   9. Practical Info Section
+   10. Partners Section
+   11. News Section
+   12. Gallery Section
+   13. Contact Section
+   14. Footer
+   15. Gallery Page
+   16. Thematiques Pages
+   ========================================================================== */
+
+/* ==========================================================================
+   1. Global Responsive Styles
+   ========================================================================== */
+@media screen and (max-width: 1200px) {
+    .container {
+        width: 90%;
+        max-width: 1000px;
+    }
+    
+    .section {
+        padding: 4rem 0;
+    }
+    
+    .section-title {
+        font-size: 2.2rem;
+    }
+}
+
+@media screen and (max-width: 992px) {
+    .container {
+        width: 95%;
+        max-width: 900px;
+    }
+    
+    h2 {
+        font-size: 2rem;
+    }
+    
+    .btn {
+        padding: 0.8rem 2rem;
+    }
+}
+
+@media screen and (max-width: 768px) {
+    .container {
+        width: 95%;
+    }
+    
+    .section {
+        padding: 3rem 0;
+    }
+    
+    .section-title {
+        font-size: 1.8rem;
+        margin-bottom: 1.5rem;
+    }
+    
+    .section-subtitle {
+        font-size: 1rem;
+    }
+    
+    .animate-on-scroll {
+        opacity: 1;
+        transform: translateY(0);
+    }
+    
+    .btn {
+        padding: 0.7rem 1.5rem;
+        font-size: 0.95rem;
+    }
+}
+
+@media screen and (max-width: 576px) {
+    .section {
+        padding: 2.5rem 0;
+    }
+    
+    h2 {
+        font-size: 1.7rem;
+        margin-bottom: 1.2rem;
+    }
+    
+    p {
+        font-size: 0.95rem;
+    }
+}
+
+/* ==========================================================================
+   2. Header & Navigation
+   ========================================================================== */
+@media screen and (max-width: 992px) {
+    header {
+        padding: 0.8rem 1rem;
+    }
+    
+    .logo-container img {
+        height: 40px;
+    }
+    
+    nav {
+        display: none;
+        position: absolute;
+        top: 100%;
+        left: 0;
+        right: 0;
+        background: white;
+        box-shadow: 0 5px 10px rgba(0, 0, 0, 0.1);
+        border-top: 1px solid rgba(0, 0, 0, 0.05);
+        z-index: 1000;
+    }
+    
+    nav.active {
+        display: block;
+    }
+    
+    nav ul {
+        flex-direction: column;
+        padding: 0;
+    }
+    
+    nav ul li {
+        width: 100%;
+        margin: 0;
+        border-bottom: 1px solid rgba(0, 0, 0, 0.05);
+    }
+    
+    nav ul li a {
+        padding: 1rem;
+        display: block;
+        width: 100%;
+        text-align: left;
+    }
+    
+    .dropdown-content {
+        position: static;
+        box-shadow: none;
+        display: none;
+        padding-left: 2rem;
+        background: #f9f9f9;
+    }
+    
+    .dropdown-content.show {
+        display: block;
+    }
+    
+    .dropdown > a::after {
+        content: '\f107';
+        font-family: 'Font Awesome 5 Free';
+        font-weight: 900;
+        margin-left: 0.5rem;
+    }
+    
+    .mobile-menu-toggle {
+        display: flex;
+    }
+}
+
+@media screen and (max-width: 576px) {
+    header {
+        padding: 0.7rem 0.8rem;
+    }
+    
+    .logo-container img {
+        height: 35px;
+    }
+    
+    .language-switch {
+        margin-right: 10px;
+    }
+    
+    .language-switch a {
+        padding: 0.2rem 0.5rem;
+        font-size: 0.8rem;
+    }
+}
+
+/* ==========================================================================
+   3. Hero Section
+   ========================================================================== */
+@media screen and (max-width: 992px) {
+    .hero h1 {
+        font-size: 3rem;
+    }
+    
+    .hero p {
+        font-size: 1.3rem;
+    }
+    
+    #countdown-timer {
+        gap: 1rem;
+    }
+    
+    .time-unit {
+        min-width: 90px;
+        padding: 1rem;
+    }
+    
+    .time-unit span:first-child {
+        font-size: 2.2rem;
+    }
+    
+    .cta-buttons {
+        flex-wrap: wrap;
+    }
+}
+
+@media screen and (max-width: 768px) {
+    .hero {
+        padding-top: 60px;
+    }
+    
+    .hero h1 {
+        font-size: 2.5rem;
+        margin-bottom: 0.5rem;
+    }
+    
+    .hero p {
+        font-size: 1.1rem;
+        margin-bottom: 1.5rem;
+    }
+    
+    #countdown-timer {
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: 0.8rem;
+        margin: 1.5rem 0;
+    }
+    
+    .time-unit {
+        min-width: 80px;
+        padding: 0.8rem;
+    }
+    
+    .time-unit span:first-child {
+        font-size: 1.8rem;
+    }
+    
+    .time-unit span:last-child {
+        font-size: 0.85rem;
+    }
+    
+    .cta-buttons {
+        flex-direction: column;
+        gap: 1rem;
+        align-items: center;
+    }
+    
+    .btn {
+        width: 90%;
+        text-align: center;
+    }
+    
+    .partners-banner {
+        padding: 1.5rem 0;
+    }
+    
+    .organizers-logos {
+        gap: 1.5rem;
+    }
+    
+    .organizers-logos img {
+        height: 40px;
+    }
+}
+
+@media screen and (max-width: 576px) {
+    .hero h1 {
+        font-size: 2rem;
+    }
+    
+    .hero p {
+        font-size: 1rem;
+    }
+    
+    .time-unit {
+        min-width: 70px;
+        padding: 0.7rem;
+    }
+    
+    .time-unit span:first-child {
+        font-size: 1.5rem;
+    }
+    
+    .organizers-logos {
+        gap: 1rem;
+        justify-content: space-around;
+    }
+    
+    .organizers-logos img {
+        height: 35px;
+    }
+}
+
+/* ==========================================================================
+   4. About Section
+   ========================================================================== */
+@media screen and (max-width: 992px) {
+    .about-content {
+        flex-direction: column;
+    }
+    
+    .about-text, .about-image {
+        width: 100%;
+        padding: 0;
+    }
+    
+    .about-image {
+        margin-top: 2rem;
+        order: -1;
+    }
+    
+    .about-stats {
+        justify-content: space-between;
+    }
+    
+    .stat-item {
+        width: 30%;
+    }
+    
+    .stat-number {
+        font-size: 2.2rem;
+    }
+}
+
+@media screen and (max-width: 768px) {
+    .about-stats {
+        flex-wrap: wrap;
+    }
+    
+    .stat-item {
+        width: 48%;
+        margin-bottom: 1.5rem;
+    }
+    
+    .stat-number {
+        font-size: 2rem;
+    }
+    
+    .stat-label {
+        font-size: 0.9rem;
+    }
+}
+
+@media screen and (max-width: 576px) {
+    .about-stats {
+        flex-direction: column;
+    }
+    
+    .stat-item {
+        width: 100%;
+        margin-bottom: 1.2rem;
+    }
+    
+    .stat-number {
+        font-size: 1.8rem;
+    }
+}
+
+/* ==========================================================================
+   5. Themes Section
+   ========================================================================== */
+@media screen and (max-width: 992px) {
+    .themes-grid {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 2rem;
+    }
+}
+
+@media screen and (max-width: 768px) {
+    .themes-grid {
+        grid-template-columns: 1fr;
+        gap: 1.5rem;
+    }
+    
+    .theme-card {
+        padding: 1.5rem;
+    }
+    
+    .theme-icon {
+        width: 50px;
+        height: 50px;
+        font-size: 1.5rem;
+    }
+    
+    .theme-card h3 {
+        font-size: 1.2rem;
+    }
+}
+
+/* ==========================================================================
+   6. Call Papers Section
+   ========================================================================== */
+@media screen and (max-width: 992px) {
+    .call-content {
+        flex-direction: column;
+    }
+    
+    .call-info, .submission-form {
+        width: 100%;
+    }
+    
+    .submission-form {
+        margin-top: 2rem;
+        padding: 1.5rem;
+    }
+    
+    .highlights-list {
+        flex-wrap: wrap;
+    }
+    
+    .highlight-item {
+        width: 48%;
+        margin-bottom: 1rem;
+    }
+}
+
+@media screen and (max-width: 768px) {
+    .highlight-item {
+        width: 100%;
+    }
+    
+    .call-info ul {
+        padding-left: 1.2rem;
+    }
+}
+
+/* ==========================================================================
+   7. Program Section
+   ========================================================================== */
+@media screen and (max-width: 992px) {
+    .tab-buttons {
+        overflow-x: auto;
+        white-space: nowrap;
+        padding-bottom: 0.5rem;
+        margin-bottom: 1rem;
+        flex-wrap: nowrap;
+        justify-content: flex-start;
+    }
+    
+    .tab-btn {
+        padding: 0.6rem 1rem;
+        font-size: 0.9rem;
+    }
+    
+    .timeline-item {
+        flex-direction: column;
+    }
+    
+    .time {
+        width: 100%;
+        text-align: left;
+        border-right: none;
+        border-bottom: 2px solid var(--primary-blue);
+        padding: 0 0 0.5rem 0;
+        margin-bottom: 0.8rem;
+    }
+    
+    .event {
+        width: 100%;
+        padding-left: 0;
+    }
+}
+
+@media screen and (max-width: 768px) {
+    .day-program h3 {
+        font-size: 1.3rem;
+    }
+    
+    .timeline-item {
+        padding: 1rem;
+    }
+    
+    .event h4 {
+        font-size: 1.1rem;
+    }
+    
+    .event-type {
+        padding: 0.2rem 0.5rem;
+        font-size: 0.7rem;
+    }
+    
+    .session-details ul {
+        padding-left: 1.2rem;
+    }
+}
+
+/* ==========================================================================
+   8. Speakers Section
+   ========================================================================== */
+@media screen and (max-width: 992px) {
+    .speakers-grid {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 1.5rem;
+    }
+}
+
+@media screen and (max-width: 768px) {
+    .speakers-grid {
+        grid-template-columns: 1fr;
+    }
+    
+    .speaker-card {
+        flex-direction: row;
+        align-items: center;
+    }
+    
+    .speaker-photo {
+        width: 100px;
+        height: 100px;
+        margin: 0 1rem 0 0;
+    }
+    
+    .speaker-info {
+        flex: 1;
+    }
+    
+    .speaker-info h3 {
+        font-size: 1.1rem;
+        margin-bottom: 0.2rem;
+    }
+    
+    .institution {
+        font-size: 0.9rem;
+    }
+    
+    .bio {
+        font-size: 0.85rem;
+    }
+}
+
+@media screen and (max-width: 576px) {
+    .speaker-card {
+        flex-direction: column;
+        text-align: center;
+    }
+    
+    .speaker-photo {
+        width: 120px;
+        height: 120px;
+        margin: 0 0 1rem 0;
+    }
+}
+
+/* ==========================================================================
+   9. Practical Info Section
+   ========================================================================== */
+@media screen and (max-width: 992px) {
+    .info-grid {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 1.5rem;
+    }
+    
+    .info-card {
+        padding: 1.2rem;
+    }
+}
+
+@media screen and (max-width: 768px) {
+    .info-grid {
+        grid-template-columns: 1fr;
+    }
+    
+    .info-icon {
+        width: 60px;
+        height: 60px;
+        font-size: 1.5rem;
+    }
+    
+    .info-card h3 {
+        font-size: 1.2rem;
+    }
+    
+    .map-container {
+        height: 200px;
+    }
+}
+
+/* ==========================================================================
+   10. Partners Section
+   ========================================================================== */
+@media screen and (max-width: 992px) {
+    .partner-category {
+        margin-bottom: 2rem;
+    }
+    
+    .partners-logos {
+        justify-content: space-around;
+    }
+    
+    .partner-logo {
+        width: 30%;
+        margin-bottom: 1.5rem;
+    }
+}
+
+@media screen and (max-width: 768px) {
+    .partner-logo {
+        width: 45%;
+    }
+    
+    .partner-logo img {
+        height: 50px;
+    }
+    
+    .partner-logo p {
+        font-size: 0.85rem;
+    }
+}
+
+@media screen and (max-width: 576px) {
+    .partner-logo {
+        width: 100%;
+        text-align: center;
+    }
+}
+
+/* ==========================================================================
+   11. News Section
+   ========================================================================== */
+@media screen and (max-width: 992px) {
+    .news-grid {
+        grid-template-columns: 1fr;
+    }
+    
+    .news-featured {
+        grid-column: 1;
+    }
+}
+
+@media screen and (max-width: 768px) {
+    .news-card {
+        flex-direction: column;
+    }
+    
+    .news-image {
+        width: 100%;
+        height: 200px;
+    }
+    
+    .news-content {
+        width: 100%;
+        padding: 1.2rem;
+    }
+    
+    .news-content h3 {
+        font-size: 1.2rem;
+    }
+    
+    .news-date {
+        font-size: 0.8rem;
+    }
+    
+    .news-view-all {
+        margin-top: 1.5rem;
+    }
+}
+
+/* ==========================================================================
+   12. Gallery Section
+   ========================================================================== */
+@media screen and (max-width: 992px) {
+    .gallery-tabs {
+        padding: 0.6rem;
+        max-width: 100%;
+        overflow-x: auto;
+        justify-content: flex-start;
+    }
+    
+    .gallery-tab {
+        padding: 0.7rem 1.4rem;
+        font-size: 0.9rem;
+        white-space: nowrap;
+    }
+    
+    .home-swiper {
+        height: 400px;
+    }
+    
+    .gallery-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+@media screen and (max-width: 768px) {
+    .gallery-tab {
+        padding: 0.6rem 1.2rem;
+        font-size: 0.85rem;
+    }
+    
+    .home-swiper {
+        height: 350px;
+    }
+    
+    .home-swiper .swiper-slide-caption {
+        padding: 2rem 1.2rem 1.2rem;
+    }
+    
+    .gallery-grid {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 1rem;
+    }
+}
+
+@media screen and (max-width: 576px) {
+    .gallery-grid {
+        grid-template-columns: 1fr;
+    }
+    
+    .home-swiper {
+        height: 300px;
+    }
+    
+    .home-swiper .swiper-button-next,
+    .home-swiper .swiper-button-prev {
+        width: 35px;
+        height: 35px;
+    }
+    
+    .home-swiper .swiper-button-next:after,
+    .home-swiper .swiper-button-prev:after {
+        font-size: 14px;
+    }
+}
+
+/* ==========================================================================
+   13. Contact Section
+   ========================================================================== */
+@media screen and (max-width: 992px) {
+    .contact-grid {
+        flex-direction: column;
+    }
+    
+    .contact-info, .contact-form {
+        width: 100%;
+    }
+    
+    .contact-info {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: space-between;
+        margin-bottom: 2rem;
+    }
+    
+    .contact-method {
+        width: 30%;
+        margin-bottom: 1.5rem;
+    }
+    
+    .newsletter-form-group {
+        width: 100%;
+    }
+}
+
+@media screen and (max-width: 768px) {
+    .contact-info {
+        flex-direction: column;
+    }
+    
+    .contact-method {
+        width: 100%;
+        margin-bottom: 1.5rem;
+    }
+    
+    .form-group {
+        margin-bottom: 1rem;
+    }
+    
+    .form-group label {
+        margin-bottom: 0.3rem;
+    }
+    
+    .newsletter-signup {
+        padding: 1.5rem;
+    }
+    
+    .newsletter-form-group {
+        flex-direction: column;
+    }
+    
+    .newsletter-form-group input {
+        width: 100%;
+        margin-bottom: 1rem;
+        border-radius: 4px;
+    }
+    
+    .newsletter-form-group button {
+        width: 100%;
+        border-radius: 4px;
+    }
+}
+
+/* ==========================================================================
+   14. Footer
+   ========================================================================== */
+@media screen and (max-width: 992px) {
+    .footer-container {
+        flex-wrap: wrap;
+    }
+    
+    .footer-col {
+        width: 50%;
+        margin-bottom: 2rem;
+    }
+}
+
+@media screen and (max-width: 768px) {
+    .footer-col {
+        width: 100%;
+        margin-bottom: 1.5rem;
+    }
+    
+    .footer-logo {
+        max-width: 150px;
+    }
+    
+    .footer-col h3 {
+        font-size: 1.2rem;
+        margin-bottom: 1rem;
+    }
+    
+    .copyright {
+        flex-direction: column;
+        text-align: center;
+    }
+    
+    .copyright p {
+        margin-bottom: 0.5rem;
+    }
+}
+
+/* Back to Top Button */
+@media screen and (max-width: 576px) {
+    .back-to-top {
+        width: 40px;
+        height: 40px;
+        right: 15px;
+        bottom: 15px;
+        font-size: 1rem;
+    }
+}
+
+/* ==========================================================================
+   15. Gallery Page
+   ========================================================================== */
+@media screen and (max-width: 1200px) {
+    .gallery-page {
+        padding-top: 100px;
+    }
+
+    .gallery-container {
+        max-width: 100%;
+        padding: 0 1rem;
+    }
+
+    .featured-swiper {
+        height: 60vh;
+    }
+}
+
+@media screen and (max-width: 992px) {
+    .gallery-heading h1 {
+        font-size: 2.8rem;
+    }
+    
+    .gallery-heading p {
+        font-size: 1.1rem;
+    }
+
+    .simple-filters {
+        overflow-x: auto;
+        justify-content: flex-start;
+        padding: 0.8rem;
+        margin: 20px 0 30px 0;
+    }
+    
+    .simple-filter {
+        white-space: nowrap;
+        padding: 6px 15px;
+        font-size: 0.9rem;
+    }
+    
+    .featured-swiper {
+        height: 55vh;
+    }
+    
+    .featured-caption h3 {
+        font-size: 1.6rem;
+    }
+    
+    .featured-caption p {
+        font-size: 1rem;
+    }
+    
+    .gallery-category-tag {
+        font-size: 0.75rem;
+        padding: 0.3rem 0.7rem;
+    }
+    
+    .gallery-grid {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 1.5rem;
+    }
+}
+
+@media screen and (max-width: 768px) {
+    .gallery-page {
+        padding-top: 80px;
+    }
+
+    .gallery-heading h1 {
+        font-size: 2.2rem;
+    }
+    
+    .gallery-heading h1::after {
+        width: 80px;
+        height: 3px;
+    }
+    
+    .gallery-heading p {
+        font-size: 0.95rem;
+    }
+    
+    .featured-heading h2 {
+        font-size: 1.5rem;
+    }
+    
+    .featured-swiper {
+        height: 45vh;
+    }
+    
+    .featured-caption {
+        padding: 1.5rem 1rem 1rem;
+    }
+    
+    .featured-caption h3 {
+        font-size: 1.3rem;
+        margin-bottom: 0.3rem;
+    }
+    
+    .featured-caption p {
+        font-size: 0.9rem;
+    }
+    
+    .featured-category {
+        top: 1rem;
+        right: 1rem;
+        padding: 0.3rem 0.7rem;
+        font-size: 0.75rem;
+    }
+    
+    .gallery-item {
+        aspect-ratio: 1/1;
+    }
+    
+    .gallery-item:nth-child(3n+1) {
+        grid-row: span 1;
+        aspect-ratio: 1/1;
+    }
+    
+    .gallery-caption h4 {
+        font-size: 1rem;
+    }
+    
+    .gallery-caption p {
+        font-size: 0.85rem;
+    }
+    
+    .gallery-modal .modal-content {
+        max-width: 95%;
+    }
+    
+    .modal-close {
+        top: 10px;
+        right: 10px;
+        font-size: 24px;
+    }
+    
+    .modal-nav {
+        bottom: 10px;
+    }
+    
+    .modal-nav button {
+        width: 35px;
+        height: 35px;
+    }
+}
+
+@media screen and (max-width: 576px) {
+    .gallery-heading h1 {
+        font-size: 1.8rem;
+    }
+    
+    .simple-filters {
+        gap: 8px;
+    }
+    
+    .simple-filter {
+        padding: 5px 12px;
+        font-size: 0.8rem;
+        border-width: 1px;
+    }
+    
+    .featured-swiper {
+        height: 40vh;
+    }
+    
+    .gallery-grid {
+        grid-template-columns: 1fr;
+        gap: 1.2rem;
+    }
+    
+    .swiper-button-next,
+    .swiper-button-prev {
+        width: 40px;
+        height: 40px;
+    }
+    
+    .swiper-button-next:after,
+    .swiper-button-prev:after {
+        font-size: 16px;
+    }
+    
+    .swiper-pagination-bullet {
+        width: 8px;
+        height: 8px;
+    }
+    
+    .autoplay-progress {
+        width: 40px;
+        height: 40px;
+        right: 10px;
+        bottom: 10px;
+    }
+}
+
+/* ==========================================================================
+   16. Thematiques Pages
+   ========================================================================== */
+@media screen and (max-width: 1200px) {
+    .theme-page-header {
+        padding: 120px 0 40px;
+    }
+}
+
+@media screen and (max-width: 992px) {
+    .theme-page-header {
+        padding: 100px 0 30px;
+    }
+    
+    .theme-page-title h1 {
+        font-size: 2.5rem;
+    }
+    
+    .theme-page-description {
+        font-size: 1.1rem;
+    }
+    
+    .theme-content-wrapper {
+        flex-direction: column;
+    }
+    
+    .theme-main-content {
+        width: 100%;
+        padding-right: 0;
+    }
+    
+    .theme-sidebar {
+        width: 100%;
+        margin-top: 2rem;
+    }
+    
+    .theme-section {
+        margin-bottom: 2.5rem;
+    }
+    
+    .theme-section h2 {
+        font-size: 1.8rem;
+        margin-bottom: 1rem;
+    }
+    
+    .theme-section h3 {
+        font-size: 1.5rem;
+    }
+    
+    .theme-image-container {
+        height: 350px;
+        margin: 1.5rem 0;
+    }
+    
+    .theme-stats-container {
+        flex-wrap: wrap;
+    }
+    
+    .theme-stat-item {
+        width: 48%;
+        margin-bottom: 1rem;
+    }
+    
+    .theme-related-topics {
+        padding: 1.5rem;
+    }
+}
+
+@media screen and (max-width: 768px) {
+    .theme-page-header {
+        padding: 80px 0 25px;
+    }
+    
+    .theme-page-title h1 {
+        font-size: 2rem;
+    }
+    
+    .theme-page-description {
+        font-size: 1rem;
+    }
+    
+    .theme-section h2 {
+        font-size: 1.6rem;
+    }
+    
+    .theme-section h3 {
+        font-size: 1.3rem;
+    }
+    
+    .theme-section p {
+        font-size: 0.95rem;
+    }
+    
+    .theme-image-container {
+        height: 250px;
+    }
+    
+    .theme-feature-list li {
+        font-size: 0.95rem;
+        margin-bottom: 0.8rem;
+        padding-left: 1.8rem;
+    }
+    
+    .theme-feature-list li::before {
+        width: 18px;
+        height: 18px;
+        font-size: 0.8rem;
+    }
+    
+    .theme-cta-box {
+        padding: 1.2rem;
+    }
+    
+    .theme-cta-box h3 {
+        font-size: 1.2rem;
+    }
+    
+    .theme-sidebar .sidebar-section {
+        margin-bottom: 1.5rem;
+        padding: 1.2rem;
+    }
+    
+    .theme-sidebar .sidebar-section h3 {
+        font-size: 1.2rem;
+        margin-bottom: 0.8rem;
+    }
+    
+    .theme-quote-box {
+        padding: 1.2rem;
+        font-size: 0.95rem;
+    }
+    
+    .theme-quote-author {
+        font-size: 0.85rem;
+    }
+}
+
+@media screen and (max-width: 576px) {
+    .theme-page-title h1 {
+        font-size: 1.7rem;
+    }
+    
+    .theme-page-description {
+        font-size: 0.9rem;
+    }
+    
+    .theme-section h2 {
+        font-size: 1.4rem;
+    }
+    
+    .theme-section h3 {
+        font-size: 1.2rem;
+    }
+    
+    .theme-image-container {
+        height: 200px;
+    }
+    
+    .theme-stat-item {
+        width: 100%;
+    }
+    
+    .theme-page-navigation {
+        flex-direction: column;
+        gap: 1rem;
+    }
+    
+    .theme-page-navigation .prev-page,
+    .theme-page-navigation .next-page {
+        width: 100%;
+    }
+} 
