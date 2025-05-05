@@ -41,52 +41,70 @@ function initMobileMenu() {
     const navLinks = document.querySelectorAll('nav ul li a');
     const dropdowns = document.querySelectorAll('.dropdown');
     
-    if (!mobileMenuToggle) return;
+    if (!mobileMenuToggle) {
+        console.error('Menu mobile toggle not found');
+        return;
+    }
+    
+    if (!nav) {
+        console.error('Navigation not found');
+        return;
+    }
+    
+    console.log('Mobile menu initialized');
     
     // Fonction pour ouvrir/fermer le menu
-    function toggleMenu() {
+    function toggleMenu(e) {
+        if (e) e.preventDefault();
+        console.log('Toggle menu clicked');
         mobileMenuToggle.classList.toggle('active');
         nav.classList.toggle('active');
         document.body.classList.toggle('menu-open');
     }
     
-    // Click sur le bouton hamburger
+    // Click sur le bouton hamburger - Utilisation de addEventListener au lieu de onclick
     mobileMenuToggle.addEventListener('click', toggleMenu);
     
     // Gestion des dropdowns en mobile
-    if (window.innerWidth <= 768) {
-        dropdowns.forEach(dropdown => {
-            const dropdownLink = dropdown.querySelector('a');
-            const dropdownContent = dropdown.querySelector('.dropdown-content');
-            
-            // Empêcher le lien principal du dropdown de naviguer directement sur mobile
-            dropdownLink.addEventListener('click', function(e) {
-                if (window.innerWidth <= 768) {
-                    e.preventDefault();
-                    this.classList.toggle('dropdown-active');
-                    dropdownContent.classList.toggle('dropdown-mobile-active');
-                }
-            });
+    dropdowns.forEach(dropdown => {
+        const dropdownLink = dropdown.querySelector('a');
+        const dropdownContent = dropdown.querySelector('.dropdown-content');
+        
+        if (!dropdownLink || !dropdownContent) return;
+        
+        // Empêcher le lien principal du dropdown de naviguer directement sur mobile
+        dropdownLink.addEventListener('click', function(e) {
+            if (window.innerWidth <= 992) {
+                e.preventDefault();
+                e.stopPropagation();
+                this.classList.toggle('dropdown-active');
+                dropdownContent.classList.toggle('show');
+            }
         });
-    }
+    });
     
     // Fermer le menu après un clic sur un lien (sur mobile)
     navLinks.forEach(link => {
         link.addEventListener('click', () => {
-            if (window.innerWidth <= 768 && !link.classList.contains('dropdown-active')) {
+            if (window.innerWidth <= 992 && !link.parentElement.classList.contains('dropdown')) {
                 toggleMenu();
             }
         });
     });
     
-    // Fermer le menu si la fenêtre est redimensionnée au-delà de 768px
+    // Fermer le menu si la fenêtre est redimensionnée au-delà de 992px
     window.addEventListener('resize', () => {
-        if (window.innerWidth > 768 && nav.classList.contains('active')) {
+        if (window.innerWidth > 992 && nav.classList.contains('active')) {
             mobileMenuToggle.classList.remove('active');
             nav.classList.remove('active');
             document.body.classList.remove('menu-open');
         }
     });
+    
+    // Initialisation forcée: vérifier si nous sommes déjà en mode mobile au chargement
+    if (window.innerWidth <= 992) {
+        mobileMenuToggle.style.display = 'flex';
+    }
 }
 
 // Fonction pour définir l'élément de navigation actif
