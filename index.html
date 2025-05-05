@@ -46,6 +46,28 @@
             overflow: hidden;
         }
 
+        /* Force l'affichage du menu mobile sur les petits écrans */
+        @media (max-width: 992px) {
+            .mobile-menu-toggle {
+                display: flex !important;
+                z-index: 9999 !important;
+            }
+            
+            header {
+                display: flex !important;
+                justify-content: space-between !important;
+                align-items: center !important;
+            }
+            
+            nav:not(.active) {
+                display: none !important;
+            }
+            
+            nav.active {
+                display: block !important;
+            }
+        }
+
         .hero-video-background {
             position: absolute;
             top: 0;
@@ -549,9 +571,6 @@
                 </li>
             </ul>
         </nav>
-        <div class="language-switch">
-           
-        </div>
         <div class="mobile-menu-toggle">
             <span></span>
             <span></span>
@@ -603,6 +622,18 @@
                         <img src="https://i.ibb.co/rGL6BZs2/logo-C2-EA.png" alt="C2EA">
                         <img src="https://i.ibb.co/8nLpXxbm/Logo-INE.png" alt="INE/UAC">
                         
+                    </div>
+                </div>
+                <div class="container">
+                    <p>En collaboration avec :</p>
+                    <div class="organizers-logos">
+                        
+                            <img src="https://i.ibb.co/XZW7BHKz/jhhv.png" alt="jhhv">
+                            
+                        
+                            <img src="https://i.ibb.co/LXbQgQn9/jhfjhf.jpg" alt="jhfjhf">
+                            
+                        </div>
                     </div>
                 </div>
             </div>
@@ -1112,8 +1143,12 @@
                         </div>
                     </div>
                     <div class="partner-category">
-                        <h3>Partenaires institutionnels</h3>
+                        <h3>Partenaires</h3>
                         <div class="partners-logos">
+                            <div class="partner-logo">
+                                <img src="https://k4all.org/wp-content/uploads/logos/Academia/SSA_Benin_University_Abomey-Calavi%20University%20(UAC)_logo.png" alt="INE/UAC">
+                                <p>UAC</p>
+                            </div>
                             
                             <div class="partner-logo">
                                 <img src="https://i.ibb.co/8nLpXxbm/Logo-INE.png" alt="INE/UAC">
@@ -1359,7 +1394,7 @@
                 </div>
             </div>
             <div class="copyright">
-                <p>&copy; 2024 Semaine de l'Eau. Tous droits réservés. <a href="#" data-i18n="footer_legal">Mentions légales</a> | <a href="#" data-i18n="footer_privacy">Politique de confidentialité</a></p>
+                <p>&copy; 2025 Semaine de l'Eau. Tous droits réservés. <a href="#" data-i18n="footer_legal">Mentions légales</a> | <a href="#" data-i18n="footer_privacy">Politique de confidentialité</a></p>
             </div>
         </div>
     </footer>
@@ -1372,6 +1407,34 @@
     <script src="js/i18n.js"></script>
     <!-- Swiper JS -->
     <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+    
+    <!-- Script pour s'assurer que le menu mobile fonctionne correctement -->
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            // Forcer l'initialisation du menu mobile
+            const mobileMenuToggle = document.querySelector('.mobile-menu-toggle');
+            const nav = document.querySelector('nav');
+            
+            if (mobileMenuToggle && nav) {
+                console.log('Initialisation forcée du menu mobile');
+                
+                // Forcer l'affichage du bouton sur les petits écrans
+                if (window.innerWidth <= 992) {
+                    mobileMenuToggle.style.display = 'flex';
+                }
+                
+                // Gérer le clic sur le bouton du menu
+                mobileMenuToggle.addEventListener('click', function(e) {
+                    e.preventDefault();
+                    console.log('Bouton menu mobile cliqué');
+                    mobileMenuToggle.classList.toggle('active');
+                    nav.classList.toggle('active');
+                    document.body.classList.toggle('menu-open');
+                });
+            }
+        });
+    </script>
+    
     <script>
         document.addEventListener('DOMContentLoaded', function() {
             // Fonction pour charger dynamiquement les liens des images

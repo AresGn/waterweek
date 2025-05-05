@@ -1,7 +1,7 @@
 /* Mobile Menu Styles */
 
 .mobile-menu-toggle {
-    display: none;
+    display: none !important;
     flex-direction: column;
     justify-content: space-between;
     width: 30px;
@@ -24,7 +24,10 @@
     transform: translateY(8px) rotate(45deg);
 }
 
-.mobile-menu-toggle.active span:nth-child(2),
+.mobile-menu-toggle.active span:nth-child(2) {
+    opacity: 0;
+}
+
 .mobile-menu-toggle.active span:nth-child(3) {
     opacity: 0;
 }
@@ -117,7 +120,7 @@ nav.active {
 /* Media query for mobile menu */
 @media screen and (max-width: 992px) {
     .mobile-menu-toggle {
-        display: flex;
+        display: flex !important;
     }
     
     /* Override any default display settings when in mobile view */
@@ -204,11 +207,36 @@ nav.active {
     }
 }
 
+/* Pour s'assurer que la barre de navigation mobile fonctionne correctement sans le sélecteur de langue */
+@media screen and (max-width: 768px) {
+    header {
+        display: flex !important;
+        justify-content: space-between !important;
+        align-items: center !important;
+    }
+    
+    .mobile-menu-toggle {
+        display: flex !important;
+        margin-left: auto !important;
+        margin-right: 1rem !important;
+        z-index: 9999 !important;
+    }
+    
+    nav:not(.active) {
+        display: none !important;
+    }
+}
+
 /* For smaller devices, adjust the hamburger menu size */
 @media screen and (max-width: 576px) {
     .mobile-menu-toggle {
         width: 25px;
         height: 18px;
+        display: flex !important;
+        position: absolute !important;
+        right: 15px !important;
+        top: 50% !important;
+        transform: translateY(-50%) !important;
     }
     
     .mobile-menu-toggle span {
