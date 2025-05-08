@@ -1,0 +1,305 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Actualités - Semaine de l'Eau 2025</title>
+    <link rel="stylesheet" href="css/variables.css">
+    <link rel="stylesheet" href="css/styles.css">
+    <link rel="stylesheet" href="css/responsive.css">
+    <link rel="stylesheet" href="css/mobile-menu.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Outfit:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
+    <link rel="preload" href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Outfit:wght@400;500;600;700;800&display=swap" as="style">
+    <meta name="description" content="Suivez l'actualité et les dernières nouvelles concernant la Semaine de l'Eau 2025 à Cotonou, Bénin.">
+    <meta name="keywords" content="actualités, nouvelles, eau, Cotonou, Bénin, conférence, développement durable">
+    <link rel="icon" type="image/png" sizes="32x32" href="https://i.ibb.co/bRJqChct/carte-du-lieu.png">
+</head>
+<body>
+    <header>
+        <div class="logo-container">
+            <img src="https://i.ibb.co/8nLpXxbm/Logo-INE.png" alt="Water Week Logo">
+        </div>
+        <nav>
+            <ul>
+                <li class="dropdown">
+                    <a href="index.html" data-i18n="nav_home">Accueil</a>
+                    <div class="dropdown-content">
+                        <a href="index.html#about" data-i18n="nav_about">À propos</a>
+                    </div>
+                </li>
+                <li class="dropdown">
+                    <a href="themes.html" data-i18n="nav_program">Programme</a>
+                    <div class="dropdown-content">
+                        <a href="themes.html" data-i18n="nav_topics">Thèmes</a>
+                        <a href="call-papers.html" data-i18n="nav_call_papers">Appel à communications</a>
+                        <a href="program.html" data-i18n="nav_program">Programme</a>
+                        <a href="speakers.html" data-i18n="nav_speakers">Intervenants</a>
+                    </div>
+                </li>
+                <li class="dropdown">
+                    <a href="practical-info.html" data-i18n="nav_info_media">Infos & Médias</a>
+                    <div class="dropdown-content">
+                        <a href="practical-info.html" data-i18n="nav_practical_info">Infos pratiques</a>
+                        <a href="partners.html" data-i18n="nav_partners">Partenaires</a>
+                        <a href="news.html" data-i18n="nav_news">Actualités</a>
+                        <a href="gallery.html" data-i18n="nav_gallery">Galerie</a>
+                        <a href="contact.html" data-i18n="nav_contact">Contact</a>
+                    </div>
+                </li>
+            </ul>
+        </nav>
+        <div class="mobile-menu-toggle">
+            <span></span>
+            <span></span>
+            <span></span>
+            <span></span>
+        </div>
+    </header>
+
+    <main>
+        <!-- Hero Section pour la page actualités -->
+        <section class="theme-hero">
+            <div class="theme-hero-bg" style="background-image: url('https://i.ibb.co/8xWLQBr9/DSC7037.jpg');"></div>
+            <div class="theme-hero-overlay"></div>
+            <div class="theme-hero-content">
+                <div class="theme-icon-large">
+                    <i class="fas fa-newspaper"></i>
+                </div>
+                <h1>Actualités</h1>
+                <p>Suivez les dernières nouvelles concernant la Semaine de l'Eau 2025</p>
+            </div>
+        </section>
+
+        <!-- Section Actualités -->
+        <section id="news" class="section">
+            <div class="container">
+                <h2 class="section-title">Actualités</h2>
+                <p class="section-subtitle">Restez informé des dernières nouvelles concernant la Semaine de l'Eau 2025</p>
+                
+                <div class="news-categories">
+                    <button class="news-filter active" data-category="all">Toutes les actualités</button>
+                    <button class="news-filter" data-category="annonces">Annonces</button>
+                    <button class="news-filter" data-category="conferenciers">Conférenciers</button>
+                    <button class="news-filter" data-category="partenaires">Partenaires</button>
+                </div>
+                
+                <div class="news-grid">
+                    <article class="news-card" data-category="annonces">
+                        <div class="news-image">
+                            <img src="https://i.ibb.co/VtgWV9r8/news1.jpg" alt="Ouverture des inscriptions">
+                            <span class="news-category">Annonce</span>
+                        </div>
+                        <div class="news-content">
+                            <div class="news-date">15 mars 2024</div>
+                            <h3>Ouverture des inscriptions pour la Semaine de l'Eau 2025</h3>
+                            <p>Les inscriptions pour participer à la Semaine de l'Eau 2025 sont désormais ouvertes. Profitez du tarif préférentiel jusqu'au 31 décembre 2024.</p>
+                            <a href="news/ouverture-inscriptions.html" class="news-link">Lire la suite <i class="fas fa-arrow-right"></i></a>
+                        </div>
+                    </article>
+                    
+                    <article class="news-card" data-category="conferenciers">
+                        <div class="news-image">
+                            <img src="https://i.ibb.co/C9kCL9R2/news2.jpg" alt="Conférenciers">
+                            <span class="news-category">Conférenciers</span>
+                        </div>
+                        <div class="news-content">
+                            <div class="news-date">10 mars 2024</div>
+                            <h3>Nos premiers conférenciers confirmés</h3>
+                            <p>Nous sommes ravis d'annoncer la participation de quatre experts internationaux de renom qui interviendront lors des sessions plénières de la Semaine de l'Eau 2025.</p>
+                            <a href="news/conferenciers-confirmes.html" class="news-link">Lire la suite <i class="fas fa-arrow-right"></i></a>
+                        </div>
+                    </article>
+                    
+                    <article class="news-card" data-category="partenaires">
+                        <div class="news-image">
+                            <img src="https://i.ibb.co/sHk68Tf3/news3.jpg" alt="Partenariat avec la BAD">
+                            <span class="news-category">Partenaires</span>
+                        </div>
+                        <div class="news-content">
+                            <div class="news-date">28 février 2024</div>
+                            <h3>La Banque Africaine de Développement devient partenaire officiel</h3>
+                            <p>La BAD confirme son soutien à la Semaine de l'Eau 2025 en devenant partenaire officiel de l'événement, renforçant ainsi sa contribution au développement durable en Afrique.</p>
+                            <a href="news/partenariat-bad.html" class="news-link">Lire la suite <i class="fas fa-arrow-right"></i></a>
+                        </div>
+                    </article>
+                    
+                    <article class="news-card" data-category="annonces">
+                        <div class="news-image">
+                            <img src="https://i.ibb.co/NCD2YpS4/news4.jpg" alt="Appel à communications">
+                            <span class="news-category">Annonce</span>
+                        </div>
+                        <div class="news-content">
+                            <div class="news-date">15 février 2024</div>
+                            <h3>Lancement de l'appel à communications</h3>
+                            <p>L'appel à communications pour la Semaine de l'Eau 2025 est officiellement lancé. Les chercheurs, professionnels et experts sont invités à soumettre leurs résumés avant le 10 mai 2025.</p>
+                            <a href="news/lancement-appel.html" class="news-link">Lire la suite <i class="fas fa-arrow-right"></i></a>
+                        </div>
+                    </article>
+                    
+                    <article class="news-card" data-category="partenaires">
+                        <div class="news-image">
+                            <img src="https://i.ibb.co/TLYwj7T5/news5.jpg" alt="Programme des ateliers">
+                            <span class="news-category">Partenaires</span>
+                        </div>
+                        <div class="news-content">
+                            <div class="news-date">10 février 2024</div>
+                            <h3>L'UNESCO soutiendra la formation des jeunes chercheurs</h3>
+                            <p>L'UNESCO s'associe à la Semaine de l'Eau 2025 pour organiser des ateliers de renforcement des capacités destinés aux jeunes chercheurs africains.</p>
+                            <a href="news/unesco-formations.html" class="news-link">Lire la suite <i class="fas fa-arrow-right"></i></a>
+                        </div>
+                    </article>
+                    
+                    <article class="news-card" data-category="annonces">
+                        <div class="news-image">
+                            <img src="https://i.ibb.co/FYbF9bZ6/news6.jpg" alt="Dates officielles">
+                            <span class="news-category">Annonce</span>
+                        </div>
+                        <div class="news-content">
+                            <div class="news-date">25 janvier 2024</div>
+                            <h3>Annonce des dates officielles de la Semaine de l'Eau 2025</h3>
+                            <p>Les dates de la deuxième édition de la Semaine de l'Eau sont officiellement annoncées : l'événement se tiendra du 3 au 5 juin 2025 au Palais des Congrès de Cotonou, Bénin.</p>
+                            <a href="news/dates-officielles.html" class="news-link">Lire la suite <i class="fas fa-arrow-right"></i></a>
+                        </div>
+                    </article>
+                </div>
+                
+                <div class="pagination">
+                    <a href="#" class="page-link active">1</a>
+                    <a href="#" class="page-link">2</a>
+                    <a href="#" class="page-link">3</a>
+                    <span class="page-dots">...</span>
+                    <a href="#" class="page-link">5</a>
+                    <a href="#" class="page-link next">Suivant <i class="fas fa-chevron-right"></i></a>
+                </div>
+                
+                <div class="newsletter-signup">
+                    <h3>Restez informé</h3>
+                    <p>Inscrivez-vous à notre newsletter pour recevoir les dernières actualités concernant la Semaine de l'Eau 2025.</p>
+                    <form class="newsletter-form">
+                        <input type="email" placeholder="Votre adresse email" required>
+                        <button type="submit" class="btn btn-primary">S'inscrire</button>
+                    </form>
+                    <p class="form-note">* Nous respectons votre vie privée et ne partagerons jamais vos informations personnelles.</p>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <div class="container">
+            <div class="footer-container">
+                <div class="footer-col">
+                    <img src="https://i.ibb.co/8nLpXxbm/Logo-INE.png" alt="Water Week Logo" class="footer-logo">
+                    <p>La Semaine de l'Eau est un événement international qui rassemble experts et chercheurs autour des enjeux liés à l'eau dans le contexte des changements climatiques.</p>
+                    <div class="social-links">
+                        <a href="https://www.facebook.com/share/16B1WdQbLX/" class="social-link" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#" class="social-link" aria-label="Twitter"><i class="fab fa-twitter"></i></a>
+                        <a href="#" class="social-link" aria-label="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
+                        <a href="#" class="social-link" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+                    </div>
+                </div>
+                <div class="footer-col">
+                    <h3>Liens rapides</h3>
+                    <ul>
+                        <li><a href="index.html" data-i18n="nav_home">Accueil</a></li>
+                        <li><a href="index.html#about" data-i18n="nav_about">À propos</a></li>
+                        <li><a href="themes.html" data-i18n="nav_topics">Thèmes</a></li>
+                        <li><a href="call-papers.html" data-i18n="nav_call_papers">Appel à communications</a></li>
+                        <li><a href="program.html" data-i18n="nav_program">Programme</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h3>Informations</h3>
+                    <ul>
+                        <li><a href="speakers.html" data-i18n="nav_speakers">Intervenants</a></li>
+                        <li><a href="practical-info.html" data-i18n="nav_practical_info">Infos pratiques</a></li>
+                        <li><a href="partners.html" data-i18n="nav_partners">Partenaires</a></li>
+                        <li><a href="news.html" data-i18n="nav_news">Actualités</a></li>
+                        <li><a href="gallery.html" data-i18n="nav_gallery">Galerie</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h3>Contact</h3>
+                    <ul>
+                        <li><i class="fas fa-envelope"></i> <a href="mailto:audace@aims.ac.za">audace@aims.ac.za</a></li>
+                        <li><i class="fas fa-phone"></i> <a href="tel:+2290198917029">+229 01 98 91 70 29</a></li>
+                        <li><i class="fas fa-map-marker-alt"></i> Palais des Congrès, Cotonou, Bénin</li>
+                    </ul>
+                </div>
+            </div>
+            <div class="copyright">
+                <p>&copy; 2025 Semaine de l'Eau. Tous droits réservés. <a href="#" data-i18n="footer_legal">Mentions légales</a> | <a href="#" data-i18n="footer_privacy">Politique de confidentialité</a></p>
+            </div>
+        </div>
+    </footer>
+
+    <a href="#" class="back-to-top" aria-label="Retour en haut">
+        <i class="fas fa-arrow-up"></i>
+    </a>
+
+    <script src="js/main.js"></script>
+    <script src="js/i18n.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            // Menu mobile
+            const mobileMenuToggle = document.querySelector('.mobile-menu-toggle');
+            const nav = document.querySelector('nav');
+            
+            if (mobileMenuToggle && nav) {
+                mobileMenuToggle.addEventListener('click', function(e) {
+                    e.preventDefault();
+                    mobileMenuToggle.classList.toggle('active');
+                    nav.classList.toggle('active');
+                    document.body.classList.toggle('menu-open');
+                });
+            }
+            
+            // Filtrage des actualités
+            const newsFilters = document.querySelectorAll('.news-filter');
+            const newsCards = document.querySelectorAll('.news-card');
+            
+            newsFilters.forEach(filter => {
+                filter.addEventListener('click', () => {
+                    // Mettre à jour le filtre actif
+                    newsFilters.forEach(f => f.classList.remove('active'));
+                    filter.classList.add('active');
+                    
+                    const category = filter.getAttribute('data-category');
+                    
+                    // Filtrer les actualités
+                    newsCards.forEach(card => {
+                        if (category === 'all' || card.getAttribute('data-category') === category) {
+                            card.style.display = 'block';
+                        } else {
+                            card.style.display = 'none';
+                        }
+                    });
+                });
+            });
+            
+            // Animation au scroll
+            const animateElements = document.querySelectorAll('.animate-on-scroll');
+            
+            const checkInView = () => {
+                animateElements.forEach(element => {
+                    const elementTop = element.getBoundingClientRect().top;
+                    const windowHeight = window.innerHeight;
+                    
+                    if (elementTop < windowHeight * 0.8) {
+                        const delay = element.getAttribute('data-delay') || 0;
+                        setTimeout(() => {
+                            element.classList.add(element.getAttribute('data-animation'));
+                        }, delay);
+                    }
+                });
+            };
+            
+            window.addEventListener('scroll', checkInView);
+            checkInView(); // Check on load
+        });
+    </script>
+</body>
+</html> 
