@@ -1,0 +1,406 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact - Semaine de l'Eau 2025</title>
+    <link rel="stylesheet" href="css/variables.css">
+    <link rel="stylesheet" href="css/styles.css">
+    <link rel="stylesheet" href="css/responsive.css">
+    <link rel="stylesheet" href="css/mobile-menu.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Outfit:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
+    <link rel="preload" href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Outfit:wght@400;500;600;700;800&display=swap" as="style">
+    <meta name="description" content="Contactez l'équipe organisatrice de la Semaine de l'Eau 2025 à Cotonou, Bénin.">
+    <meta name="keywords" content="contact, semaine de l'eau, formulaire, Cotonou, Bénin, conférence, développement durable">
+    <link rel="icon" type="image/png" sizes="32x32" href="https://i.ibb.co/bRJqChct/carte-du-lieu.png">
+</head>
+<body>
+    <header>
+        <div class="logo-container">
+            <img src="https://i.ibb.co/8nLpXxbm/Logo-INE.png" alt="Water Week Logo">
+        </div>
+        <nav>
+            <ul>
+                <li class="dropdown">
+                    <a href="index.html" data-i18n="nav_home">Accueil</a>
+                    <div class="dropdown-content">
+                        <a href="index.html#about" data-i18n="nav_about">À propos</a>
+                    </div>
+                </li>
+                <li class="dropdown">
+                    <a href="themes.html" data-i18n="nav_program">Programme</a>
+                    <div class="dropdown-content">
+                        <a href="themes.html" data-i18n="nav_topics">Thèmes</a>
+                        <a href="call-papers.html" data-i18n="nav_call_papers">Appel à communications</a>
+                        <a href="program.html" data-i18n="nav_program">Programme</a>
+                        <a href="speakers.html" data-i18n="nav_speakers">Intervenants</a>
+                    </div>
+                </li>
+                <li class="dropdown">
+                    <a href="practical-info.html" data-i18n="nav_info_media">Infos & Médias</a>
+                    <div class="dropdown-content">
+                        <a href="practical-info.html" data-i18n="nav_practical_info">Infos pratiques</a>
+                        <a href="partners.html" data-i18n="nav_partners">Partenaires</a>
+                        <a href="news.html" data-i18n="nav_news">Actualités</a>
+                        <a href="gallery.html" data-i18n="nav_gallery">Galerie</a>
+                        <a href="contact.html" data-i18n="nav_contact">Contact</a>
+                    </div>
+                </li>
+            </ul>
+        </nav>
+        <div class="mobile-menu-toggle">
+            <span></span>
+            <span></span>
+            <span></span>
+            <span></span>
+        </div>
+    </header>
+
+    <main>
+        <!-- Hero Section pour la page contact -->
+        <section class="theme-hero">
+            <div class="theme-hero-bg" style="background-image: url('https://i.ibb.co/XL7Qy9BK/DSC7059.jpg');"></div>
+            <div class="theme-hero-overlay"></div>
+            <div class="theme-hero-content">
+                <div class="theme-icon-large">
+                    <i class="fas fa-envelope"></i>
+                </div>
+                <h1>Contactez-nous</h1>
+                <p>L'équipe de la Semaine de l'Eau 2025 est à votre disposition</p>
+            </div>
+        </section>
+
+        <!-- Section Contact -->
+        <section id="contact" class="section">
+            <div class="container">
+                <h2 class="section-title">Contactez-nous</h2>
+                <p class="section-subtitle">Vous avez des questions sur la Semaine de l'Eau 2025 ? Nous sommes là pour vous aider.</p>
+                
+                <div class="contact-grid">
+                    <div class="contact-form-container">
+                        <h3>Formulaire de contact</h3>
+                        <form id="contactForm" class="contact-form" action="https://formspree.io/f/xkgrjara" method="POST">
+                            <input type="hidden" name="_cc" value="audace@aims.ac.za">
+                            <div class="form-row">
+                                <div class="form-group">
+                                    <label for="firstName">Prénom <span class="required">*</span></label>
+                                    <input type="text" id="firstName" name="firstName" required>
+                                </div>
+                                <div class="form-group">
+                                    <label for="lastName">Nom <span class="required">*</span></label>
+                                    <input type="text" id="lastName" name="lastName" required>
+                                </div>
+                            </div>
+                            
+                            <div class="form-row">
+                                <div class="form-group">
+                                    <label for="email">Email <span class="required">*</span></label>
+                                    <input type="email" id="email" name="email" required>
+                                </div>
+                                <div class="form-group">
+                                    <label for="phone">Téléphone</label>
+                                    <input type="tel" id="phone" name="phone">
+                                </div>
+                            </div>
+                            
+                            <div class="form-group">
+                                <label for="subject">Sujet <span class="required">*</span></label>
+                                <select id="subject" name="subject" required>
+                                    <option value="">Choisissez un sujet</option>
+                                    <option value="inscription">Inscription à la conférence</option>
+                                    <option value="soumission">Soumission de résumé</option>
+                                    <option value="partenariat">Proposition de partenariat</option>
+                                    <option value="hébergement">Hébergement et logistique</option>
+                                    <option value="presse">Demande presse/média</option>
+                                    <option value="autre">Autre demande</option>
+                                </select>
+                            </div>
+                            
+                            <div class="form-group">
+                                <label for="message">Message <span class="required">*</span></label>
+                                <textarea id="message" name="message" rows="5" required></textarea>
+                            </div>
+                            
+                            <div class="form-group consent-checkbox">
+                                <input type="checkbox" id="consent" name="consent" required>
+                                <label for="consent">J'accepte que mes données soient utilisées pour le traitement de ma demande. <span class="required">*</span></label>
+                            </div>
+                            
+                            <button type="submit" class="btn btn-primary">Envoyer le message</button>
+                        </form>
+                    </div>
+                    
+                    <div class="contact-info">
+                        <h3>Informations de contact</h3>
+                        <p>Notre équipe est disponible pour répondre à vos questions et vous fournir toutes les informations dont vous avez besoin concernant la Semaine de l'Eau 2025.</p>
+                        
+                        <div class="contact-details">
+                            <div class="contact-item">
+                                <i class="fas fa-envelope"></i>
+                                <div>
+                                    <h4>Email</h4>
+                                    <p><a href="mailto:audace@aims.ac.za">audace@aims.ac.za</a></p>
+                                </div>
+                            </div>
+                            <div class="contact-item">
+                                <i class="fas fa-phone"></i>
+                                <div>
+                                    <h4>Téléphone</h4>
+                                    <p><a href="tel:+2290198917029">+229 01 98 91 70 29</a></p>
+                                </div>
+                            </div>
+                            <div class="contact-item">
+                                <i class="fas fa-map-marker-alt"></i>
+                                <div>
+                                    <h4>Adresse</h4>
+                                    <p>Institut National de l'Eau (INE)<br>Université d'Abomey-Calavi<br>01 BP 526, Cotonou, Bénin</p>
+                                </div>
+                            </div>
+                            <div class="contact-item">
+                                <i class="fas fa-clock"></i>
+                                <div>
+                                    <h4>Horaires</h4>
+                                    <p>Lundi - Vendredi<br>9h00 - 17h00 GMT+1</p>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="social-contact">
+                            <h4>Suivez-nous</h4>
+                            <div class="social-links">
+                                <a href="https://www.facebook.com/share/16B1WdQbLX/" class="social-link" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
+                                <a href="#" class="social-link" aria-label="Twitter"><i class="fab fa-twitter"></i></a>
+                                <a href="#" class="social-link" aria-label="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
+                                <a href="#" class="social-link" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="map-section">
+                    <h3>Lieu de la conférence</h3>
+                    <div class="map-container">
+                        <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3964.5738656596227!2d2.347712615427336!3d6.4453991253483865!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x1023585c8a4fd079%3A0x8c00a5f28cb5bbbf!2sPalais%20des%20Congr%C3%A8s%20Cotonou!5e0!3m2!1sfr!2sus!4v1635162072348!5m2!1sfr!2sus" width="100%" height="450" style="border:0;" allowfullscreen="" loading="lazy"></iframe>
+                    </div>
+                </div>
+                
+                <div class="faq-section">
+                    <h3>Questions fréquentes</h3>
+                    <div class="accordion">
+                        <div class="accordion-item">
+                            <div class="accordion-header">
+                                <h4>Comment puis-je m'inscrire à la conférence ?</h4>
+                                <i class="fas fa-chevron-down"></i>
+                            </div>
+                            <div class="accordion-content">
+                                <p>Les inscriptions pour participer à la Semaine de l'Eau 2025 sont ouvertes. Vous pouvez vous inscrire directement en ligne via notre formulaire d'inscription. Des tarifs préférentiels sont disponibles pour les inscriptions anticipées.</p>
+                            </div>
+                        </div>
+                        <div class="accordion-item">
+                            <div class="accordion-header">
+                                <h4>Comment soumettre un résumé pour présenter ma recherche ?</h4>
+                                <i class="fas fa-chevron-down"></i>
+                            </div>
+                            <div class="accordion-content">
+                                <p>Les soumissions de résumés se font via notre page dédiée "Appel à communications". Vous y trouverez toutes les instructions nécessaires ainsi que le formulaire de soumission. La date limite est fixée au 10 mai 2025.</p>
+                            </div>
+                        </div>
+                        <div class="accordion-item">
+                            <div class="accordion-header">
+                                <h4>Y a-t-il des possibilités de sponsoring ou de partenariat ?</h4>
+                                <i class="fas fa-chevron-down"></i>
+                            </div>
+                            <div class="accordion-content">
+                                <p>Oui, plusieurs formules de partenariat sont disponibles pour les organisations souhaitant s'associer à la Semaine de l'Eau 2025. Veuillez nous contacter via ce formulaire en sélectionnant "Proposition de partenariat" comme sujet pour recevoir notre dossier de partenariat.</p>
+                            </div>
+                        </div>
+                        <div class="accordion-item">
+                            <div class="accordion-header">
+                                <h4>Comment se rendre au Palais des Congrès de Cotonou ?</h4>
+                                <i class="fas fa-chevron-down"></i>
+                            </div>
+                            <div class="accordion-content">
+                                <p>Vous trouverez toutes les informations concernant l'accès au lieu de la conférence, ainsi que les options de transport et d'hébergement, dans notre section "Infos pratiques".</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <div class="container">
+            <div class="footer-container">
+                <div class="footer-col">
+                    <img src="https://i.ibb.co/8nLpXxbm/Logo-INE.png" alt="Water Week Logo" class="footer-logo">
+                    <p>La Semaine de l'Eau est un événement international qui rassemble experts et chercheurs autour des enjeux liés à l'eau dans le contexte des changements climatiques.</p>
+                    <div class="social-links">
+                        <a href="https://www.facebook.com/share/16B1WdQbLX/" class="social-link" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#" class="social-link" aria-label="Twitter"><i class="fab fa-twitter"></i></a>
+                        <a href="#" class="social-link" aria-label="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
+                        <a href="#" class="social-link" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+                    </div>
+                </div>
+                <div class="footer-col">
+                    <h3>Liens rapides</h3>
+                    <ul>
+                        <li><a href="index.html" data-i18n="nav_home">Accueil</a></li>
+                        <li><a href="index.html#about" data-i18n="nav_about">À propos</a></li>
+                        <li><a href="themes.html" data-i18n="nav_topics">Thèmes</a></li>
+                        <li><a href="call-papers.html" data-i18n="nav_call_papers">Appel à communications</a></li>
+                        <li><a href="program.html" data-i18n="nav_program">Programme</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h3>Informations</h3>
+                    <ul>
+                        <li><a href="speakers.html" data-i18n="nav_speakers">Intervenants</a></li>
+                        <li><a href="practical-info.html" data-i18n="nav_practical_info">Infos pratiques</a></li>
+                        <li><a href="partners.html" data-i18n="nav_partners">Partenaires</a></li>
+                        <li><a href="news.html" data-i18n="nav_news">Actualités</a></li>
+                        <li><a href="gallery.html" data-i18n="nav_gallery">Galerie</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h3>Contact</h3>
+                    <ul>
+                        <li><i class="fas fa-envelope"></i> <a href="mailto:audace@aims.ac.za">audace@aims.ac.za</a></li>
+                        <li><i class="fas fa-phone"></i> <a href="tel:+2290198917029">+229 01 98 91 70 29</a></li>
+                        <li><i class="fas fa-map-marker-alt"></i> Palais des Congrès, Cotonou, Bénin</li>
+                    </ul>
+                </div>
+            </div>
+            <div class="copyright">
+                <p>&copy; 2025 Semaine de l'Eau. Tous droits réservés. <a href="#" data-i18n="footer_legal">Mentions légales</a> | <a href="#" data-i18n="footer_privacy">Politique de confidentialité</a></p>
+            </div>
+        </div>
+    </footer>
+
+    <a href="#" class="back-to-top" aria-label="Retour en haut">
+        <i class="fas fa-arrow-up"></i>
+    </a>
+
+    <script src="js/main.js"></script>
+    <script src="js/i18n.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            // Menu mobile
+            const mobileMenuToggle = document.querySelector('.mobile-menu-toggle');
+            const nav = document.querySelector('nav');
+            
+            if (mobileMenuToggle && nav) {
+                mobileMenuToggle.addEventListener('click', function(e) {
+                    e.preventDefault();
+                    mobileMenuToggle.classList.toggle('active');
+                    nav.classList.toggle('active');
+                    document.body.classList.toggle('menu-open');
+                });
+            }
+            
+            // Animation au scroll
+            const animateElements = document.querySelectorAll('.animate-on-scroll');
+            
+            const checkInView = () => {
+                animateElements.forEach(element => {
+                    const elementTop = element.getBoundingClientRect().top;
+                    const windowHeight = window.innerHeight;
+                    
+                    if (elementTop < windowHeight * 0.8) {
+                        const delay = element.getAttribute('data-delay') || 0;
+                        setTimeout(() => {
+                            element.classList.add(element.getAttribute('data-animation'));
+                        }, delay);
+                    }
+                });
+            };
+            
+            window.addEventListener('scroll', checkInView);
+            checkInView(); // Check on load
+            
+            // Accordéon FAQ
+            const accordionItems = document.querySelectorAll('.accordion-item');
+            
+            accordionItems.forEach(item => {
+                const header = item.querySelector('.accordion-header');
+                const content = item.querySelector('.accordion-content');
+                
+                header.addEventListener('click', () => {
+                    item.classList.toggle('active');
+                    if (item.classList.contains('active')) {
+                        content.style.maxHeight = content.scrollHeight + 'px';
+                    } else {
+                        content.style.maxHeight = '0';
+                    }
+                });
+            });
+            
+            // Validation du formulaire
+            const contactForm = document.getElementById('contactForm');
+            
+            if (contactForm) {
+                contactForm.addEventListener('submit', function(e) {
+                    e.preventDefault();
+                    
+                    // Validation simple
+                    let isValid = true;
+                    const requiredFields = contactForm.querySelectorAll('[required]');
+                    
+                    requiredFields.forEach(field => {
+                        if (!field.value.trim()) {
+                            isValid = false;
+                            field.classList.add('error');
+                        } else {
+                            field.classList.remove('error');
+                        }
+                    });
+                    
+                    // Validation de l'email
+                    const emailField = document.getElementById('email');
+                    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+                    
+                    if (emailField.value.trim() && !emailRegex.test(emailField.value)) {
+                        isValid = false;
+                        emailField.classList.add('error');
+                    }
+                    
+                    if (isValid) {
+                        // Ajout d'un champ caché pour le sujet
+                        const subjectField = document.getElementById('subject');
+                        const hiddenSubject = document.createElement('input');
+                        hiddenSubject.type = 'hidden';
+                        hiddenSubject.name = '_subject';
+                        hiddenSubject.value = 'Nouveau message - Semaine de l\'Eau 2025: ' + subjectField.options[subjectField.selectedIndex].text;
+                        contactForm.appendChild(hiddenSubject);
+                        
+                        // Configuration de la redirection
+                        const hiddenRedirect = document.createElement('input');
+                        hiddenRedirect.type = 'hidden';
+                        hiddenRedirect.name = '_next';
+                        
+                        // Construire l'URL de redirection dynamiquement
+                        const currentUrl = window.location.href;
+                        const baseUrl = currentUrl.substring(0, currentUrl.lastIndexOf('/') + 1);
+                        hiddenRedirect.value = baseUrl + 'merci.html';
+                        
+                        contactForm.appendChild(hiddenRedirect);
+                        
+                        // Désactiver le captcha
+                        const hiddenCaptcha = document.createElement('input');
+                        hiddenCaptcha.type = 'hidden';
+                        hiddenCaptcha.name = '_captcha';
+                        hiddenCaptcha.value = 'false';
+                        contactForm.appendChild(hiddenCaptcha);
+                        
+                        // Soumettre le formulaire
+                        contactForm.submit();
+                    }
+                });
+            }
+        });
+    </script>
+</body>
+</html> 

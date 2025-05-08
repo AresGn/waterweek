@@ -1,0 +1,465 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Infos pratiques - Semaine de l'Eau 2025</title>
+    <link rel="stylesheet" href="css/variables.css">
+    <link rel="stylesheet" href="css/styles.css">
+    <link rel="stylesheet" href="css/responsive.css">
+    <link rel="stylesheet" href="css/mobile-menu.css">
+    <link rel="stylesheet" href="css/practical-info.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Outfit:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
+    <link rel="preload" href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Outfit:wght@400;500;600;700;800&display=swap" as="style">
+    <meta name="description" content="Informations pratiques pour votre participation à la Semaine de l'Eau 2025 à Cotonou - Transport, hébergement, visa.">
+    <meta name="keywords" content="infos pratiques, Cotonou, Bénin, hébergement, transport, visa, conférence">
+    <link rel="icon" type="image/png" sizes="32x32" href="https://i.ibb.co/bRJqChct/carte-du-lieu.png">
+</head>
+<body>
+    <header>
+        <div class="logo-container">
+            <img src="https://i.ibb.co/8nLpXxbm/Logo-INE.png" alt="Water Week Logo">
+        </div>
+        <nav>
+            <ul>
+                <li class="dropdown">
+                    <a href="index.html" data-i18n="nav_home">Accueil</a>
+                    <div class="dropdown-content">
+                        <a href="index.html#about" data-i18n="nav_about">À propos</a>
+                    </div>
+                </li>
+                <li class="dropdown">
+                    <a href="themes.html" data-i18n="nav_program">Programme</a>
+                    <div class="dropdown-content">
+                        <a href="themes.html" data-i18n="nav_topics">Thèmes</a>
+                        <a href="call-papers.html" data-i18n="nav_call_papers">Appel à communications</a>
+                        <a href="program.html" data-i18n="nav_program">Programme</a>
+                        <a href="speakers.html" data-i18n="nav_speakers">Intervenants</a>
+                    </div>
+                </li>
+                <li class="dropdown">
+                    <a href="practical-info.html" data-i18n="nav_info_media">Infos & Médias</a>
+                    <div class="dropdown-content">
+                        <a href="practical-info.html" data-i18n="nav_practical_info">Infos pratiques</a>
+                        <a href="partners.html" data-i18n="nav_partners">Partenaires</a>
+                        <a href="news.html" data-i18n="nav_news">Actualités</a>
+                        <a href="gallery.html" data-i18n="nav_gallery">Galerie</a>
+                        <a href="contact.html" data-i18n="nav_contact">Contact</a>
+                    </div>
+                </li>
+            </ul>
+        </nav>
+        <div class="mobile-menu-toggle">
+            <span></span>
+            <span></span>
+            <span></span>
+            <span></span>
+        </div>
+    </header>
+
+    <main>
+        <!-- Hero Section pour la page d'informations pratiques -->
+        <section class="theme-hero">
+            <div class="theme-hero-bg" style="background-image: url('https://i.ibb.co/Nnd78GLB/IMG-9232.jpg');"></div>
+            <div class="theme-hero-overlay"></div>
+            <div class="theme-hero-content">
+                <div class="theme-icon-large">
+                    <i class="fas fa-info-circle fa-3x"></i>
+                </div>
+                <h1>Informations pratiques</h1>
+                <p>Tout ce que vous devez savoir pour préparer votre venue à la Semaine de l'Eau 2025</p>
+            </div>
+        </section>
+
+        <!-- Section Informations pratiques -->
+        <section id="practical-info" class="section">
+            <div class="container">
+                <h2 class="section-title">Informations pratiques</h2>
+                <p class="section-subtitle">Planifiez votre participation à cet événement international à Cotonou</p>
+                
+                <div class="intro-grid">
+                    <div class="intro-card">
+                        <div class="intro-icon">
+                            <i class="fas fa-calendar-alt"></i>
+                        </div>
+                        <h3>Dates</h3>
+                        <p>Du 26 au 30 juin 2025</p>
+                    </div>
+                    <div class="intro-card">
+                        <div class="intro-icon">
+                            <i class="fas fa-map-marker-alt"></i>
+                        </div>
+                        <h3>Lieu</h3>
+                        <p>Palais des Congrès, Cotonou, Bénin</p>
+                    </div>
+                    <div class="intro-card">
+                        <div class="intro-icon">
+                            <i class="fas fa-user-friends"></i>
+                        </div>
+                        <h3>Participants</h3>
+                        <p>Plus de 500 experts et chercheurs attendus</p>
+                    </div>
+                    <div class="intro-card">
+                        <div class="intro-icon">
+                            <i class="fas fa-globe-africa"></i>
+                        </div>
+                        <h3>International</h3>
+                        <p>Intervenants de plus de 30 pays</p>
+                    </div>
+                </div>
+                
+                <div class="info-tabs">
+                    <div class="tab-buttons">
+                        <button class="tab-btn active" data-tab="venue">Lieu</button>
+                        <button class="tab-btn" data-tab="accommodation">Hébergement</button>
+                        <button class="tab-btn" data-tab="transportation">Transport</button>
+                        <button class="tab-btn" data-tab="visa">Visa & Santé</button>
+                        <button class="tab-btn" data-tab="about-cotonou">Découvrir Cotonou</button>
+                    </div>
+                    
+                    <div class="tab-content">
+                        <div class="tab-pane active" id="venue">
+                            <div class="info-grid">
+                                <div class="info-text">
+                                    <h3>Palais des Congrès de Cotonou</h3>
+                                    <p>La Semaine de l'Eau 2025 se tiendra au Palais des Congrès de Cotonou, un lieu moderne et entièrement équipé pour accueillir des événements internationaux.</p>
+                                    
+                                    <div class="info-details">
+                                        <div class="info-item">
+                                            <i class="fas fa-map-marker-alt"></i>
+                                            <p>Boulevard de la Marina, Cotonou, Bénin</p>
+                                        </div>
+                                        <div class="info-item">
+                                            <i class="fas fa-phone"></i>
+                                            <p>+229 21 31 20 30</p>
+                                        </div>
+                                        <div class="info-item">
+                                            <i class="fas fa-globe"></i>
+                                            <p><a href="http://www.palaisdescongresdecotonou.bj" target="_blank">www.palaisdescongresdecotonou.bj</a></p>
+                                        </div>
+                                    </div>
+                                    
+                                    <h4>Accès</h4>
+                                    <ul>
+                                        <li>À 15 minutes de l'aéroport international de Cotonou</li>
+                                        <li>Facilement accessible en taxi depuis le centre-ville</li>
+                                        <li>Parking disponible sur place</li>
+                                    </ul>
+                                </div>
+                                <div class="info-map">
+                                    <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3964.5738656596227!2d2.347712615427336!3d6.4453991253483865!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x1023585c8a4fd079%3A0x8c00a5f28cb5bbbf!2sPalais%20des%20Congr%C3%A8s%20Cotonou!5e0!3m2!1sfr!2sus!4v1635162072348!5m2!1sfr!2sus" width="100%" height="350" style="border:0;" allowfullscreen="" loading="lazy"></iframe>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="tab-pane" id="accommodation">
+                            <h3>Hébergements recommandés</h3>
+                            <p>Nous avons négocié des tarifs préférentiels dans plusieurs hôtels à proximité du lieu de la conférence. Mentionnez "Semaine de l'Eau 2025" lors de votre réservation pour bénéficier de ces tarifs.</p>
+                            
+                            <div class="accommodations-grid">
+                                <div class="accommodation-card">
+                                    <div class="accommodation-image">
+                                        <img src="https://i.ibb.co/g9PtR4V5/hotel1.jpg" alt="Golden Tulip Le Diplomate">
+                                    </div>
+                                    <div class="accommodation-info">
+                                        <h4>Golden Tulip Le Diplomate</h4>
+                                        <div class="hotel-category">
+                                            <i class="fas fa-star"></i>
+                                            <i class="fas fa-star"></i>
+                                            <i class="fas fa-star"></i>
+                                            <i class="fas fa-star"></i>
+                                        </div>
+                                        <p>À 5 minutes du Palais des Congrès</p>
+                                        <p>À partir de 80€/nuit</p>
+                                        <a href="https://www.goldentulip.com/fr-fr/hotels/golden-tulip-le-diplomate-cotonou/" target="_blank" class="btn btn-small">Réserver</a>
+                                    </div>
+                                </div>
+                                <div class="accommodation-card">
+                                    <div class="accommodation-image">
+                                        <img src="https://i.ibb.co/XZkWvP16/hotel2.jpg" alt="Novotel Cotonou Orisha">
+                                    </div>
+                                    <div class="accommodation-info">
+                                        <h4>Novotel Cotonou Orisha</h4>
+                                        <div class="hotel-category">
+                                            <i class="fas fa-star"></i>
+                                            <i class="fas fa-star"></i>
+                                            <i class="fas fa-star"></i>
+                                            <i class="fas fa-star"></i>
+                                        </div>
+                                        <p>À 10 minutes du Palais des Congrès</p>
+                                        <p>À partir de 85€/nuit</p>
+                                        <a href="https://all.accor.com/hotel/0940/index.fr.shtml" target="_blank" class="btn btn-small">Réserver</a>
+                                    </div>
+                                </div>
+                                <div class="accommodation-card">
+                                    <div class="accommodation-image">
+                                        <img src="https://i.ibb.co/3y9GcXJ7/hotel3.jpg" alt="Benin Marina Hotel">
+                                    </div>
+                                    <div class="accommodation-info">
+                                        <h4>Benin Marina Hotel</h4>
+                                        <div class="hotel-category">
+                                            <i class="fas fa-star"></i>
+                                            <i class="fas fa-star"></i>
+                                            <i class="fas fa-star"></i>
+                                        </div>
+                                        <p>À 7 minutes du Palais des Congrès</p>
+                                        <p>À partir de 60€/nuit</p>
+                                        <a href="https://www.beninmarinahotel.com/" target="_blank" class="btn btn-small">Réserver</a>
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            <p class="info-note">D'autres options d'hébergement sont disponibles dans la ville, allant des hôtels économiques aux établissements de luxe. N'hésitez pas à nous contacter si vous avez besoin d'aide pour trouver un logement adapté à votre budget.</p>
+                        </div>
+                        
+                        <div class="tab-pane" id="transportation">
+                            <h3>Comment se rendre à Cotonou</h3>
+                            
+                            <div class="transportation-methods">
+                                <div class="transportation-method">
+                                    <div class="transportation-icon">
+                                        <i class="fas fa-plane"></i>
+                                    </div>
+                                    <div class="transportation-details">
+                                        <h4>Par avion</h4>
+                                        <p>L'aéroport international Cardinal Bernardin Gantin de Cotonou (COO) est desservi par plusieurs compagnies aériennes internationales :</p>
+                                        <ul>
+                                            <li>Air France (depuis Paris)</li>
+                                            <li>Brussels Airlines (depuis Bruxelles)</li>
+                                            <li>Ethiopian Airlines (depuis Addis-Abeba)</li>
+                                            <li>Royal Air Maroc (depuis Casablanca)</li>
+                                            <li>Air Côte d'Ivoire (depuis Abidjan)</li>
+                                            <li>ASKY Airlines (plusieurs destinations africaines)</li>
+                                        </ul>
+                                    </div>
+                                </div>
+                                
+                                <div class="transportation-method">
+                                    <div class="transportation-icon">
+                                        <i class="fas fa-car"></i>
+                                    </div>
+                                    <div class="transportation-details">
+                                        <h4>Se déplacer à Cotonou</h4>
+                                        <p>Plusieurs options s'offrent à vous pour vous déplacer dans la ville :</p>
+                                        <ul>
+                                            <li><strong>Taxis :</strong> Facilement disponibles dans toute la ville. Négociez le prix avant de monter.</li>
+                                            <li><strong>Zémidjans (moto-taxis) :</strong> Option rapide et économique pour éviter les embouteillages.</li>
+                                            <li><strong>Location de voiture :</strong> Plusieurs agences de location sont présentes à l'aéroport et en ville.</li>
+                                            <li><strong>Navettes de l'événement :</strong> Des navettes gratuites circuleront entre les hôtels partenaires et le Palais des Congrès.</li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="tab-pane" id="visa">
+                            <h3>Visa et formalités d'entrée</h3>
+                            <p>Les citoyens de la plupart des pays ont besoin d'un visa pour entrer au Bénin. Nous vous recommandons de vérifier les exigences spécifiques auprès de l'ambassade ou du consulat du Bénin dans votre pays.</p>
+                            
+                            <div class="info-card">
+                                <h4>E-Visa</h4>
+                                <p>Le Bénin propose désormais un système de visa électronique qui facilite les démarches. Vous pouvez faire votre demande en ligne sur le site officiel :</p>
+                                <a href="https://evisa.gouv.bj" target="_blank" class="btn">Demander un e-Visa</a>
+                            </div>
+                            
+                            <div class="info-card">
+                                <h4>Documents requis</h4>
+                                <ul>
+                                    <li>Passeport valide 6 mois après la date d'entrée</li>
+                                    <li>Lettre d'invitation (fournie par l'organisation sur demande)</li>
+                                    <li>Preuve d'hébergement</li>
+                                    <li>Billet d'avion aller-retour</li>
+                                </ul>
+                            </div>
+                            
+                            <h3>Informations sanitaires</h3>
+                            <p>Avant votre voyage au Bénin, veuillez vérifier les recommandations sanitaires en vigueur.</p>
+                            
+                            <div class="info-card">
+                                <h4>Vaccinations</h4>
+                                <ul>
+                                    <li>La vaccination contre la fièvre jaune est obligatoire pour entrer au Bénin</li>
+                                    <li>Vaccinations recommandées : hépatite A et B, typhoïde, méningite</li>
+                                    <li>Vérifiez les dernières exigences liées à la COVID-19</li>
+                                </ul>
+                            </div>
+                            
+                            <div class="info-card">
+                                <h4>Santé et assurance</h4>
+                                <p>Nous recommandons vivement de souscrire une assurance voyage couvrant les frais médicaux et le rapatriement.</p>
+                                <p>Le Bénin est une zone où le paludisme est présent. Consultez votre médecin pour un traitement préventif adapté.</p>
+                            </div>
+                        </div>
+                        
+                        <div class="tab-pane" id="about-cotonou">
+                            <h3>Découvrir Cotonou</h3>
+                            <p>Profitez de votre séjour pour découvrir Cotonou, une ville dynamique offrant un riche patrimoine culturel et des attractions intéressantes.</p>
+                            
+                            <div class="attractions-grid">
+                                <div class="attraction-card">
+                                    <img src="https://i.ibb.co/xf7NWBC4/dantokpa.jpg" alt="Marché Dantokpa">
+                                    <h4>Marché Dantokpa</h4>
+                                    <p>Le plus grand marché d'Afrique de l'Ouest, où vous pourrez découvrir l'artisanat local et les tissus colorés.</p>
+                                </div>
+                                <div class="attraction-card">
+                                    <img src="https://i.ibb.co/C6XpsTR9/fondation.jpg" alt="Fondation Zinsou">
+                                    <h4>Fondation Zinsou</h4>
+                                    <p>Centre d'art contemporain africain présentant des expositions d'artistes locaux et internationaux.</p>
+                                </div>
+                                <div class="attraction-card">
+                                    <img src="https://i.ibb.co/R3XjGHm5/ganvie.jpg" alt="Village de Ganvié">
+                                    <h4>Village de Ganvié</h4>
+                                    <p>Surnommé la "Venise de l'Afrique", ce village lacustre sur pilotis vaut le détour (excursion d'une journée).</p>
+                                </div>
+                                <div class="attraction-card">
+                                    <img src="https://i.ibb.co/zs5B4s3L/route-esclaves.jpg" alt="Route des Esclaves">
+                                    <h4>Route des Esclaves</h4>
+                                    <p>Site historique à Ouidah retraçant le parcours des esclaves vers les navires négriers (excursion d'une journée).</p>
+                                </div>
+                            </div>
+                            
+                            <div class="info-card">
+                                <h4>Climat</h4>
+                                <p>En juin, Cotonou connaît une saison des pluies. Températures moyennes entre 25°C et 30°C avec des averses occasionnelles. Pensez à emporter un parapluie ou un imperméable léger.</p>
+                            </div>
+                            
+                            <div class="info-card">
+                                <h4>Langue</h4>
+                                <p>La langue officielle est le français. Le fon est largement parlé localement.</p>
+                            </div>
+                            
+                            <div class="info-card">
+                                <h4>Devise</h4>
+                                <p>La monnaie locale est le Franc CFA (XOF). Des bureaux de change sont disponibles à l'aéroport et dans les grandes banques. Les cartes de crédit sont acceptées dans les grands hôtels et restaurants.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="cta-box" style="margin-top: 3rem;">
+                    <h3>Des questions sur votre venue ?</h3>
+                    <p>Notre équipe est à votre disposition pour vous aider à préparer votre voyage et votre séjour à Cotonou.</p>
+                    <div class="cta-buttons">
+                        <a href="contact.html" class="btn btn-primary">Contactez-nous</a>
+                        <a href="download/guide-participant.pdf" class="btn btn-secondary" download>Télécharger le guide du participant</a>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <div class="container">
+            <div class="footer-container">
+                <div class="footer-col">
+                    <img src="https://i.ibb.co/8nLpXxbm/Logo-INE.png" alt="Water Week Logo" class="footer-logo">
+                    <p>La Semaine de l'Eau est un événement international qui rassemble experts et chercheurs autour des enjeux liés à l'eau dans le contexte des changements climatiques.</p>
+                    <div class="social-links">
+                        <a href="https://www.facebook.com/share/16B1WdQbLX/" class="social-link" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#" class="social-link" aria-label="Twitter"><i class="fab fa-twitter"></i></a>
+                        <a href="#" class="social-link" aria-label="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
+                        <a href="#" class="social-link" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+                    </div>
+                </div>
+                <div class="footer-col">
+                    <h3>Liens rapides</h3>
+                    <ul>
+                        <li><a href="index.html" data-i18n="nav_home">Accueil</a></li>
+                        <li><a href="index.html#about" data-i18n="nav_about">À propos</a></li>
+                        <li><a href="themes.html" data-i18n="nav_topics">Thèmes</a></li>
+                        <li><a href="call-papers.html" data-i18n="nav_call_papers">Appel à communications</a></li>
+                        <li><a href="program.html" data-i18n="nav_program">Programme</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h3>Informations</h3>
+                    <ul>
+                        <li><a href="speakers.html" data-i18n="nav_speakers">Intervenants</a></li>
+                        <li><a href="practical-info.html" data-i18n="nav_practical_info">Infos pratiques</a></li>
+                        <li><a href="partners.html" data-i18n="nav_partners">Partenaires</a></li>
+                        <li><a href="news.html" data-i18n="nav_news">Actualités</a></li>
+                        <li><a href="gallery.html" data-i18n="nav_gallery">Galerie</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h3>Contact</h3>
+                    <ul>
+                        <li><i class="fas fa-envelope"></i> <a href="mailto:audace@aims.ac.za">audace@aims.ac.za</a></li>
+                        <li><i class="fas fa-phone"></i> <a href="tel:+2290198917029">+229 01 98 91 70 29</a></li>
+                        <li><i class="fas fa-map-marker-alt"></i> Palais des Congrès, Cotonou, Bénin</li>
+                    </ul>
+                </div>
+            </div>
+            <div class="copyright">
+                <p>&copy; 2025 Semaine de l'Eau. Tous droits réservés. <a href="#" data-i18n="footer_legal">Mentions légales</a> | <a href="#" data-i18n="footer_privacy">Politique de confidentialité</a></p>
+            </div>
+        </div>
+    </footer>
+
+    <a href="#" class="back-to-top" aria-label="Retour en haut">
+        <i class="fas fa-arrow-up"></i>
+    </a>
+
+    <script src="js/main.js"></script>
+    <script src="js/i18n.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            // Menu mobile
+            const mobileMenuToggle = document.querySelector('.mobile-menu-toggle');
+            const nav = document.querySelector('nav');
+            
+            if (mobileMenuToggle && nav) {
+                mobileMenuToggle.addEventListener('click', function(e) {
+                    e.preventDefault();
+                    mobileMenuToggle.classList.toggle('active');
+                    nav.classList.toggle('active');
+                    document.body.classList.toggle('menu-open');
+                });
+            }
+            
+            // Onglets des infos pratiques
+            const tabButtons = document.querySelectorAll('.tab-btn');
+            const tabPanes = document.querySelectorAll('.tab-pane');
+            
+            tabButtons.forEach(button => {
+                button.addEventListener('click', () => {
+                    const tab = button.getAttribute('data-tab');
+                    
+                    // Mise à jour des boutons actifs
+                    tabButtons.forEach(btn => btn.classList.remove('active'));
+                    button.classList.add('active');
+                    
+                    // Affichage du contenu de l'onglet sélectionné
+                    tabPanes.forEach(pane => {
+                        pane.classList.remove('active');
+                    });
+                    document.getElementById(tab).classList.add('active');
+                });
+            });
+            
+            // Animation au scroll
+            const animateElements = document.querySelectorAll('.animate-on-scroll');
+            
+            const checkInView = () => {
+                animateElements.forEach(element => {
+                    const elementTop = element.getBoundingClientRect().top;
+                    const windowHeight = window.innerHeight;
+                    
+                    if (elementTop < windowHeight * 0.8) {
+                        const delay = element.getAttribute('data-delay') || 0;
+                        setTimeout(() => {
+                            element.classList.add(element.getAttribute('data-animation'));
+                        }, delay);
+                    }
+                });
+            };
+            
+            window.addEventListener('scroll', checkInView);
+            checkInView(); // Check on load
+        });
+    </script>
+</body>
+</html> 

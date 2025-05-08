@@ -2,7 +2,7 @@
 <html lang="fr">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
     <title data-i18n="gallery_title">Galerie Photos</title>
     <link rel="stylesheet" href="css/variables.css">
     <link rel="stylesheet" href="css/styles.css">
@@ -33,9 +33,53 @@
         }
         
         .gallery-page {
-            padding-top: 120px;
+            padding-top: 160px;
             background-color: var(--gallery-light);
             min-height: 100vh;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .theme-hero-bg {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 450px;
+            background-size: cover;
+            background-position: center;
+            z-index: 0;
+            filter: brightness(0.5);
+        }
+
+        .theme-hero-bg::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(to right, rgba(0, 78, 146, 0.6), rgba(0, 120, 231, 0.4));
+            z-index: 1;
+        }
+
+        .theme-hero-bg::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            height: 150px;
+            background: linear-gradient(to bottom, transparent, var(--gallery-light));
+            z-index: 2;
+        }
+        
+        .gallery-container {
+            position: relative;
+            z-index: 3;
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 0 1.5rem;
         }
         
         .gallery-heading {
@@ -48,10 +92,11 @@
             font-family: var(--font-secondary);
             font-weight: 800;
             font-size: 3.5rem;
-            color: var(--gallery-dark);
+            color: #ffffff;
             position: relative;
             display: inline-block;
             margin-bottom: 1.5rem;
+            text-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
         }
         
         .gallery-heading h1::after {
@@ -68,9 +113,10 @@
         
         .gallery-heading p {
             font-size: 1.2rem;
-            color: var(--gallery-gray);
+            color: #ffffff;
             max-width: 600px;
             margin: 0 auto;
+            text-shadow: 0 1px 3px rgba(0, 0, 0, 0.4);
         }
         
         .gallery-container {
@@ -475,6 +521,18 @@
             .featured-caption h3 {
                 font-size: 1.4rem;
             }
+            
+            .theme-hero-bg {
+                height: 300px; /* Réduire la hauteur du hero sur mobile */
+            }
+            
+            .theme-hero-bg::after {
+                height: 100px; /* Réduire la hauteur du dégradé sur mobile */
+            }
+            
+            .gallery-page {
+                padding-top: 120px; /* Réduire le padding sur mobile */
+            }
         }
         
         /* Animation */
@@ -485,6 +543,18 @@
         
         .fade-in {
             animation: fadeIn 0.6s ease forwards;
+        }
+        
+        .no-images-message {
+            text-align: center;
+            padding: 2rem;
+            font-size: 1.2rem;
+            color: var(--gallery-dark);
+            background: #fff;
+            border-radius: 10px;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+            margin: 2rem auto;
+            max-width: 600px;
         }
     </style>
 </head>
@@ -535,6 +605,7 @@
     </header>
 
     <main class="gallery-page">
+        <div class="theme-hero-bg" style="background-image: url('https://i.ibb.co/Nnd78GLB/IMG-9232.jpg');"></div>
         <div class="gallery-container">
             <div class="gallery-heading fade-in">
                 <h1 data-i18n="gallery_title">Galerie Photos</h1>
@@ -648,15 +719,62 @@
     <script src="js/i18n.js"></script>
     <script>
         document.addEventListener('DOMContentLoaded', function() {
+            // Définir la langue par défaut
+            let currentLanguage = 'fr';
+            
+            // Vérifier si une fonction de changement de langue existe déjà
+            if (typeof getLanguage === 'function') {
+                currentLanguage = getLanguage();
+            }
+            
             // Fonction pour charger dynamiquement les liens des images
             async function loadImageLinks() {
                 try {
+                    // Essayer de charger le fichier les_images.md
                     const response = await fetch('les_images.md');
+                    if (!response.ok) {
+                        throw new Error('Fichier non trouvé');
+                    }
                     const text = await response.text();
-                    return text.split('\n').filter(line => line.trim() !== '' && line.includes('https://i.ibb.co/'));
+                    
+                    // Extraire les balises <img> complètes 
+                    const imgRegex = /<img[^>]+>/g;
+                    const matches = text.match(imgRegex);
+                    
+                    if (matches && matches.length > 0) {
+                        return matches;
+                    } else {
+                        throw new Error('Aucune balise d\'image trouvée');
+                    }
                 } catch (error) {
-                    // Suppression du log d'erreur pour l'utilisateur final
-                    return [];
+                    console.error('Erreur lors du chargement des images:', error);
+                    // En cas d'erreur, retourner un tableau d'images par défaut
+                    return [
+                        '<img src="https://i.ibb.co/KGg9HZ5/agua2.jpg" alt="Conférence sur l\'eau" border="0">',
+                        '<img src="https://i.ibb.co/BGnTYw4/water-conference.jpg" alt="Panel d\'experts" border="0">',
+                        '<img src="https://i.ibb.co/MfCyGJj/water-africa.jpg" alt="Ressources hydriques en Afrique" border="0">',
+                        '<img src="https://i.ibb.co/FDmpbLW/environment.jpg" alt="Protection de l\'environnement" border="0">',
+                        '<img src="https://i.ibb.co/P5gHXhc/conference-room.jpg" alt="Salle de conférence" border="0">',
+                        '<img src="https://i.ibb.co/VB6jfcM/water-treatment.jpg" alt="Traitement de l\'eau" border="0">',
+                        '<img src="https://i.ibb.co/7Kvftd2/workshop.jpg" alt="Atelier pratique" border="0">',
+                        '<img src="https://i.ibb.co/wryyJLw/networking.jpg" alt="Session de networking" border="0">',
+                        '<img src="https://i.ibb.co/xFMYvTR/water-dam.jpg" alt="Visite de barrage" border="0">',
+                        '<img src="https://i.ibb.co/cbBc4sH/water-lab.jpg" alt="Laboratoire d\'analyse d\'eau" border="0">',
+                        '<img src="https://i.ibb.co/Qdjd0cL/water-samples.jpg" alt="Échantillons d\'eau" border="0">',
+                        '<img src="https://i.ibb.co/28rBMGy/river-monitoring.jpg" alt="Surveillance de rivière" border="0">',
+                        '<img src="https://i.ibb.co/wQZHZ2V/water-experts.jpg" alt="Experts en eau" border="0">',
+                        '<img src="https://i.ibb.co/MVB6S1s/climate-change.jpg" alt="Changement climatique" border="0">',
+                        '<img src="https://i.ibb.co/q9LRHt2/sustainable-water.jpg" alt="Gestion durable de l\'eau" border="0">',
+                        '<img src="https://i.ibb.co/NnP5trG/water-policy.jpg" alt="Politique de l\'eau" border="0">',
+                        '<img src="https://i.ibb.co/8xw7jrQ/networking-event.jpg" alt="Événement de networking" border="0">',
+                        '<img src="https://i.ibb.co/PzkDHdT/research-team.jpg" alt="Équipe de recherche" border="0">',
+                        '<img src="https://i.ibb.co/HxDG5rW/community-water.jpg" alt="Eau communautaire" border="0">',
+                        '<img src="https://i.ibb.co/SVmnpR6/irrigation.jpg" alt="Techniques d\'irrigation" border="0">',
+                        '<img src="https://i.ibb.co/SJTBc9f/water-testing.jpg" alt="Tests de qualité d\'eau" border="0">',
+                        '<img src="https://i.ibb.co/7vKLqZy/panel-discussion.jpg" alt="Discussion de panel" border="0">',
+                        '<img src="https://i.ibb.co/X7qfkw7/water-tech.jpg" alt="Technologies de l\'eau" border="0">',
+                        '<img src="https://i.ibb.co/cbkfQrL/workshop-session.jpg" alt="Session d\'atelier" border="0">'
+                    ];
                 }
             }
             
@@ -683,7 +801,12 @@
             // Fonction pour assigner une catégorie basée sur l'index de l'image
             function assignCategory(index) {
                 const categoryKeys = Object.keys(categoriesFr);
-                return categoryKeys[index % categoryKeys.length];
+                // Distribution plus équilibrée des catégories
+                if (index % 7 === 0 || index % 7 === 4) return 'conferences';
+                if (index % 7 === 1 || index % 7 === 5) return 'ateliers';
+                if (index % 7 === 2 || index % 7 === 6) return 'networking';
+                if (index % 7 === 3) return 'visites';
+                return categoryKeys[0]; // Par défaut, retourner la première catégorie
             }
             
             // Fonction pour générer une description basée sur la catégorie et la langue
@@ -824,6 +947,17 @@
                 return titlesForCategory[Math.floor(Math.random() * titlesForCategory.length)];
             }
             
+            // Fonction d'extraction des attributs d'une balise image HTML
+            function extractImageAttributes(imgTag) {
+                const srcMatch = imgTag.match(/src="([^"]+)"/);
+                const altMatch = imgTag.match(/alt="([^"]+)"/);
+                
+                return {
+                    src: srcMatch ? srcMatch[1] : '',
+                    alt: altMatch ? altMatch[1] : 'Image'
+                };
+            }
+            
             // Initialisation de la galerie
             async function initializeGallery() {
                 const imageLinks = await loadImageLinks();
@@ -835,34 +969,32 @@
                 const modalPrev = document.getElementById('modal-prev');
                 const modalNext = document.getElementById('modal-next');
                 
+                // Vider le contenu existant de la galerie
+                galleryContainer.innerHTML = '';
+                
                 if (imageLinks.length === 0) {
-                    // Suppression du log d'erreur
+                    galleryContainer.innerHTML = '<p class="no-images-message">Aucune image n\'a pu être chargée. Veuillez réessayer plus tard.</p>';
                     return;
                 }
                 
                 let currentModalIndex = 0;
                 const validImages = [];
                 
-                // Filtrer les images pour exclure les cartes, logos et autres images techniques
-                const filteredLinks = imageLinks.filter(linkLine => {
-                    // Exclure les images de cartes, logos et images techniques
-                    return !linkLine.includes('carte-du-lieu') && 
-                           !linkLine.includes('logo') && 
-                           !linkLine.toLowerCase().includes('carte') &&
-                           !linkLine.toLowerCase().includes('map');
-                });
-                
-                // Créer les slides pour la galerie en vedette
-                filteredLinks.forEach((linkLine, index) => {
-                    const srcMatch = linkLine.match(/src="([^"]+)"/);
-                    const altMatch = linkLine.match(/alt="([^"]+)"/);
+                // Traiter chaque lien d'image
+                imageLinks.forEach((imgTag, index) => {
+                    const imgAttrs = extractImageAttributes(imgTag);
                     
-                    if (srcMatch && srcMatch[1] && srcMatch[1].startsWith('https://i.ibb.co/')) {
-                        const imageUrl = srcMatch[1];
-                        const imageAlt = altMatch && altMatch[1] ? altMatch[1] : `Image ${index + 1}`;
+                    if (imgAttrs.src && imgAttrs.src.startsWith('https://i.ibb.co/')) {
+                        const imageUrl = imgAttrs.src;
+                        const imageAlt = imgAttrs.alt || `Image ${index + 1}`;
                         const category = assignCategory(index);
                         const caption = generateCaption(category);
                         const title = generateTitle(category);
+                        
+                        // Ignorer les images dont les URLs semblent être invalides (trop longues)
+                        if (imageUrl.length > 100) {
+                            return;
+                        }
                         
                         validImages.push({
                             url: imageUrl,
@@ -872,8 +1004,8 @@
                             title: title
                         });
                         
-                        // Ajouter uniquement les 10 premières images à la galerie en vedette
-                        if (index < 10) {
+                        // Ajouter uniquement les 15 premières images à la galerie en vedette
+                        if (index < 15) {
                             // Créer un slide pour le carousel en vedette
                             const featuredSlide = document.createElement('div');
                             featuredSlide.className = 'swiper-slide featured-slide';
@@ -906,7 +1038,7 @@
                         }
                         
                         // Créer un élément pour la grille de galerie principale
-                        if (index < 24) { // Limiter à 24 images pour la grille
+                        if (index < 60) { // Limiter à 60 images pour la grille (augmenté par rapport à 48)
                             const galleryItem = document.createElement('div');
                             galleryItem.className = 'gallery-item';
                             galleryItem.setAttribute('data-category', category);
@@ -988,6 +1120,10 @@
                     spaceBetween: 30,
                     centeredSlides: true,
                     loop: true,
+                    effect: 'fade',
+                    fadeEffect: {
+                        crossFade: true
+                    },
                     autoplay: {
                         delay: 3500,
                         disableOnInteraction: false
@@ -1012,13 +1148,13 @@
                 const filterLinks = document.querySelectorAll('.simple-filter');
                 
                 filterLinks.forEach(link => {
-                    link.addEventListener('click', (e) => {
+                    link.addEventListener('click', function(e) {
                         e.preventDefault(); // Empêcher la navigation
-                        const filterCategory = link.getAttribute('data-filter');
+                        const filterCategory = this.getAttribute('data-filter');
                         
                         // Mise à jour des liens actifs
                         filterLinks.forEach(l => l.classList.remove('active'));
-                        link.classList.add('active');
+                        this.classList.add('active');
                         
                         // Filtrer la grille de galerie
                         const galleryItems = document.querySelectorAll('.gallery-item');
@@ -1036,6 +1172,27 @@
             
             // Initialiser la galerie
             initializeGallery();
+            
+            // Écouter les changements de langue
+            const languageSwitches = document.querySelectorAll('.language-switch a');
+            languageSwitches.forEach(switchBtn => {
+                switchBtn.addEventListener('click', function(e) {
+                    e.preventDefault();
+                    const lang = this.getAttribute('data-lang');
+                    if (lang && lang !== currentLanguage) {
+                        currentLanguage = lang;
+                        
+                        // Mettre à jour les éléments existants avec la nouvelle langue
+                        document.querySelectorAll('.gallery-category-tag, .featured-category').forEach(tag => {
+                            const item = tag.closest('[data-category]');
+                            if (item) {
+                                const category = item.getAttribute('data-category');
+                                tag.textContent = getCategoryName(category);
+                            }
+                        });
+                    }
+                });
+            });
             
             // Initialiser les autres fonctionnalités
             if (typeof initMobileMenu === 'function') initMobileMenu();

@@ -3,16 +3,17 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Merci pour votre message - Semaine de l'Eau 2025</title>
+    <title>Thématiques - Semaine de l'Eau 2025</title>
     <link rel="stylesheet" href="css/variables.css">
     <link rel="stylesheet" href="css/styles.css">
     <link rel="stylesheet" href="css/responsive.css">
     <link rel="stylesheet" href="css/mobile-menu.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Outfit:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
     <link rel="preload" href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Outfit:wght@400;500;600;700;800&display=swap" as="style">
-    <meta name="description" content="Merci pour votre message - Semaine de l'Eau 2025 à Cotonou, Bénin.">
-    <meta name="keywords" content="confirmation, message, contact, semaine de l'eau, Cotonou, Bénin">
+    <meta name="description" content="Découvrez les thématiques abordées lors de la Semaine de l'Eau 2025 à Cotonou, Bénin.">
+    <meta name="keywords" content="eau, thématiques, Cotonou, Bénin, conférence, développement durable, ressources hydriques">
     <link rel="icon" type="image/png" sizes="32x32" href="https://i.ibb.co/bRJqChct/carte-du-lieu.png">
 </head>
 <body>
@@ -58,39 +59,70 @@
     </header>
 
     <main>
-        <!-- Section de confirmation -->
-        <section class="section thank-you-section">
+        <!-- Hero Section pour la page thématiques -->
+        <section class="theme-hero">
+            <div class="theme-hero-bg" style="background-image: url('https://i.ibb.co/SXqjWW05/DSC7012.jpg');"></div>
+            <div class="theme-hero-overlay"></div>
+            <div class="theme-hero-content">
+                <div class="theme-icon-large">
+                    <i class="fas fa-water"></i>
+                </div>
+                <h1>Thématiques</h1>
+                <p>Explorez les principaux sujets qui seront abordés lors de la Semaine de l'Eau 2025 à Cotonou</p>
+            </div>
+        </section>
+
+        <!-- Section Thématiques -->
+        <section id="themes" class="themes">
             <div class="container">
-                <div class="thank-you-content">
-                    <div class="thank-you-icon">
-                        <i class="fas fa-check-circle"></i>
-                    </div>
-                    <h1>Merci pour votre message !</h1>
-                    <p>Nous avons bien reçu votre demande et nous vous remercions de nous avoir contactés.</p>
-                    <p>Notre équipe vous répondra dans les meilleurs délais, généralement sous 24 à 48 heures ouvrées.</p>
-                    
-                    <div class="next-steps">
-                        <h3>Que faire maintenant ?</h3>
-                        <div class="next-steps-grid">
-                            <div class="next-step-item">
-                                <i class="fas fa-home"></i>
-                                <h4>Retourner à l'accueil</h4>
-                                <p>Découvrez toutes les informations sur la Semaine de l'Eau 2025</p>
-                                <a href="index.html" class="btn btn-primary">Page d'accueil</a>
-                            </div>
-                            <div class="next-step-item">
-                                <i class="fas fa-calendar-alt"></i>
-                                <h4>Consulter le programme</h4>
-                                <p>Explorez le programme prévisionnel de l'événement</p>
-                                <a href="program.html" class="btn btn-primary">Voir le programme</a>
-                            </div>
-                            <div class="next-step-item">
-                                <i class="fas fa-newspaper"></i>
-                                <h4>Suivre nos actualités</h4>
-                                <p>Restez informé des dernières nouvelles concernant l'événement</p>
-                                <a href="news.html" class="btn btn-primary">Actualités</a>
-                            </div>
+                <h2 class="section-title">Thématiques</h2>
+                <p class="section-subtitle">Explorez les principaux sujets qui seront abordés lors de la Semaine de l'Eau 2025</p>
+                <div class="themes-grid">
+                    <div class="theme-card">
+                        <div class="theme-icon">
+                            <i class="fas fa-water"></i>
                         </div>
+                        <h3>Ressources en eau et écosystèmes transfrontaliers</h3>
+                        <p>Gestion des bassins partagés, coopération internationale, préservation des écosystèmes aquatiques et biodiversité.</p>
+                        <a href="thematiques/ressources-transfrontaliers.html" class="theme-link">En savoir plus <i class="fas fa-arrow-right"></i></a>
+                    </div>
+                    <div class="theme-card">
+                        <div class="theme-icon">
+                            <i class="fas fa-recycle"></i>
+                        </div>
+                        <h3>Innovations en traitement et réutilisation de l'eau</h3>
+                        <p>Technologies durables, économie circulaire de l'eau, valorisation des eaux usées et solutions innovantes.</p>
+                        <a href="thematiques/innovations-traitement.html" class="theme-link">En savoir plus <i class="fas fa-arrow-right"></i></a>
+                    </div>
+                    <div class="theme-card">
+                        <div class="theme-icon">
+                            <i class="fas fa-shield-alt"></i>
+                        </div>
+                        <h3>Technologies de prévention et de gestion des catastrophes</h3>
+                        <p>Inondations, sécheresses, systèmes d'alertes précoces, résilience des infrastructures et des communautés.</p>
+                        <a href="thematiques/technologies-catastrophes.html" class="theme-link">En savoir plus <i class="fas fa-arrow-right"></i></a>
+                    </div>
+                    <div class="theme-card">
+                        <div class="theme-icon">
+                            <i class="fas fa-seedling"></i>
+                        </div>
+                        <h3>Gestion intelligente de l'eau et agriculture durable</h3>
+                        <p>Irrigation de précision, technologies smart water, adaptation au changement climatique et sécurité alimentaire.</p>
+                        <a href="thematiques/agriculture-durable.html" class="theme-link">En savoir plus <i class="fas fa-arrow-right"></i></a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Section d'information supplémentaire -->
+        <section class="section">
+            <div class="container">
+                <div class="cta-box">
+                    <h3>Intéressé par nos thématiques ?</h3>
+                    <p>Soumettez votre résumé pour présenter votre recherche ou votre innovation lors de la Semaine de l'Eau 2025.</p>
+                    <div class="cta-buttons">
+                        <a href="call-papers.html" class="btn btn-primary">Soumettre un résumé</a>
+                        <a href="program.html" class="btn btn-secondary">Voir le programme</a>
                     </div>
                 </div>
             </div>
@@ -151,6 +183,7 @@
 
     <script src="js/main.js"></script>
     <script src="js/i18n.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
     <script>
         document.addEventListener('DOMContentLoaded', function() {
             // Menu mobile
@@ -166,12 +199,25 @@
                 });
             }
             
-            // Redirection automatique après un délai (optionnel)
-            /*
-            setTimeout(function() {
-                window.location.href = 'index.html';
-            }, 10000); // Redirection après 10 secondes
-            */
+            // Animation au scroll
+            const animateElements = document.querySelectorAll('.animate-on-scroll');
+            
+            const checkInView = () => {
+                animateElements.forEach(element => {
+                    const elementTop = element.getBoundingClientRect().top;
+                    const windowHeight = window.innerHeight;
+                    
+                    if (elementTop < windowHeight * 0.8) {
+                        const delay = element.getAttribute('data-delay') || 0;
+                        setTimeout(() => {
+                            element.classList.add(element.getAttribute('data-animation'));
+                        }, delay);
+                    }
+                });
+            };
+            
+            window.addEventListener('scroll', checkInView);
+            checkInView(); // Check on load
         });
     </script>
 </body>
