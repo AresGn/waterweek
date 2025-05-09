@@ -1,0 +1,67 @@
+/* Corrections spécifiques pour le menu mobile et le sélecteur de langue */
+
+/* S'assurer que le menu s'affiche correctement */
+@media (max-width: 992px) {
+  /* Correction pour l'affichage du menu */
+  .site-nav.active {
+    display: flex !important;
+    flex-direction: column !important;
+    width: 100% !important;
+    transform: translateX(0) !important;
+    overflow-y: auto !important;
+  }
+  
+  /* Assurer que les éléments de la liste sont bien visibles */
+  .nav-list {
+    width: 100% !important;
+    max-height: none !important;
+    overflow: visible !important;
+  }
+  
+  /* Assurer que les menus déroulants sont correctement affichés */
+  .dropdown-menu {
+    position: static !important;
+    width: 100% !important;
+    display: none !important;
+  }
+  
+  .dropdown-active + .dropdown-menu {
+    display: flex !important;
+    opacity: 1 !important;
+    visibility: visible !important;
+  }
+  
+  /* Sélecteur de langue toujours visible */
+  .language-switch {
+    position: static !important;
+    display: flex !important;
+    width: 100% !important;
+    margin: 20px auto !important;
+    padding: 10px !important;
+    border-top: 1px solid rgba(0, 0, 0, 0.1) !important;
+    justify-content: center !important;
+    order: 1 !important; /* S'assurer qu'il apparaît en bas du menu */
+  }
+
+  /* S'assurer que les boutons de langues sont bien visibles */
+  .language-switch a {
+    background-color: #f5f5f5 !important;
+    padding: 8px 15px !important;
+    border-radius: 4px !important;
+    font-weight: bold !important;
+    font-size: 1rem !important;
+  }
+  
+  .language-switch a.active {
+    background-color: #0066cc !important;
+    color: white !important;
+  }
+}
+
+/* S'assurer que le sélecteur de langue n'est pas caché en mode desktop */
+@media (min-width: 993px) {
+  .language-switch {
+    margin-left: 20px !important;
+    display: flex !important;
+  }
+} 

@@ -7,7 +7,7 @@
     <link rel="stylesheet" href="css/variables.css">
     <link rel="stylesheet" href="css/styles.css">
     <link rel="stylesheet" href="css/responsive.css">
-    <link rel="stylesheet" href="css/mobile-menu.css">
+    <link rel="stylesheet" href="css/new-nav.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Outfit:wght@400;500;600;700;800&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
@@ -15,48 +15,57 @@
     <meta name="description" content="Soumettez votre résumé pour la Semaine de l'Eau 2025 à Cotonou, Bénin.">
     <meta name="keywords" content="eau, appel à communications, abstracts, Cotonou, Bénin, conférence, développement durable">
     <link rel="icon" type="image/png" sizes="32x32" href="https://i.ibb.co/bRJqChct/carte-du-lieu.png">
+    <link rel="stylesheet" href="css/language-switch.css">
+    <link rel="stylesheet" href="css/menu-fixes.css">
 </head>
 <body>
-    <header>
-        <div class="logo-container">
-            <img src="https://i.ibb.co/8nLpXxbm/Logo-INE.png" alt="Water Week Logo">
+            <header class="site-header">
+    <div class="site-logo">
+        <img src="https://th.bing.com/th/id/OIP.sJpAXggz7mrdY75FTSmQ7QAAAA?cb=iwc1&rs=1&pid=ImgDetMain" alt="C2EA">
+        <img src="https://bouba.mondoblog.org/files/2014/11/bouba.mondoblog.org_.png" alt="C2EA">
+        <img src="https://i.ibb.co/8nLpXxbm/Logo-INE.png" alt="Water Week Logo">
+        <img src="https://i.ibb.co/rGL6BZs2/logo-C2-EA.png" alt="C2EA">
+    </div>
+    
+    <button class="menu-toggle" aria-label="Toggle menu">
+        <span></span>
+        <span></span>
+        <span></span>
+    </button>
+    
+    <nav class="site-nav">
+        <ul class="nav-list">
+            <li class="nav-item">
+                <a href="index.html" class="nav-link" data-i18n="nav_home">Accueil</a>
+            </li>
+            <li class="nav-item">
+                <a href="javascript:void(0);" class="nav-link has-dropdown" data-i18n="nav_program">Programme</a>
+                <div class="dropdown-menu">
+                    <a href="themes.html" class="dropdown-item" data-i18n="nav_topics">Thèmes</a>
+                    <a href="call-papers.html" class="dropdown-item" data-i18n="nav_call_papers">Appel à communications</a>
+                    <a href="program.html" class="dropdown-item" data-i18n="nav_program">Programme</a>
+                    <a href="speakers.html" class="dropdown-item" data-i18n="nav_speakers">Intervenants</a>
+                </div>
+            </li>
+            <li class="nav-item">
+                <a href="javascript:void(0);" class="nav-link has-dropdown" data-i18n="nav_info_media">Infos & Médias</a>
+                <div class="dropdown-menu">
+                    <a href="practical-info.html" class="dropdown-item" data-i18n="nav_practical_info">Infos pratiques</a>
+                    <a href="partners.html" class="dropdown-item" data-i18n="nav_partners">Partenaires</a>
+                    <a href="news.html" class="dropdown-item" data-i18n="nav_news">Actualités</a>
+                    <a href="gallery.html" class="dropdown-item" data-i18n="nav_gallery">Galerie</a>
+                    <a href="contact.html" class="dropdown-item" data-i18n="nav_contact">Contact</a>
+                </div>
+            </li>
+        </ul>
+        
+        <div class="language-switch">
+            <a href="#" data-lang="fr" class="active">FR</a>
+            <span>|</span>
+            <a href="#" data-lang="en">EN</a>
         </div>
-        <nav>
-            <ul>
-                <li class="dropdown">
-                    <a href="index.html" data-i18n="nav_home">Accueil</a>
-                    <div class="dropdown-content">
-                        <a href="index.html#about" data-i18n="nav_about">À propos</a>
-                    </div>
-                </li>
-                <li class="dropdown">
-                    <a href="themes.html" data-i18n="nav_program">Programme</a>
-                    <div class="dropdown-content">
-                        <a href="themes.html" data-i18n="nav_topics">Thèmes</a>
-                        <a href="call-papers.html" data-i18n="nav_call_papers">Appel à communications</a>
-                        <a href="program.html" data-i18n="nav_program">Programme</a>
-                        <a href="speakers.html" data-i18n="nav_speakers">Intervenants</a>
-                    </div>
-                </li>
-                <li class="dropdown">
-                    <a href="practical-info.html" data-i18n="nav_info_media">Infos & Médias</a>
-                    <div class="dropdown-content">
-                        <a href="practical-info.html" data-i18n="nav_practical_info">Infos pratiques</a>
-                        <a href="partners.html" data-i18n="nav_partners">Partenaires</a>
-                        <a href="news.html" data-i18n="nav_news">Actualités</a>
-                        <a href="gallery.html" data-i18n="nav_gallery">Galerie</a>
-                        <a href="contact.html" data-i18n="nav_contact">Contact</a>
-                    </div>
-                </li>
-            </ul>
-        </nav>
-        <div class="mobile-menu-toggle">
-            <span></span>
-            <span></span>
-            <span></span>
-            <span></span>
-        </div>
-    </header>
+    </nav>
+</header>
 
     <main>
         <!-- Hero Section pour la page d'appel à communications -->
@@ -219,22 +228,13 @@
         <i class="fas fa-arrow-up"></i>
     </a>
 
+    <script src="js/new-nav.js"></script>
     <script src="js/main.js"></script>
     <script src="js/i18n.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
     <script>
         document.addEventListener('DOMContentLoaded', function() {
-            // Menu mobile
-            const mobileMenuToggle = document.querySelector('.mobile-menu-toggle');
-            const nav = document.querySelector('nav');
             
-            if (mobileMenuToggle && nav) {
-                mobileMenuToggle.addEventListener('click', function(e) {
-                    e.preventDefault();
-                    mobileMenuToggle.classList.toggle('active');
-                    nav.classList.toggle('active');
-                    document.body.classList.toggle('menu-open');
-                });
             }
             
             // Animation au scroll
@@ -258,5 +258,6 @@
             checkInView(); // Check on load
         });
     </script>
+    <script src="js/language-switcher.js"></script>
 </body>
 </html> 
