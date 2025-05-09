@@ -7,7 +7,7 @@
     <link rel="stylesheet" href="css/variables.css">
     <link rel="stylesheet" href="css/styles.css">
     <link rel="stylesheet" href="css/responsive.css">
-    <link rel="stylesheet" href="css/mobile-menu.css">
+    <link rel="stylesheet" href="css/new-nav.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Outfit:wght@400;500;600;700;800&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
@@ -15,11 +15,92 @@
     <meta name="description" content="Découvrez les partenaires et sponsors qui soutiennent la Semaine de l'Eau 2025 à Cotonou.">
     <meta name="keywords" content="partenaires, sponsors, eau, Cotonou, Bénin, conférence, développement durable">
     <link rel="icon" type="image/png" sizes="32x32" href="https://i.ibb.co/bRJqChct/carte-du-lieu.png">
+
     <style>
+        /* Styles améliorés pour la page partenaires */
+        
+        /* Hero section avec animation */
+        .theme-hero {
+            position: relative;
+            min-height: 450px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-top: 80px;
+            overflow: hidden;
+        }
+        
+        .theme-hero-bg {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-size: cover;
+            background-position: center;
+            z-index: 1;
+            transform: scale(1.05);
+            transition: transform 10s ease;
+            animation: subtle-zoom 20s infinite alternate;
+        }
+        
+        @keyframes subtle-zoom {
+            0% { transform: scale(1); }
+            100% { transform: scale(1.1); }
+        }
+        
+        .theme-hero-overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(135deg, rgba(8, 145, 178, 0.85), rgba(6, 182, 212, 0.75));
+            z-index: 2;
+            opacity: 0.8;
+        }
+        
+        .theme-hero-content {
+            position: relative;
+            z-index: 3;
+            text-align: center;
+            color: white;
+            padding: var(--spacing-lg);
+            max-width: 800px;
+            animation: fade-up 1s ease;
+        }
+        
+        @keyframes fade-up {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        
+        .theme-icon-large {
+            width: 120px;
+            height: 120px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: rgba(255, 255, 255, 0.15);
+            border: 2px solid rgba(255, 255, 255, 0.4);
+            border-radius: 50%;
+            margin: 0 auto 1.5rem;
+            color: white;
+            font-size: 3.5rem;
+            animation: pulse 2s infinite;
+        }
+        
+        @keyframes pulse {
+            0% { box-shadow: 0 0 0 0 rgba(255, 255, 255, 0.4); }
+            70% { box-shadow: 0 0 0 15px rgba(255, 255, 255, 0); }
+            100% { box-shadow: 0 0 0 0 rgba(255, 255, 255, 0); }
+        }
+        
+        /* Grille des logos partenaires */
         .partners-logos {
             display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
-            gap: 20px;
+            grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+            gap: 25px;
             margin: 40px 0;
         }
         
@@ -28,24 +109,50 @@
             flex-direction: column;
             align-items: center;
             justify-content: center;
-            padding: 20px;
+            padding: 25px 20px;
             background: white;
-            border-radius: 10px;
-            box-shadow: 0 5px 15px rgba(0,0,0,0.05);
-            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            border-radius: 16px;
+            box-shadow: 0 8px 20px rgba(0,0,0,0.05);
+            transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            position: relative;
+            overflow: hidden;
             height: 100%;
+            border: 1px solid rgba(0,0,0,0.05);
         }
         
         .partner-logo:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 10px 25px rgba(0,0,0,0.1);
+            transform: translateY(-8px);
+            box-shadow: 0 15px 30px rgba(0,0,0,0.1);
+            border-color: rgba(8, 145, 178, 0.2);
+        }
+        
+        .partner-logo::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 4px;
+            height: 0;
+            background: linear-gradient(to bottom, var(--primary-blue), var(--secondary-blue));
+            transition: height 0.3s ease;
+        }
+        
+        .partner-logo:hover::before {
+            height: 100%;
         }
         
         .partner-logo img {
             max-width: 100%;
-            max-height: 120px;
+            max-height: 100px;
             object-fit: contain;
-            margin-bottom: 15px;
+            margin-bottom: 20px;
+            transition: transform 0.4s ease;
+            filter: grayscale(30%);
+        }
+        
+        .partner-logo:hover img {
+            transform: scale(1.05);
+            filter: grayscale(0%);
         }
         
         .partner-logo p {
@@ -53,129 +160,437 @@
             font-weight: 600;
             color: var(--dark-gray);
             margin: 0;
+            transition: color 0.3s ease;
+        }
+        
+        .partner-logo:hover p {
+            color: var(--primary-blue);
+        }
+        
+        /* Cartes des partenaires avec détails */
+        .partners-categories {
+            margin-top: 60px;
+        }
+        
+        .partners-category-title {
+            position: relative;
+            font-size: 1.8rem;
+            color: var(--dark-blue);
+            margin-bottom: 30px;
+            padding-bottom: 10px;
+            text-align: center;
+        }
+        
+        .partners-category-title::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 80px;
+            height: 3px;
+            background: linear-gradient(90deg, var(--primary-blue), var(--secondary-blue));
+            border-radius: 2px;
+        }
+        
+        .partners-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+            gap: 30px;
+            margin-bottom: 60px;
+        }
+        
+        .partners-grid.large {
+            grid-template-columns: repeat(auto-fill, minmax(450px, 1fr));
+        }
+        
+        .partner-card {
+            display: grid;
+            grid-template-columns: 120px 1fr;
+            gap: 20px;
+            background: white;
+            border-radius: 16px;
+            padding: 25px;
+            box-shadow: 0 8px 20px rgba(0,0,0,0.06);
+            transition: all 0.4s ease;
+            overflow: hidden;
+            position: relative;
+            border: 1px solid rgba(0,0,0,0.05);
+        }
+        
+        .partner-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 30px rgba(0,0,0,0.12);
+            border-color: rgba(8, 145, 178, 0.2);
+        }
+        
+        .partner-card .partner-logo {
+            padding: 15px;
+            height: 120px;
+            width: 120px;
+            border-radius: 12px;
+            margin: 0;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+        }
+        
+        .partner-card .partner-logo img {
+            max-height: 80px;
+            margin-bottom: 0;
+        }
+        
+        .partner-info h4 {
+            color: var(--dark-blue);
+            margin-bottom: 8px;
+            font-size: 1.2rem;
+            transition: color 0.3s ease;
+        }
+        
+        .partner-card:hover .partner-info h4 {
+            color: var(--primary-blue);
+        }
+        
+        .partner-info p {
+            font-size: 0.95rem;
+            color: var(--dark-gray);
+            margin-bottom: 15px;
+            line-height: 1.5;
+        }
+        
+        .partner-link {
+            display: inline-flex;
+            align-items: center;
+            color: var(--primary-blue);
+            font-weight: 500;
+            font-size: 0.9rem;
+            transition: all 0.3s ease;
+        }
+        
+        .partner-link i {
+            margin-left: 6px;
+            font-size: 0.8rem;
+            transition: transform 0.3s ease;
+        }
+        
+        .partner-link:hover {
+            color: var(--dark-blue);
+        }
+        
+        .partner-link:hover i {
+            transform: translateX(3px);
+        }
+        
+        /* Section devenir partenaire */
+        .become-partner {
+            background: linear-gradient(135deg, var(--primary-blue), var(--secondary-blue));
+            border-radius: 16px;
+            padding: 40px;
+            color: white;
+            text-align: center;
+            margin-top: 60px;
+            box-shadow: 0 15px 30px rgba(8, 145, 178, 0.2);
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .become-partner::before {
+            content: '';
+            position: absolute;
+            top: -50px;
+            right: -50px;
+            width: 200px;
+            height: 200px;
+            border-radius: 50%;
+            background: rgba(255, 255, 255, 0.1);
+            z-index: 1;
+        }
+        
+        .become-partner::after {
+            content: '';
+            position: absolute;
+            bottom: -70px;
+            left: -70px;
+            width: 250px;
+            height: 250px;
+            border-radius: 50%;
+            background: rgba(255, 255, 255, 0.05);
+            z-index: 1;
+        }
+        
+        .become-partner h3 {
+            color: white;
+            margin-bottom: 15px;
+            font-size: 1.8rem;
+            position: relative;
+            z-index: 2;
+        }
+        
+        .become-partner p {
+            color: rgba(255, 255, 255, 0.9);
+            margin-bottom: 30px;
+            max-width: 700px;
+            margin-left: auto;
+            margin-right: auto;
+            position: relative;
+            z-index: 2;
+        }
+        
+        .partnership-benefits {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 25px;
+            margin: 30px 0;
+            position: relative;
+            z-index: 2;
+        }
+        
+        .benefit-item {
+            background: rgba(255, 255, 255, 0.1);
+            padding: 25px 20px;
+            border-radius: 12px;
+            transition: all 0.3s ease;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+        
+        .benefit-item:hover {
+            background: rgba(255, 255, 255, 0.2);
+            transform: translateY(-5px);
+        }
+        
+        .benefit-item i {
+            font-size: 2rem;
+            margin-bottom: 15px;
+            color: white;
+        }
+        
+        .benefit-item h4 {
+            color: white;
+            margin-bottom: 10px;
+            font-size: 1.2rem;
+        }
+        
+        .benefit-item p {
+            color: rgba(255, 255, 255, 0.9);
+            font-size: 0.95rem;
+            margin-bottom: 0;
+        }
+        
+        .become-partner .btn {
+            background: white;
+            color: var(--primary-blue);
+            padding: 12px 30px;
+            border-radius: 50px;
+            font-weight: 600;
+            transition: all 0.3s ease;
+            display: inline-block;
+            border: none;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+            position: relative;
+            z-index: 2;
+            text-decoration: none;
+        }
+        
+        .become-partner .btn:hover {
+            background: var(--accent-yellow);
+            color: var(--black);
+            transform: translateY(-3px);
+            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
+        }
+        
+        /* Responsive adjustments */
+        @media (max-width: 992px) {
+            .partners-grid.large,
+            .partners-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .partner-card {
+                grid-template-columns: 100px 1fr;
+            }
+            
+            .partner-card .partner-logo {
+                width: 100px;
+                height: 100px;
+            }
         }
         
         @media (max-width: 768px) {
+            .theme-hero {
+                min-height: 350px;
+            }
+            
+            .theme-icon-large {
+                width: 90px;
+                height: 90px;
+                font-size: 2.5rem;
+            }
+            
+            .theme-hero-content h1 {
+                font-size: 2.2rem;
+            }
+            
             .partners-logos {
                 grid-template-columns: repeat(2, 1fr);
             }
+            
+            .become-partner {
+                padding: 30px 20px;
+            }
+            
+            .partnership-benefits {
+                grid-template-columns: 1fr;
+                gap: 20px;
+            }
         }
         
-        @media (max-width: 480px) {
+        @media (max-width: 576px) {
             .partners-logos {
                 grid-template-columns: 1fr;
+                gap: 20px;
+            }
+            
+            .partner-card {
+                grid-template-columns: 1fr;
+                text-align: center;
+                padding: 20px;
+            }
+            
+            .partner-card .partner-logo {
+                width: 100px;
+                height: 100px;
+                margin: 0 auto 15px;
+            }
+            
+            .partner-info h4 {
+                margin-top: 0;
+            }
+            
+            .become-partner {
+                padding: 25px 15px;
             }
         }
     </style>
+    <link rel="stylesheet" href="css/language-switch.css">
+    <link rel="stylesheet" href="css/menu-fixes.css">
 </head>
 <body>
-    <header>
-        <div class="logo-container">
-            <img src="https://i.ibb.co/8nLpXxbm/Logo-INE.png" alt="Water Week Logo">
+    <!-- New Navigation Bar -->
+    <header class="site-header">
+    <div class="site-logo">
+        <img src="https://th.bing.com/th/id/OIP.sJpAXggz7mrdY75FTSmQ7QAAAA?cb=iwc1&rs=1&pid=ImgDetMain" alt="C2EA">
+        <img src="https://bouba.mondoblog.org/files/2014/11/bouba.mondoblog.org_.png" alt="C2EA">
+        <img src="https://i.ibb.co/8nLpXxbm/Logo-INE.png" alt="Water Week Logo">
+        <img src="https://i.ibb.co/rGL6BZs2/logo-C2-EA.png" alt="C2EA">
+    </div>
+    
+    <button class="menu-toggle" aria-label="Toggle menu">
+        <span></span>
+        <span></span>
+        <span></span>
+    </button>
+    
+    <nav class="site-nav">
+        <ul class="nav-list">
+            <li class="nav-item">
+                <a href="index.html" class="nav-link" data-i18n="nav_home">Accueil</a>
+            </li>
+            <li class="nav-item">
+                <a href="javascript:void(0);" class="nav-link has-dropdown" data-i18n="nav_program">Programme</a>
+                <div class="dropdown-menu">
+                    <a href="themes.html" class="dropdown-item" data-i18n="nav_topics">Thèmes</a>
+                    <a href="call-papers.html" class="dropdown-item" data-i18n="nav_call_papers">Appel à communications</a>
+                    <a href="program.html" class="dropdown-item" data-i18n="nav_program">Programme</a>
+                    <a href="speakers.html" class="dropdown-item" data-i18n="nav_speakers">Intervenants</a>
+                </div>
+            </li>
+            <li class="nav-item">
+                <a href="javascript:void(0);" class="nav-link has-dropdown" data-i18n="nav_info_media">Infos & Médias</a>
+                <div class="dropdown-menu">
+                    <a href="practical-info.html" class="dropdown-item" data-i18n="nav_practical_info">Infos pratiques</a>
+                    <a href="partners.html" class="dropdown-item" data-i18n="nav_partners">Partenaires</a>
+                    <a href="news.html" class="dropdown-item" data-i18n="nav_news">Actualités</a>
+                    <a href="gallery.html" class="dropdown-item" data-i18n="nav_gallery">Galerie</a>
+                    <a href="contact.html" class="dropdown-item" data-i18n="nav_contact">Contact</a>
+                </div>
+            </li>
+        </ul>
+        
+        <div class="language-switch">
+            <a href="#" data-lang="fr" class="active">FR</a>
+            <span>|</span>
+            <a href="#" data-lang="en">EN</a>
         </div>
-        <nav>
-            <ul>
-                <li class="dropdown">
-                    <a href="index.html" data-i18n="nav_home">Accueil</a>
-                    <div class="dropdown-content">
-                        <a href="index.html#about" data-i18n="nav_about">À propos</a>
-                    </div>
-                </li>
-                <li class="dropdown">
-                    <a href="themes.html" data-i18n="nav_program">Programme</a>
-                    <div class="dropdown-content">
-                        <a href="themes.html" data-i18n="nav_topics">Thèmes</a>
-                        <a href="call-papers.html" data-i18n="nav_call_papers">Appel à communications</a>
-                        <a href="program.html" data-i18n="nav_program">Programme</a>
-                        <a href="speakers.html" data-i18n="nav_speakers">Intervenants</a>
-                    </div>
-                </li>
-                <li class="dropdown">
-                    <a href="practical-info.html" data-i18n="nav_info_media">Infos & Médias</a>
-                    <div class="dropdown-content">
-                        <a href="practical-info.html" data-i18n="nav_practical_info">Infos pratiques</a>
-                        <a href="partners.html" data-i18n="nav_partners">Partenaires</a>
-                        <a href="news.html" data-i18n="nav_news">Actualités</a>
-                        <a href="gallery.html" data-i18n="nav_gallery">Galerie</a>
-                        <a href="contact.html" data-i18n="nav_contact">Contact</a>
-                    </div>
-                </li>
-            </ul>
-        </nav>
-        <div class="mobile-menu-toggle">
-            <span></span>
-            <span></span>
-            <span></span>
-            <span></span>
-        </div>
-    </header>
+    </nav>
+</header>
 
     <main>
-        <!-- Hero Section pour la page partenaires -->
+        <!-- Hero Section avec animation améliorée -->
         <section class="theme-hero">
-            <div class="theme-hero-bg" style="background-image: url('https://i.ibb.co/W6Jmwp57/DSC7023.jpg');"></div>
+            <div class="theme-hero-bg" style="background-image: url('https://i.ibb.co/39YqG480/image.jpg');"></div>
             <div class="theme-hero-overlay"></div>
             <div class="theme-hero-content">
                 <div class="theme-icon-large">
                     <i class="fas fa-handshake"></i>
                 </div>
                 <h1>Nos Partenaires</h1>
-                <p>Les institutions et organismes qui soutiennent la Semaine de l'Eau 2025</p>
+                <p>Les institutions et organismes qui rendent possible la Semaine de l'Eau 2025</p>
             </div>
         </section>
 
-        <!-- Section Partenaires -->
+        <!-- Section Partenaires avec design amélioré -->
         <section id="partners" class="section">
             <div class="container">
-                <h2 class="section-title">Partenaires Officiels</h2>
-                <p class="section-subtitle">La Semaine de l'Eau 2025 est rendue possible grâce au soutien de nos partenaires</p>
+                <h2 class="section-title animate-on-scroll" data-animation="fade-up">Partenaires Officiels</h2>
+                <p class="section-subtitle animate-on-scroll" data-animation="fade-up" data-delay="200">La Semaine de l'Eau 2025 est rendue possible grâce au soutien précieux de nos partenaires institutionnels et sponsors</p>
                 
-                <!-- Logos des partenaires -->
+                <!-- Logos des partenaires avec animation au défilement -->
                 <div class="partners-logos">
-                    <div class="partner-logo">
+                    <div class="partner-logo animate-on-scroll" data-animation="fade-up" data-delay="100">
                         <img src="https://i.ibb.co/8nLpXxbm/Logo-INE.png" alt="INE/UAC">
                         <p>INE/UAC</p>
                     </div>
-                    <div class="partner-logo">
-                        <img src="https://k4all.org/wp-content/uploads/logos/Academia/SSA_Benin_University_Abomey-Calavi%20University%20(UAC)_logo.png" alt="INE/UAC">
+                    <div class="partner-logo animate-on-scroll" data-animation="fade-up" data-delay="150">
+                        <img src="https://k4all.org/wp-content/uploads/logos/Academia/SSA_Benin_University_Abomey-Calavi%20University%20(UAC)_logo.png" alt="Université d'Abomey-Calavi">
                         <p>Université d'Abomey-Calavi</p>
                     </div>
-                    <div class="partner-logo">
-                        <img src="https://i.ibb.co/XZW7BHKz/jhhv.png" alt="jhhv">
+                    <div class="partner-logo animate-on-scroll" data-animation="fade-up" data-delay="200">
+                        <img src="https://i.ibb.co/XZW7BHKz/jhhv.png" alt="FRIEND WATER">
                         <p>FRIEND WATER</p>
                     </div>
-                    <div class="partner-logo">
-                        <img src="https://i.ibb.co/LXbQgQn9/jhfjhf.jpg" alt="jhfjhf">
+                    <div class="partner-logo animate-on-scroll" data-animation="fade-up" data-delay="250">
+                        <img src="https://i.ibb.co/LXbQgQn9/jhfjhf.jpg" alt="IAHS">
                         <p>IAHS</p>
                     </div>
-                    <div class="partner-logo">
-                        <img src="https://i.ibb.co/r2ffbhj8/gfgt.jpg" alt="gfgt">
+                    <div class="partner-logo animate-on-scroll" data-animation="fade-up" data-delay="300">
+                        <img src="https://i.ibb.co/r2ffbhj8/gfgt.jpg" alt="AFD">
                         <p>AFD</p>
                     </div>
-                    <div class="partner-logo">
-                        <img src="https://i.ibb.co/FL89ZhYW/sssdd.png" alt="sssdd">
+                    <div class="partner-logo animate-on-scroll" data-animation="fade-up" data-delay="350">
+                        <img src="https://i.ibb.co/FL89ZhYW/sssdd.png" alt="AUA">
                         <p>AUA</p>
                     </div>
-                    <div class="partner-logo">
-                        <img src="https://i.ibb.co/3yFMLNvb/aaz.jpg" alt="aaz">
-                        <p>BM</p>
+                    <div class="partner-logo animate-on-scroll" data-animation="fade-up" data-delay="400">
+                        <img src="https://i.ibb.co/3yFMLNvb/aaz.jpg" alt="BM">
+                        <p>Banque Mondiale</p>
                     </div>
                 </div>
-                
+
                 <div class="partners-categories">
-                    <h3 class="partners-category-title">Organisateurs</h3>
+                    <h3 class="partners-category-title animate-on-scroll" data-animation="fade-up">Organisateurs Principaux</h3>
                     <div class="partners-grid large">
-                        <div class="partner-card">
+                        <div class="partner-card animate-on-scroll" data-animation="fade-up" data-delay="100">
                             <div class="partner-logo">
                                 <img src="https://i.ibb.co/rGL6BZs2/logo-C2-EA.png" alt="C2EA">
                             </div>
                             <div class="partner-info">
-                                <h4>Centre d'Excellence d'Afrique pour l'Eau et l'Assainissement (C2EA)</h4>
-                                <p>Le Centre d'Excellence d'Afrique pour l'Eau et l'Assainissement est un centre de recherche et de formation qui vise à renforcer les capacités des chercheurs et professionnels africains dans le domaine de l'eau.</p>
+                                <h4>Centre d'Excellence d'Afrique pour l'Eau (C2EA)</h4>
+                                <p>Le Centre d'Excellence d'Afrique pour l'Eau et l'Assainissement est un centre de recherche qui vise à renforcer les capacités des chercheurs et professionnels africains dans le domaine de l'eau.</p>
                                 <a href="https://c2ea.org" target="_blank" class="partner-link">Visiter le site <i class="fas fa-external-link-alt"></i></a>
                             </div>
                         </div>
-                        <div class="partner-card">
+                        <div class="partner-card animate-on-scroll" data-animation="fade-up" data-delay="200">
                             <div class="partner-logo">
                                 <img src="https://i.ibb.co/8nLpXxbm/Logo-INE.png" alt="INE/UAC">
                             </div>
@@ -187,18 +602,18 @@
                         </div>
                     </div>
                     
-                    <h3 class="partners-category-title">Partenaires Institutionnels</h3>
+                    <h3 class="partners-category-title animate-on-scroll" data-animation="fade-up">Partenaires Institutionnels</h3>
                     <div class="partners-grid medium">
-                        <div class="partner-card">
+                        <div class="partner-card animate-on-scroll" data-animation="fade-up" data-delay="100">
                             <div class="partner-logo">
                                 <img src="https://i.ibb.co/XZW7BHKz/jhhv.png" alt="FRIEND WATER">
                             </div>
                             <div class="partner-info">
                                 <h4>FRIEND WATER</h4>
-                                <p>Organisation dédiée à la coopération internationale dans le domaine de l'eau et au développement durable.</p>
+                                <p>Organisation dédiée à la coopération internationale dans le domaine de l'eau et au développement durable à travers l'Afrique et le monde.</p>
                             </div>
                         </div>
-                        <div class="partner-card">
+                        <div class="partner-card animate-on-scroll" data-animation="fade-up" data-delay="150">
                             <div class="partner-logo">
                                 <img src="https://i.ibb.co/LXbQgQn9/jhfjhf.jpg" alt="IAHS">
                             </div>
@@ -207,70 +622,70 @@
                                 <p>Organisation scientifique dédiée à l'avancement de l'hydrologie comme science et à sa mise en œuvre pour le bien-être de l'humanité.</p>
                             </div>
                         </div>
-                        <div class="partner-card">
+                        <div class="partner-card animate-on-scroll" data-animation="fade-up" data-delay="200">
                             <div class="partner-logo">
                                 <img src="https://k4all.org/wp-content/uploads/logos/Academia/SSA_Benin_University_Abomey-Calavi%20University%20(UAC)_logo.png" alt="Université d'Abomey-Calavi">
                             </div>
                             <div class="partner-info">
                                 <h4>Université d'Abomey-Calavi (UAC)</h4>
-                                <p>L'une des plus importantes universités du Bénin, engagée dans la recherche et la formation dans de nombreux domaines, dont celui de l'eau.</p>
+                                <p>L'une des plus importantes universités du Bénin, engagée dans la recherche et la formation dans de nombreux domaines, dont celui de l'eau et l'environnement.</p>
                             </div>
                         </div>
                     </div>
                     
-                    <h3 class="partners-category-title">Sponsors Officiels</h3>
+                    <h3 class="partners-category-title animate-on-scroll" data-animation="fade-up">Sponsors Officiels</h3>
                     <div class="partners-grid">
-                        <div class="partner-card">
+                        <div class="partner-card animate-on-scroll" data-animation="fade-up" data-delay="100">
                             <div class="partner-logo">
                                 <img src="https://i.ibb.co/r2ffbhj8/gfgt.jpg" alt="AFD">
                             </div>
                             <div class="partner-info">
                                 <h4>Agence Française de Développement (AFD)</h4>
-                                <p>L'AFD finance et accompagne des projets qui contribuent à améliorer les conditions de vie des populations et à préserver la planète.</p>
+                                <p>L'AFD finance et accompagne des projets qui contribuent à améliorer les conditions de vie des populations et à préserver la planète dans le domaine de l'eau.</p>
                             </div>
                         </div>
-                        <div class="partner-card">
+                        <div class="partner-card animate-on-scroll" data-animation="fade-up" data-delay="150">
                             <div class="partner-logo">
                                 <img src="https://i.ibb.co/3yFMLNvb/aaz.jpg" alt="BM">
                             </div>
                             <div class="partner-info">
                                 <h4>Banque Mondiale (BM)</h4>
-                                <p>La Banque Mondiale accompagne les pays en développement dans leurs efforts pour réduire la pauvreté et favoriser une prospérité partagée.</p>
+                                <p>La Banque Mondiale accompagne les pays en développement dans leurs efforts pour réduire la pauvreté et favoriser une prospérité partagée et l'accès à l'eau.</p>
                             </div>
                         </div>
-                        <div class="partner-card">
+                        <div class="partner-card animate-on-scroll" data-animation="fade-up" data-delay="200">
                             <div class="partner-logo">
                                 <img src="https://i.ibb.co/FL89ZhYW/sssdd.png" alt="AUA">
                             </div>
                             <div class="partner-info">
                                 <h4>Association des Universités Africaines (AUA)</h4>
-                                <p>L'AUA est l'organisation faîtière et le forum pour la consultation, l'échange d'informations et la coopération entre les institutions d'enseignement supérieur en Afrique.</p>
+                                <p>L'AUA est l'organisation faîtière pour la consultation, l'échange d'informations et la coopération entre les institutions d'enseignement supérieur en Afrique.</p>
                             </div>
                         </div>
                     </div>
                 </div>
-                
-                <div class="become-partner">
+
+                <div class="become-partner animate-on-scroll" data-animation="fade-up">
                     <h3>Devenez partenaire de la Semaine de l'Eau 2025</h3>
-                    <p>Vous souhaitez associer votre organisation à cet événement international sur l'eau ? Nous proposons différentes formules de partenariat adaptées à vos objectifs et à votre budget.</p>
+                    <p>Vous souhaitez associer votre organisation à cet événement international dédié à l'eau ? Nous proposons différentes formules de partenariat adaptées à vos objectifs et à votre budget.</p>
                     <div class="partnership-benefits">
                         <div class="benefit-item">
                             <i class="fas fa-eye"></i>
-                            <h4>Visibilité</h4>
-                            <p>Votre logo sur tous nos supports de communication (site web, programme, affiches, etc.)</p>
+                            <h4>Visibilité Internationale</h4>
+                            <p>Votre logo sur tous nos supports de communication (site web, programme, affiches) et visibilité auprès des décideurs du secteur de l'eau.</p>
                         </div>
                         <div class="benefit-item">
                             <i class="fas fa-users"></i>
-                            <h4>Réseautage</h4>
-                            <p>Accès privilégié aux conférenciers et participants internationaux</p>
+                            <h4>Réseautage Privilégié</h4>
+                            <p>Accès exclusif aux conférenciers et participants internationaux venus de plus de 25 pays à travers le monde.</p>
                         </div>
                         <div class="benefit-item">
                             <i class="fas fa-bullhorn"></i>
-                            <h4>Communication</h4>
-                            <p>Possibilité de présenter vos innovations lors de sessions dédiées</p>
+                            <h4>Innovation & Communication</h4>
+                            <p>Opportunité de présenter vos solutions innovantes lors de sessions dédiées et dans l'espace d'exposition.</p>
                         </div>
                     </div>
-                    <a href="contact.html" class="btn btn-primary">Nous contacter pour un partenariat</a>
+                    <a href="contact.html" class="btn">Nous contacter pour un partenariat</a>
                 </div>
             </div>
         </section>
@@ -328,24 +743,18 @@
         <i class="fas fa-arrow-up"></i>
     </a>
 
+    <!-- Scripts -->
+    <!-- Load our direct approach first -->
+    <link rel="stylesheet" href="css/direct-nav.css">
+    <script src="js/direct-nav.js"></script>
+    
+    <!-- Keep other scripts -->
+    <script src="js/new-nav.js"></script>
     <script src="js/main.js"></script>
     <script src="js/i18n.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
     <script>
         document.addEventListener('DOMContentLoaded', function() {
-            // Menu mobile
-            const mobileMenuToggle = document.querySelector('.mobile-menu-toggle');
-            const nav = document.querySelector('nav');
-            
-            if (mobileMenuToggle && nav) {
-                mobileMenuToggle.addEventListener('click', function(e) {
-                    e.preventDefault();
-                    mobileMenuToggle.classList.toggle('active');
-                    nav.classList.toggle('active');
-                    document.body.classList.toggle('menu-open');
-                });
-            }
-            
             // Animation au scroll
             const animateElements = document.querySelectorAll('.animate-on-scroll');
             
@@ -354,9 +763,10 @@
                     const elementTop = element.getBoundingClientRect().top;
                     const windowHeight = window.innerHeight;
                     
-                    if (elementTop < windowHeight * 0.8) {
+                    if (elementTop < windowHeight * 0.85) {
                         const delay = element.getAttribute('data-delay') || 0;
                         setTimeout(() => {
+                            element.classList.add('animated');
                             element.classList.add(element.getAttribute('data-animation'));
                         }, delay);
                     }
@@ -365,7 +775,28 @@
             
             window.addEventListener('scroll', checkInView);
             checkInView(); // Check on load
+            
+            // Back to top button visibility
+            const backToTopButton = document.querySelector('.back-to-top');
+            
+            window.addEventListener('scroll', () => {
+                if (window.pageYOffset > 300) {
+                    backToTopButton.classList.add('visible');
+                } else {
+                    backToTopButton.classList.remove('visible');
+                }
+            });
+            
+            // Smooth scroll to top
+            backToTopButton.addEventListener('click', (e) => {
+                e.preventDefault();
+                window.scrollTo({
+                    top: 0,
+                    behavior: 'smooth'
+                });
+            });
         });
     </script>
+    <script src="js/language-switcher.js"></script>
 </body>
 </html> 

@@ -7,7 +7,7 @@
     <link rel="stylesheet" href="css/variables.css">
     <link rel="stylesheet" href="css/styles.css">
     <link rel="stylesheet" href="css/responsive.css">
-    <link rel="stylesheet" href="css/mobile-menu.css">
+    <link rel="stylesheet" href="css/new-nav.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Outfit:wght@400;500;600;700;800&display=swap" rel="stylesheet">
     <!-- Link Swiper's CSS -->
@@ -44,6 +44,21 @@
             text-align: center;
             color: white;
             overflow: hidden;
+        }
+
+        /* Styles pour assurer l'affichage de la date correcte */
+        .event-dates {
+            margin: 1rem 0;
+            width: 100%;
+        }
+        
+        .event-date.fr-date {
+            display: block !important;
+            font-size: 1.3rem;
+            color: rgba(255, 255, 255, 0.9);
+            text-shadow: 0 1px 2px rgba(0, 0, 0, 0.5);
+            font-weight: 500;
+            margin-bottom: 2rem;
         }
 
         /* Force l'affichage du menu mobile sur les petits écrans */
@@ -90,7 +105,7 @@
             left: 0;
             width: 100%;
             height: 100%;
-            background: rgba(0, 0, 0, 0.5); /* Overlay sombre pour améliorer la lisibilité du texte */
+            background: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.3));
         }
 
         .hero-content {
@@ -112,12 +127,22 @@
             margin-bottom: 1rem;
             font-weight: 800;
             color: white;
+            text-shadow: 0 2px 4px rgba(0, 0, 0, 0.5);
         }
 
         .hero p {
             font-size: 1.5rem;
             margin-bottom: 2rem;
             color: white;
+            text-shadow: 0 1px 3px rgba(0, 0, 0, 0.5);
+        }
+
+        .event-date {
+            font-size: 1.3rem;
+            margin-bottom: 2rem;
+            color: rgba(255, 255, 255, 0.9);
+            text-shadow: 0 1px 2px rgba(0, 0, 0, 0.5);
+            font-weight: 500;
         }
 
         /* Style pour les organisateurs */
@@ -147,11 +172,19 @@
             background: white;
             padding: 10px;
             border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s ease;
+        }
+
+        .organizers-logos img:hover {
+            transform: translateY(-5px);
         }
 
         /* Style pour le countdown */
         .countdown {
             margin: 2rem 0;
+            width: 100%;
+            max-width: 650px;
         }
 
         #countdown-timer {
@@ -181,51 +214,6 @@
             color: rgba(255, 255, 255, 0.9);
         }
 
-        /* Style pour les boutons CTA */
-        .cta-buttons {
-            margin-top: 2rem;
-            display: flex;
-            gap: 1.5rem;
-            justify-content: center;
-        }
-
-        .btn {
-            padding: 1rem 2.5rem;
-            border-radius: 50px;
-            font-weight: 600;
-            text-decoration: none;
-            font-size: 1.1rem;
-        }
-
-        .btn.primary {
-            background: var(--primary-color);
-            color: white;
-            box-shadow: 0 5px 15px rgba(0, 123, 255, 0.3);
-        }
-
-        .btn.secondary {
-            background: rgba(255, 255, 255, 0.2);
-            color: white;
-            backdrop-filter: blur(5px);
-            border: 1px solid rgba(255, 255, 255, 0.3);
-        }
-
-        .btn.primary:hover {
-            background: var(--primary-dark);
-            transform: translateY(-2px);
-        }
-
-        .btn.secondary:hover {
-            background: rgba(255, 255, 255, 0.3);
-            transform: translateY(-2px);
-        }
-        
-        /* Style pour la section des liens rapides */
-        .quick-links-section {
-            padding: 4rem 0;
-            background-color: var(--light-background);
-        }
-        
         .quick-links-grid {
             display: grid;
             grid-template-columns: repeat(3, 1fr);
@@ -236,98 +224,123 @@
             .quick-links-grid {
                 grid-template-columns: repeat(2, 1fr);
             }
+            
+            .hero h1 {
+                font-size: 3rem;
+            }
+            
+            .hero p {
+                font-size: 1.2rem;
+            }
+            
+            .event-date {
+                font-size: 1.1rem;
+            }
+            
+            .btn {
+                padding: 0.9rem 2rem;
+                font-size: 1rem;
+            }
         }
         
         @media (max-width: 576px) {
             .quick-links-grid {
                 grid-template-columns: 1fr;
             }
-        }
-        
-        .quick-link-card {
-            background-color: white;
-            border-radius: var(--radius-md);
-            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
-            padding: 2rem;
-            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            
+            .hero h1 {
+                font-size: 2.2rem;
+            }
+            
+            .hero p {
+                font-size: 1rem;
+            }
+            
+            .event-date {
+                font-size: 0.9rem;
+            }
+            
+            .cta-buttons {
+                flex-direction: column;
+            width: 100%;
+                gap: 1rem;
+            }
+            
+            .btn {
+                width: 100%;
             text-align: center;
-        }
-        
-        .quick-link-card:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
-        }
-        
-        .quick-link-icon {
-            font-size: 2.5rem;
-            color: var(--primary-color);
-            margin-bottom: 1rem;
-        }
-        
-        .quick-link-card h3 {
-            margin-bottom: 1rem;
-            font-size: 1.5rem;
-            color: var(--dark-text);
-        }
-        
-        .quick-link-card p {
-            color: var(--medium-text);
-            margin-bottom: 1.5rem;
-        }
-        
-        .quick-link-card .btn {
-            display: inline-block;
-            padding: 0.75rem 1.5rem;
+                padding: 0.8rem 1.5rem;
+                font-size: 0.95rem;
+            }
+            
+            .organizers-logos {
+            gap: 1.5rem;
+            }
+            
+            .organizers-logos img {
+                height: 40px;
+                padding: 8px;
+            }
         }
     </style>
+    <link rel="stylesheet" href="css/language-switch.css">
+    <link rel="stylesheet" href="css/menu-fixes.css">
 </head>
 <body>
-    <header>
-        <div class="logo-container">
+    <!-- New Navigation Bar -->
+    <header class="site-header">
+    <div class="site-logo">
+        <img src="https://th.bing.com/th/id/OIP.sJpAXggz7mrdY75FTSmQ7QAAAA?cb=iwc1&rs=1&pid=ImgDetMain" alt="C2EA">
+        <img src="https://bouba.mondoblog.org/files/2014/11/bouba.mondoblog.org_.png" alt="C2EA">
             <img src="https://i.ibb.co/8nLpXxbm/Logo-INE.png" alt="Water Week Logo">
+        <img src="https://i.ibb.co/rGL6BZs2/logo-C2-EA.png" alt="C2EA">
         </div>
-        <nav>
-            <ul>
-                <li class="dropdown">
-                    <a href="index.html" data-i18n="nav_home">Accueil</a>
-                    <div class="dropdown-content">
-                        <a href="#about" data-i18n="nav_about">À propos</a>
+    
+    <button class="menu-toggle" aria-label="Toggle menu">
+        <span></span>
+        <span></span>
+        <span></span>
+    </button>
+    
+    <nav class="site-nav">
+        <ul class="nav-list">
+            <li class="nav-item">
+                <a href="index.html" class="nav-link" data-i18n="nav_home">Accueil</a>
+                </li>
+            <li class="nav-item">
+                <a href="javascript:void(0);" class="nav-link has-dropdown" data-i18n="nav_program">Programme</a>
+                <div class="dropdown-menu">
+                    <a href="themes.html" class="dropdown-item" data-i18n="nav_topics">Thèmes</a>
+                    <a href="call-papers.html" class="dropdown-item" data-i18n="nav_call_papers">Appel à communications</a>
+                    <a href="program.html" class="dropdown-item" data-i18n="nav_program">Programme</a>
+                    <a href="speakers.html" class="dropdown-item" data-i18n="nav_speakers">Intervenants</a>
                     </div>
                 </li>
-                <li class="dropdown">
-                    <a href="themes.html" data-i18n="nav_program">Programme</a>
-                    <div class="dropdown-content">
-                        <a href="themes.html" data-i18n="nav_topics">Thèmes</a>
-                        <a href="call-papers.html" data-i18n="nav_call_papers">Appel à communications</a>
-                        <a href="program.html" data-i18n="nav_program">Programme</a>
-                        <a href="speakers.html" data-i18n="nav_speakers">Intervenants</a>
-                    </div>
-                </li>
-                <li class="dropdown">
-                    <a href="practical-info.html" data-i18n="nav_info_media">Infos & Médias</a>
-                    <div class="dropdown-content">
-                        <a href="practical-info.html" data-i18n="nav_practical_info">Infos pratiques</a>
-                        <a href="partners.html" data-i18n="nav_partners">Partenaires</a>
-                        <a href="news.html" data-i18n="nav_news">Actualités</a>
-                        <a href="gallery.html" data-i18n="nav_gallery">Galerie</a>
-                        <a href="contact.html" data-i18n="nav_contact">Contact</a>
+            <li class="nav-item">
+                <a href="javascript:void(0);" class="nav-link has-dropdown" data-i18n="nav_info_media">Infos & Médias</a>
+                <div class="dropdown-menu">
+                    <a href="practical-info.html" class="dropdown-item" data-i18n="nav_practical_info">Infos pratiques</a>
+                    <a href="partners.html" class="dropdown-item" data-i18n="nav_partners">Partenaires</a>
+                    <a href="news.html" class="dropdown-item" data-i18n="nav_news">Actualités</a>
+                    <a href="gallery.html" class="dropdown-item" data-i18n="nav_gallery">Galerie</a>
+                    <a href="contact.html" class="dropdown-item" data-i18n="nav_contact">Contact</a>
                     </div>
                 </li>
             </ul>
-        </nav>
-        <div class="mobile-menu-toggle">
-            <span></span>
-            <span></span>
-            <span></span>
-            <span></span>
+        
+        <div class="language-switch">
+            <a href="#" data-lang="fr" class="active">FR</a>
+            <span>|</span>
+            <a href="#" data-lang="en">EN</a>
         </div>
+    </nav>
     </header>
 
     <main>
         <!-- Section Hero -->
         <section class="hero">
             <div class="hero-video-background">
-                <video autoplay muted loop>
+                <video autoplay muted loop playsinline>
                     <source src="videos/video1.mp4" type="video/mp4">
                     Votre navigateur ne supporte pas la lecture de vidéos.
                 </video>
@@ -335,35 +348,40 @@
             <div class="hero-content">
                 <h1 data-i18n="hero_title">Semaine de l'Eau 2025</h1>
                 <p data-i18n="hero_subtitle">De la Recherche à l'Innovation et au Transfert de Technologies</p>
-                <p class="event-date">3-5 juin 2025 | Palais des Congrès, Cotonou, Bénin</p>
+                <!-- Dates fixes sans traduction -->
+                <div class="event-dates">
+                    <p class="event-date fr-date">3-5 juin 2025 | Palais des Congrès, Cotonou, Bénin</p>
+                </div>
+                
                 <div class="countdown">
-                    <p data-i18n="hero_countdown_title">Compte à rebours avant l'événement</p>
+                    <h3>Compte à rebours avant l'événement</h3>
                     <div id="countdown-timer">
                         <div class="time-unit">
                             <span id="days">00</span>
-                            <span data-i18n="hero_countdown_days">Jours</span>
+                            <span>Jours</span>
                         </div>
                         <div class="time-unit">
                             <span id="hours">00</span>
-                            <span data-i18n="hero_countdown_hours">Heures</span>
+                            <span>Heures</span>
                         </div>
                         <div class="time-unit">
                             <span id="minutes">00</span>
-                            <span data-i18n="hero_countdown_minutes">Minutes</span>
+                            <span>Minutes</span>
                         </div>
                         <div class="time-unit">
                             <span id="seconds">00</span>
-                            <span data-i18n="hero_countdown_seconds">Secondes</span>
+                            <span>Secondes</span>
                         </div>
                     </div>
                 </div>
+                
                 <div class="cta-buttons">
                     <a href="call-papers.html" class="btn primary">Soumettre un résumé</a>
                     <a href="program.html" class="btn secondary">Voir le programme</a>
                 </div>
             </div>
         </section>
-        
+
         <!-- Section À propos -->
         <section id="about" class="section">
             <div class="container">
@@ -372,20 +390,20 @@
                     <div class="about-image animate-on-scroll" data-animation="fade-up" data-delay="200">
                         <img src="https://i.ibb.co/SXqjWW05/DSC7012.jpg" alt="Conférence sur l'eau">
                     </div>
-                    <div class="about-stats">
-                        <div class="stat-item">
-                            <span class="stat-number">1500+</span>
-                            <span class="stat-label">Participants attendus</span>
+                        <div class="about-stats">
+                            <div class="stat-item">
+                                <span class="stat-number">1500+</span>
+                                <span class="stat-label">Participants attendus</span>
+                            </div>
+                            <div class="stat-item">
+                                <span class="stat-number">25+</span>
+                                <span class="stat-label">Pays représentés</span>
+                            </div>
+                            <div class="stat-item">
+                                <span class="stat-number">50+</span>
+                                <span class="stat-label">Conférenciers experts</span>
+                            </div>
                         </div>
-                        <div class="stat-item">
-                            <span class="stat-number">25+</span>
-                            <span class="stat-label">Pays représentés</span>
-                        </div>
-                        <div class="stat-item">
-                            <span class="stat-number">50+</span>
-                            <span class="stat-label">Conférenciers experts</span>
-                        </div>
-                    </div>
                     <div class="about-text animate-on-scroll" data-animation="fade-up" data-delay="400">
                         <p>Le Centre d'Excellence d'Afrique pour l'Eau et l'Assainissement (C2EA) de l'Institut National de l'Eau (INE/UAC), en collaboration avec l'Association Internationale des Sciences Hydrologiques (IAHS) et le réseau FRIEND AOC, organise la deuxième édition de la Semaine de l'Eau et de l'Assainissement du 3 au 5 juin 2025 au Palais des Congrès de Cotonou (Bénin).</p>
                         <p>Cette édition se concentre sur la thématique : <strong>de la Recherche à l'Innovation et au Transfert de Technologies</strong>. Quatre sous-thématiques seront abordées durant la conférence :</p>
@@ -406,20 +424,20 @@
                 </svg>
             </div>
         </section>
-        
+
         <!-- Section Organisateurs -->
         <div class="partners-banner">
             <div class="container">
                 <h2 class="section-title">Organisé Par :</h2>
                 <div class="organizers-logos">
-                    <img src="https://i.ibb.co/rGL6BZs2/logo-C2-EA.png" alt="C2EA">
-                    <img src="https://i.ibb.co/8nLpXxbm/Logo-INE.png" alt="INE/UAC">
-                    <img src="https://i.ibb.co/XZW7BHKz/jhhv.png" alt="jhhv">
-                    <img src="https://i.ibb.co/LXbQgQn9/jhfjhf.jpg" alt="jhfjhf">
-                </div>
-            </div>
-        </div>
-        
+                                <img src="https://i.ibb.co/rGL6BZs2/logo-C2-EA.png" alt="C2EA">
+                                <img src="https://i.ibb.co/8nLpXxbm/Logo-INE.png" alt="INE/UAC">
+                                <img src="https://i.ibb.co/XZW7BHKz/jhhv.png" alt="jhhv">
+                                <img src="https://i.ibb.co/LXbQgQn9/jhfjhf.jpg" alt="jhfjhf">
+                            </div>
+                            </div>
+                            </div>
+                            
         <!-- Section liens rapides vers les autres pages -->
         <section class="quick-links-section">
             <div class="container">
@@ -461,17 +479,17 @@
                         <h3>Intervenants</h3>
                         <p>Découvrez les experts qui partageront leurs connaissances</p>
                         <a href="speakers.html" class="btn btn-primary">Explorer</a>
-                    </div>
-                    
+                </div>
+                
                     <div class="quick-link-card">
                         <div class="quick-link-icon">
                             <i class="fas fa-info-circle"></i>
-                        </div>
+            </div>
                         <h3>Infos pratiques</h3>
                         <p>Tout ce que vous devez savoir pour préparer votre venue</p>
                         <a href="practical-info.html" class="btn btn-primary">Consulter</a>
-                    </div>
-                    
+                </div>
+                
                     <div class="quick-link-card">
                         <div class="quick-link-icon">
                             <i class="fas fa-envelope"></i>
@@ -479,7 +497,7 @@
                         <h3>Contact</h3>
                         <p>Des questions ? N'hésitez pas à nous contacter</p>
                         <a href="contact.html" class="btn btn-primary">Contacter</a>
-                    </div>
+                        </div>
                 </div>
             </div>
         </section>
@@ -537,34 +555,18 @@
         <i class="fas fa-arrow-up"></i>
     </a>
 
+    <!-- Scripts -->
+    <!-- Navigation script -->
+    <script src="js/new-nav.js"></script>
+    
+    <!-- Keep other scripts -->
     <script src="js/main.js"></script>
     <script src="js/i18n.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
     <script>
         document.addEventListener('DOMContentLoaded', function() {
-            // Menu mobile
-            const mobileMenuToggle = document.querySelector('.mobile-menu-toggle');
-            const nav = document.querySelector('nav');
-            
-            if (mobileMenuToggle && nav) {
-                mobileMenuToggle.addEventListener('click', function(e) {
-                    e.preventDefault();
-                    mobileMenuToggle.classList.toggle('active');
-                    nav.classList.toggle('active');
-                    document.body.classList.toggle('menu-open');
-                });
-            }
-            
-            // Défilement doux
-            document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-                anchor.addEventListener('click', function (e) {
-                    e.preventDefault();
-                    
-                    document.querySelector(this.getAttribute('href')).scrollIntoView({
-                        behavior: 'smooth'
-                    });
-                });
-            });
+            // Désactiver les traductions automatiques pour la date
+            document.querySelector('.event-dates').setAttribute('translate', 'no');
             
             // Animation au scroll
             const animateElements = document.querySelectorAll('.animate-on-scroll');
@@ -608,5 +610,7 @@
             setInterval(updateCountdown, 1000);
         });
     </script>
+    <script src="js/language-switcher.js"></script>
 </body>
 </html> 
+

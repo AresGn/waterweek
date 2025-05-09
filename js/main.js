@@ -18,8 +18,20 @@ document.addEventListener('DOMContentLoaded', function() {
     // Header fixe avec effet de fond au défilement
     initHeaderScroll();
     
-    // Menu mobile
+    // Check if we're using the new navigation system by looking for its elements
+    const isUsingNewNav = document.querySelector('.site-header') !== null;
+    
+    // Menu mobile - vérifier si menu.js est chargé avant d'initialiser
+    const isMenuJsLoaded = Array.from(document.querySelectorAll('script')).some(script => 
+        script.src && script.src.includes('menu.js')
+    );
+    
+    if (!isMenuJsLoaded && !isUsingNewNav) {
+        console.log('Neither menu.js nor new-nav.js detected, initializing mobile menu from main.js');
     initMobileMenu();
+    } else {
+        console.log('Menu system already initialized, main.js will not initialize its own mobile menu logic.');
+    }
     
     // Formulaire de contact
     initContactForm();
@@ -32,6 +44,12 @@ document.addEventListener('DOMContentLoaded', function() {
     
     // Fonction pour gérer le bouton "Retour en haut"
     initBackToTop();
+    
+    // S'assurer que le compte à rebours est correctement formaté même au chargement initial
+    updateCountdownDisplay();
+    
+    // Mettre à jour l'affichage du compte à rebours quand la fenêtre est redimensionnée
+    window.addEventListener('resize', updateCountdownDisplay);
 });
 
 // Fonction pour gérer le menu mobile
@@ -42,68 +60,115 @@ function initMobileMenu() {
     const dropdowns = document.querySelectorAll('.dropdown');
     
     if (!mobileMenuToggle) {
-        console.error('Menu mobile toggle not found');
+        console.error('Menu mobile toggle not found by main.js');
         return;
     }
     
     if (!nav) {
-        console.error('Navigation not found');
+        console.error('Navigation not found by main.js');
         return;
     }
     
-    console.log('Mobile menu initialized');
+    console.log('Mobile menu initialized by main.js (because menu.js was not found)');
     
     // Fonction pour ouvrir/fermer le menu
     function toggleMenu(e) {
         if (e) e.preventDefault();
-        console.log('Toggle menu clicked');
         mobileMenuToggle.classList.toggle('active');
         nav.classList.toggle('active');
         document.body.classList.toggle('menu-open');
+        
+        if (!nav.classList.contains('active')) {
+            dropdowns.forEach(dropdown => {
+                const dropdownLink = dropdown.querySelector('a');
+                const dropdownContent = dropdown.querySelector('.dropdown-content');
+                if (dropdownLink && dropdownContent) {
+                    dropdownLink.classList.remove('dropdown-active');
+                    dropdownContent.classList.remove('show');
+                    // In a scenario where main.js handles this, ensure CSS handles display via .show
+                }
+            });
+        }
     }
     
-    // Click sur le bouton hamburger - Utilisation de addEventListener au lieu de onclick
     mobileMenuToggle.addEventListener('click', toggleMenu);
     
-    // Gestion des dropdowns en mobile
     dropdowns.forEach(dropdown => {
         const dropdownLink = dropdown.querySelector('a');
         const dropdownContent = dropdown.querySelector('.dropdown-content');
         
         if (!dropdownLink || !dropdownContent) return;
+        dropdownLink.classList.add('has-dropdown');
         
-        // Empêcher le lien principal du dropdown de naviguer directement sur mobile
         dropdownLink.addEventListener('click', function(e) {
             if (window.innerWidth <= 992) {
                 e.preventDefault();
                 e.stopPropagation();
+                
+                dropdowns.forEach(otherDropdown => {
+                    if (otherDropdown !== dropdown) {
+                        const otherLink = otherDropdown.querySelector('a');
+                        const otherContent = otherDropdown.querySelector('.dropdown-content');
+                        if (otherLink && otherContent) {
+                            otherLink.classList.remove('dropdown-active');
+                            otherContent.classList.remove('show');
+                        }
+                    }
+                });
+                
                 this.classList.toggle('dropdown-active');
                 dropdownContent.classList.toggle('show');
             }
         });
     });
     
-    // Fermer le menu après un clic sur un lien (sur mobile)
-    navLinks.forEach(link => {
-        link.addEventListener('click', () => {
-            if (window.innerWidth <= 992 && !link.parentElement.classList.contains('dropdown')) {
+    document.querySelectorAll('.dropdown-content a').forEach(link => {
+        link.addEventListener('click', function(e) {
+            if (window.innerWidth <= 992 && nav.classList.contains('active')) {
                 toggleMenu();
             }
         });
     });
     
-    // Fermer le menu si la fenêtre est redimensionnée au-delà de 992px
+    navLinks.forEach(link => {
+        if (!link.parentElement.classList.contains('dropdown')) {
+            link.addEventListener('click', () => {
+                if (window.innerWidth <= 992 && nav.classList.contains('active')) {
+                    toggleMenu();
+                }
+            });
+        }
+    });
+    
     window.addEventListener('resize', () => {
         if (window.innerWidth > 992 && nav.classList.contains('active')) {
             mobileMenuToggle.classList.remove('active');
             nav.classList.remove('active');
             document.body.classList.remove('menu-open');
+            dropdowns.forEach(dropdown => {
+                const dropdownLink = dropdown.querySelector('a');
+                const dropdownContent = dropdown.querySelector('.dropdown-content');
+                if (dropdownLink && dropdownContent) {
+                    dropdownLink.classList.remove('dropdown-active');
+                    dropdownContent.classList.remove('show');
+                }
+            });
         }
     });
     
-    // Initialisation forcée: vérifier si nous sommes déjà en mode mobile au chargement
+    document.addEventListener('click', function(e) {
+        if (window.innerWidth <= 992 && nav.classList.contains('active')) {
+            if (!nav.contains(e.target) && e.target !== mobileMenuToggle && !mobileMenuToggle.contains(e.target)) {
+                toggleMenu();
+            }
+        }
+    });
+    
     if (window.innerWidth <= 992) {
         mobileMenuToggle.style.display = 'flex';
+        document.querySelectorAll('.dropdown > a').forEach(link => {
+            link.classList.add('has-dropdown');
+        });
     }
 }
 
@@ -135,27 +200,53 @@ function setActiveNavItem() {
 
 // Fonction pour gérer le compte à rebours
 function startCountdown() {
-    const targetDate = new Date("June 5, 2025 00:00:00").getTime();
+    // Date cible pour le compte à rebours (3 juin 2025)
+    const targetDate = new Date("June 3, 2025 00:00:00").getTime();
+    const countdownElement = document.getElementById("countdown-timer");
     
-    const countdownTimer = setInterval(function() {
+    if (!countdownElement) {
+        console.error("Countdown element not found!");
+        return;
+    }
+    
+    const daysElement = document.getElementById("days");
+    const hoursElement = document.getElementById("hours");
+    const minutesElement = document.getElementById("minutes");
+    const secondsElement = document.getElementById("seconds");
+    
+    if (!daysElement || !hoursElement || !minutesElement || !secondsElement) {
+        console.error("One or more countdown unit elements not found!");
+        return;
+    }
+    
+    function updateCountdown() {
         const now = new Date().getTime();
         const distance = targetDate - now;
         
+        // Calcul des jours, heures, minutes et secondes
         const days = Math.floor(distance / (1000 * 60 * 60 * 24));
         const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
         const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
         const seconds = Math.floor((distance % (1000 * 60)) / 1000);
         
-        document.getElementById("days").textContent = days.toString().padStart(3, '0');
-        document.getElementById("hours").textContent = hours.toString().padStart(2, '0');
-        document.getElementById("minutes").textContent = minutes.toString().padStart(2, '0');
-        document.getElementById("seconds").textContent = seconds.toString().padStart(2, '0');
+        // Mise à jour des valeurs avec un padding
+        daysElement.textContent = days.toString().padStart(2, '0');
+        hoursElement.textContent = hours.toString().padStart(2, '0');
+        minutesElement.textContent = minutes.toString().padStart(2, '0');
+        secondsElement.textContent = seconds.toString().padStart(2, '0');
         
+        // Si la date est dépassée
         if (distance < 0) {
             clearInterval(countdownTimer);
-            document.getElementById("countdown-timer").innerHTML = "L'événement a commencé!";
+            countdownElement.innerHTML = "<div class='time-unit event-started'><span>L'événement a commencé!</span></div>";
         }
-    }, 1000);
+    }
+    
+    // Appel initial pour éviter le délai d'1 seconde
+    updateCountdown();
+    
+    // Mise à jour toutes les secondes
+    const countdownTimer = setInterval(updateCountdown, 1000);
 }
 
 // Gestion des onglets du programme
@@ -423,171 +514,56 @@ function initBackToTop() {
     });
 }
 
-// Menu mobile toggle - Version améliorée qui s'exécute immédiatement
-(function() {
-    const mobileMenuToggle = document.querySelector('.mobile-menu-toggle');
-    const nav = document.querySelector('nav');
-    const dropdowns = document.querySelectorAll('.dropdown > a');
-    
-    // Toggle mobile menu
-    if (mobileMenuToggle) {
-        mobileMenuToggle.addEventListener('click', function(e) {
-            e.preventDefault();
-            e.stopPropagation();
-            this.classList.toggle('active');
-            nav.classList.toggle('active');
-        });
-    }
-    
-    // Handle dropdown clicks on mobile
-    dropdowns.forEach(dropdown => {
-        dropdown.addEventListener('click', function(e) {
-            if (window.innerWidth <= 992) {
-                e.preventDefault();
-                e.stopPropagation();
-                this.nextElementSibling.classList.toggle('show');
-            }
-        });
-    });
-    
-    // Close menu when clicking outside
-    document.addEventListener('click', function(e) {
-        if (nav && mobileMenuToggle && !nav.contains(e.target) && !mobileMenuToggle.contains(e.target) && nav.classList.contains('active')) {
-            nav.classList.remove('active');
-            mobileMenuToggle.classList.remove('active');
-        }
-    });
-})();
-
-// Document ready event
-document.addEventListener('DOMContentLoaded', function() {
-    // Countdown timer
-    initCountdown();
-    
-    // Animation on scroll
-    initScrollAnimation();
-    
-    // Program tabs
-    initProgramTabs();
-    
-    // Back to top functionality
-    initBackToTop();
-});
-
-// Countdown timer function
-function initCountdown() {
+// Fonction pour mettre à jour l'affichage du compte à rebours en fonction de la taille de l'écran
+function updateCountdownDisplay() {
     const countdownTimer = document.getElementById('countdown-timer');
     if (!countdownTimer) return;
     
-    const eventDate = new Date('June 3, 2025 00:00:00').getTime();
+    const timeUnits = countdownTimer.querySelectorAll('.time-unit');
+    if (!timeUnits.length) return;
     
-    // Update every second
-    const countdownInterval = setInterval(function() {
-        const now = new Date().getTime();
-        const distance = eventDate - now;
-        
-        // If the event date is passed
-        if (distance < 0) {
-            clearInterval(countdownInterval);
-            document.getElementById('days').innerHTML = '00';
-            document.getElementById('hours').innerHTML = '00';
-            document.getElementById('minutes').innerHTML = '00';
-            document.getElementById('seconds').innerHTML = '00';
-            return;
-        }
-        
-        // Calculate days, hours, minutes, seconds
-        const days = Math.floor(distance / (1000 * 60 * 60 * 24));
-        const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
-        const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
-        const seconds = Math.floor((distance % (1000 * 60)) / 1000);
-        
-        // Add leading zeros
-        document.getElementById('days').innerHTML = days.toString().padStart(3, '0');
-        document.getElementById('hours').innerHTML = hours.toString().padStart(2, '0');
-        document.getElementById('minutes').innerHTML = minutes.toString().padStart(2, '0');
-        document.getElementById('seconds').innerHTML = seconds.toString().padStart(2, '0');
-    }, 1000);
-}
-
-// Animation on scroll
-function initScrollAnimation() {
-    const animateElements = document.querySelectorAll('.animate-on-scroll');
-    
-    if (!animateElements.length) return;
-    
-    const options = {
-        threshold: 0.2,
-        rootMargin: '0px 0px -100px 0px'
-    };
-    
-    const observer = new IntersectionObserver(function(entries) {
-        entries.forEach(entry => {
-            if (entry.isIntersecting) {
-                const el = entry.target;
-                const delay = el.dataset.delay || 0;
-                const animation = el.dataset.animation || 'fade-up';
-                
-                setTimeout(() => {
-                    el.classList.add('animated', animation);
-                }, delay);
-                
-                observer.unobserve(el);
-            }
+    // Ajuster la disposition en fonction de la largeur de l'écran
+    if (window.innerWidth <= 480) {
+        // Pour les très petits écrans mobiles
+        timeUnits.forEach(unit => {
+            unit.style.width = 'calc(50% - 0.8rem)';
+            unit.style.minWidth = '65px';
+            unit.style.padding = '0.8rem 0.5rem';
         });
-    }, options);
-    
-    animateElements.forEach(el => {
-        observer.observe(el);
-    });
-}
-
-// Program tabs
-function initProgramTabs() {
-    const tabButtons = document.querySelectorAll('.tab-btn');
-    if (!tabButtons.length) return;
-    
-    tabButtons.forEach(button => {
-        button.addEventListener('click', function() {
-            // Remove active class from all buttons and content
-            document.querySelectorAll('.tab-btn').forEach(btn => btn.classList.remove('active'));
-            document.querySelectorAll('.day-program').forEach(day => day.classList.remove('active'));
-            
-            // Add active class to current button
-            this.classList.add('active');
-            
-            // Show corresponding content
-            const day = this.getAttribute('data-day');
-            document.getElementById(`day-${day}`).classList.add('active');
+    } else if (window.innerWidth <= 768) {
+        // Pour les tablettes et petits écrans
+        timeUnits.forEach(unit => {
+            unit.style.width = 'calc(50% - 1rem)';
+            unit.style.minWidth = '80px';
+            unit.style.padding = '1rem';
         });
-    });
+    } else {
+        // Pour les grands écrans
+        timeUnits.forEach(unit => {
+            unit.style.width = 'auto';
+            unit.style.minWidth = '100px';
+            unit.style.padding = '1.2rem';
+        });
+    }
 }
 
-// Smooth scroll for anchor links
-document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-    anchor.addEventListener('click', function(e) {
-        const targetId = this.getAttribute('href');
-        if (targetId === '#') return;
-        
-        const targetElement = document.querySelector(targetId);
-        if (targetElement) {
-            e.preventDefault();
-            window.scrollTo({
-                top: targetElement.offsetTop - 80, // Adjust for header height
-                behavior: 'smooth'
-            });
-        }
-    });
-});
-
-// Back to top button
-const backToTopButton = document.querySelector('.back-to-top');
-if (backToTopButton) {
-    window.addEventListener('scroll', () => {
-        if (window.scrollY > 300) {
-            backToTopButton.classList.add('visible');
-        } else {
-            backToTopButton.classList.remove('visible');
-        }
-    });
-} 
+// Force l'initialisation du menu mobile quand la page est chargée
+window.addEventListener('load', function() {
+    // S'assurer que le menu mobile est correctement initialisé
+    // This part might also conflict if menu.js is handling the display of the toggle
+    // and has-dropdown classes. It's better to let menu.js manage this fully.
+    // if (window.innerWidth <= 992) {
+    //     const mobileMenuToggle = document.querySelector('.mobile-menu-toggle');
+    //     if (mobileMenuToggle) {
+    //         mobileMenuToggle.style.display = 'flex';
+    //     }
+    //     
+    //     // S'assurer que les liens dropdown ont bien leur indicateur de flèche
+    //     document.querySelectorAll('.dropdown > a').forEach(link => {
+    //         link.classList.add('has-dropdown');
+    //     });
+    // }
+    
+    // Réinitialiser le compte à rebours pour s'assurer qu'il s'affiche correctement
+    updateCountdownDisplay();
+}); 

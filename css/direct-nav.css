@@ -1,0 +1,164 @@
+/**
+ * Direct Navigation CSS
+ * A minimal approach to ensuring proper dropdown behavior
+ */
+
+/* Force dropdown display */
+.dropdown-menu {
+  display: none !important;
+  position: absolute !important;
+  top: 100% !important;
+  left: 0 !important;
+  min-width: 200px !important;
+  background-color: #fff !important;
+  box-shadow: 0 5px 15px rgba(0,0,0,0.1) !important;
+  border-radius: 4px !important;
+  z-index: 1001 !important;
+  margin-top: 0 !important;
+  
+  /* Force vertical layout */
+  flex-direction: column !important;
+  padding: 0.5rem 0 !important;
+}
+
+/* Make sure dropdown containers are positioned correctly */
+.nav-item {
+  position: relative !important;
+}
+
+/* Force dropdown items to display vertically */
+.dropdown-item {
+  display: block !important;
+  padding: 0.5rem 1rem !important;
+  color: #333 !important;
+  text-decoration: none !important;
+  width: 100% !important;
+  text-align: left !important;
+  border-bottom: 1px solid #f2f2f2 !important;
+}
+
+.dropdown-item:last-child {
+  border-bottom: none !important;
+}
+
+.dropdown-item:hover {
+  background-color: #f5f5f5 !important;
+  color: #0066cc !important;
+}
+
+/* Dropdown arrow indicator */
+.nav-link.has-dropdown::after {
+  content: '' !important;
+  display: inline-block !important;
+  margin-left: 6px !important;
+  width: 8px !important;
+  height: 8px !important;
+  border-right: 2px solid currentColor !important;
+  border-bottom: 2px solid currentColor !important;
+  transform: rotate(45deg) !important;
+  transition: transform 0.3s ease !important;
+  vertical-align: 2px !important;
+}
+
+.nav-link.dropdown-active::after {
+  transform: rotate(-135deg) !important;
+}
+
+/* Override any hover state that might interfere */
+.site-nav .nav-list .nav-item .dropdown-menu {
+  display: none !important;
+}
+
+/* IMPORTANT: Specific display rules to override any conflicts */
+.nav-item:hover .dropdown-menu,
+.dropdown-active + .dropdown-menu {
+  display: block !important; /* Will be overridden by JavaScript for more control */
+}
+
+/* Mobile Menu Fixes */
+@media (max-width: 992px) {
+  .site-nav {
+    position: fixed !important;
+    top: 63px !important;
+    left: 0 !important;
+    right: 0 !important;
+    bottom: 0 !important;
+    background-color: white !important;
+    z-index: 999 !important;
+    transform: translateX(-100%) !important;
+    transition: transform 0.3s ease !important;
+    display: flex !important;
+    flex-direction: column !important;
+    overflow-y: auto !important;
+    padding: 0 !important;
+  }
+  
+  .nav-list {
+    display: flex !important;
+    flex-direction: column !important;
+    width: 100% !important;
+    padding: 0 !important;
+    margin: 0 !important;
+  }
+  
+  .nav-item {
+    width: 100% !important;
+    margin: 0 !important;
+    border-bottom: 1px solid rgba(0,0,0,0.1) !important;
+  }
+  
+  .nav-link {
+    display: block !important;
+    padding: 1rem !important;
+    width: 100% !important;
+  }
+  
+  .dropdown-menu {
+    position: static !important;
+    width: 100% !important;
+    box-shadow: none !important;
+    background-color: #f5f5f5 !important;
+    border-radius: 0 !important;
+    margin-left: 0 !important;
+    padding-left: 1rem !important;
+  }
+  
+  .dropdown-item {
+    padding: 1rem !important;
+  }
+  
+  /* Mobile dropdown arrow position */
+  .nav-link.has-dropdown::after {
+    position: absolute !important;
+    right: 1rem !important;
+    top: 50% !important;
+    transform: translateY(-50%) rotate(45deg) !important;
+  }
+  
+  .nav-link.dropdown-active::after {
+    transform: translateY(-50%) rotate(-135deg) !important;
+  }
+  
+  /* Mobile menu button display */
+  .menu-toggle {
+    display: flex !important;
+    flex-direction: column !important;
+    justify-content: space-between !important;
+    width: 30px !important;
+    height: 20px !important;
+    background: transparent !important;
+    border: none !important;
+    cursor: pointer !important;
+    padding: 0 !important;
+    z-index: 1002 !important;
+  }
+  
+  .menu-toggle span {
+    display: block !important;
+    height: 3px !important;
+    width: 100% !important;
+    background-color: #0066cc !important;
+    border-radius: 3px !important;
+    transition: all 0.3s ease !important;
+  }
+} 

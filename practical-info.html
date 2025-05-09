@@ -7,7 +7,7 @@
     <link rel="stylesheet" href="css/variables.css">
     <link rel="stylesheet" href="css/styles.css">
     <link rel="stylesheet" href="css/responsive.css">
-    <link rel="stylesheet" href="css/mobile-menu.css">
+    <link rel="stylesheet" href="css/new-nav.css">
     <link rel="stylesheet" href="css/practical-info.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Outfit:wght@400;500;600;700;800&display=swap" rel="stylesheet">
@@ -16,53 +16,62 @@
     <meta name="description" content="Informations pratiques pour votre participation à la Semaine de l'Eau 2025 à Cotonou - Transport, hébergement, visa.">
     <meta name="keywords" content="infos pratiques, Cotonou, Bénin, hébergement, transport, visa, conférence">
     <link rel="icon" type="image/png" sizes="32x32" href="https://i.ibb.co/bRJqChct/carte-du-lieu.png">
+    <link rel="stylesheet" href="css/language-switch.css">
+    <link rel="stylesheet" href="css/menu-fixes.css">
 </head>
 <body>
-    <header>
-        <div class="logo-container">
-            <img src="https://i.ibb.co/8nLpXxbm/Logo-INE.png" alt="Water Week Logo">
+            <header class="site-header">
+    <div class="site-logo">
+        <img src="https://th.bing.com/th/id/OIP.sJpAXggz7mrdY75FTSmQ7QAAAA?cb=iwc1&rs=1&pid=ImgDetMain" alt="C2EA">
+        <img src="https://bouba.mondoblog.org/files/2014/11/bouba.mondoblog.org_.png" alt="C2EA">
+        <img src="https://i.ibb.co/8nLpXxbm/Logo-INE.png" alt="Water Week Logo">
+        <img src="https://i.ibb.co/rGL6BZs2/logo-C2-EA.png" alt="C2EA">
+    </div>
+    
+    <button class="menu-toggle" aria-label="Toggle menu">
+        <span></span>
+        <span></span>
+        <span></span>
+    </button>
+    
+    <nav class="site-nav">
+        <ul class="nav-list">
+            <li class="nav-item">
+                <a href="index.html" class="nav-link" data-i18n="nav_home">Accueil</a>
+            </li>
+            <li class="nav-item">
+                <a href="javascript:void(0);" class="nav-link has-dropdown" data-i18n="nav_program">Programme</a>
+                <div class="dropdown-menu">
+                    <a href="themes.html" class="dropdown-item" data-i18n="nav_topics">Thèmes</a>
+                    <a href="call-papers.html" class="dropdown-item" data-i18n="nav_call_papers">Appel à communications</a>
+                    <a href="program.html" class="dropdown-item" data-i18n="nav_program">Programme</a>
+                    <a href="speakers.html" class="dropdown-item" data-i18n="nav_speakers">Intervenants</a>
+                </div>
+            </li>
+            <li class="nav-item">
+                <a href="javascript:void(0);" class="nav-link has-dropdown" data-i18n="nav_info_media">Infos & Médias</a>
+                <div class="dropdown-menu">
+                    <a href="practical-info.html" class="dropdown-item" data-i18n="nav_practical_info">Infos pratiques</a>
+                    <a href="partners.html" class="dropdown-item" data-i18n="nav_partners">Partenaires</a>
+                    <a href="news.html" class="dropdown-item" data-i18n="nav_news">Actualités</a>
+                    <a href="gallery.html" class="dropdown-item" data-i18n="nav_gallery">Galerie</a>
+                    <a href="contact.html" class="dropdown-item" data-i18n="nav_contact">Contact</a>
+                </div>
+            </li>
+        </ul>
+        
+        <div class="language-switch">
+            <a href="#" data-lang="fr" class="active">FR</a>
+            <span>|</span>
+            <a href="#" data-lang="en">EN</a>
         </div>
-        <nav>
-            <ul>
-                <li class="dropdown">
-                    <a href="index.html" data-i18n="nav_home">Accueil</a>
-                    <div class="dropdown-content">
-                        <a href="index.html#about" data-i18n="nav_about">À propos</a>
-                    </div>
-                </li>
-                <li class="dropdown">
-                    <a href="themes.html" data-i18n="nav_program">Programme</a>
-                    <div class="dropdown-content">
-                        <a href="themes.html" data-i18n="nav_topics">Thèmes</a>
-                        <a href="call-papers.html" data-i18n="nav_call_papers">Appel à communications</a>
-                        <a href="program.html" data-i18n="nav_program">Programme</a>
-                        <a href="speakers.html" data-i18n="nav_speakers">Intervenants</a>
-                    </div>
-                </li>
-                <li class="dropdown">
-                    <a href="practical-info.html" data-i18n="nav_info_media">Infos & Médias</a>
-                    <div class="dropdown-content">
-                        <a href="practical-info.html" data-i18n="nav_practical_info">Infos pratiques</a>
-                        <a href="partners.html" data-i18n="nav_partners">Partenaires</a>
-                        <a href="news.html" data-i18n="nav_news">Actualités</a>
-                        <a href="gallery.html" data-i18n="nav_gallery">Galerie</a>
-                        <a href="contact.html" data-i18n="nav_contact">Contact</a>
-                    </div>
-                </li>
-            </ul>
-        </nav>
-        <div class="mobile-menu-toggle">
-            <span></span>
-            <span></span>
-            <span></span>
-            <span></span>
-        </div>
-    </header>
+    </nav>
+</header>
 
     <main>
         <!-- Hero Section pour la page d'informations pratiques -->
         <section class="theme-hero">
-            <div class="theme-hero-bg" style="background-image: url('https://i.ibb.co/Nnd78GLB/IMG-9232.jpg');"></div>
+            <div class="theme-hero-bg" style="background-image: url('https://i.ibb.co/tTFGKYR4/image.jpg');"></div>
             <div class="theme-hero-overlay"></div>
             <div class="theme-hero-content">
                 <div class="theme-icon-large">
@@ -85,7 +94,7 @@
                             <i class="fas fa-calendar-alt"></i>
                         </div>
                         <h3>Dates</h3>
-                        <p>Du 26 au 30 juin 2025</p>
+                        <p>Du 3 au 5 juin 2025</p>
                     </div>
                     <div class="intro-card">
                         <div class="intro-icon">
@@ -161,7 +170,7 @@
                             <div class="accommodations-grid">
                                 <div class="accommodation-card">
                                     <div class="accommodation-image">
-                                        <img src="https://i.ibb.co/g9PtR4V5/hotel1.jpg" alt="Golden Tulip Le Diplomate">
+                                        <img src="https://media.iceportal.com/84434/photos/73404483_L.jpg" alt="Exterior view" class="GalleryWithCategories-styled__GalleryImage-lhg__sc-c29f21c4-8 hjxxzK">
                                     </div>
                                     <div class="accommodation-info">
                                         <h4>Golden Tulip Le Diplomate</h4>
@@ -172,13 +181,13 @@
                                             <i class="fas fa-star"></i>
                                         </div>
                                         <p>À 5 minutes du Palais des Congrès</p>
-                                        <p>À partir de 80€/nuit</p>
-                                        <a href="https://www.goldentulip.com/fr-fr/hotels/golden-tulip-le-diplomate-cotonou/" target="_blank" class="btn btn-small">Réserver</a>
+                                        <p>À partir de 203,98€/nuit</p>
+                                        <a href="https://diplomate-cotonou.goldentulip.com/fr-fr/?sr=SEO_GOOGLE" target="_blank" class="btn btn-small">Réserver</a>
                                     </div>
                                 </div>
                                 <div class="accommodation-card">
                                     <div class="accommodation-image">
-                                        <img src="https://i.ibb.co/XZkWvP16/hotel2.jpg" alt="Novotel Cotonou Orisha">
+                                        <img src="https://www.ahstatic.com/photos/1826_ho_00_p_2048x1536.jpg" alt="Novotel Cotonou Orisha">
                                     </div>
                                     <div class="accommodation-info">
                                         <h4>Novotel Cotonou Orisha</h4>
@@ -190,12 +199,12 @@
                                         </div>
                                         <p>À 10 minutes du Palais des Congrès</p>
                                         <p>À partir de 85€/nuit</p>
-                                        <a href="https://all.accor.com/hotel/0940/index.fr.shtml" target="_blank" class="btn btn-small">Réserver</a>
+                                        <a href="https://all.accor.com/hotel/1826/index.fr.shtml" target="_blank" class="btn btn-small">Réserver</a>
                                     </div>
                                 </div>
                                 <div class="accommodation-card">
                                     <div class="accommodation-image">
-                                        <img src="https://i.ibb.co/3y9GcXJ7/hotel3.jpg" alt="Benin Marina Hotel">
+                                        <img src="https://dynamic-media-cdn.tripadvisor.com/media/photo-o/05/19/5f/ba/benin-marina-hotel.jpg?w=2000&h=-1&s=1" alt="Benin Marina Hotel">
                                     </div>
                                     <div class="accommodation-info">
                                         <h4>Benin Marina Hotel</h4>
@@ -206,7 +215,7 @@
                                         </div>
                                         <p>À 7 minutes du Palais des Congrès</p>
                                         <p>À partir de 60€/nuit</p>
-                                        <a href="https://www.beninmarinahotel.com/" target="_blank" class="btn btn-small">Réserver</a>
+                                        <a href="https://www.tripadvisor.fr/Hotel_Review-g297314-d479747-Reviews-Benin_Marina_Hotel-Cotonou_Littoral_Department.html" target="_blank" class="btn btn-small">Réserver</a>
                                     </div>
                                 </div>
                             </div>
@@ -299,22 +308,22 @@
                             
                             <div class="attractions-grid">
                                 <div class="attraction-card">
-                                    <img src="https://i.ibb.co/xf7NWBC4/dantokpa.jpg" alt="Marché Dantokpa">
+                                    <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/5/5a/March%C3%A9_Dantokpa_%28vue_arri%C3%A8re%29.jpg/1920px-March%C3%A9_Dantokpa_%28vue_arri%C3%A8re%29.jpg" alt="Marché Dantokpa">
                                     <h4>Marché Dantokpa</h4>
                                     <p>Le plus grand marché d'Afrique de l'Ouest, où vous pourrez découvrir l'artisanat local et les tissus colorés.</p>
                                 </div>
                                 <div class="attraction-card">
-                                    <img src="https://i.ibb.co/C6XpsTR9/fondation.jpg" alt="Fondation Zinsou">
+                                    <img src="https://prod.cdn-medias.jeuneafrique.com/cdn-cgi/image/q=auto,f=auto,metadata=none,width=1215,fit=cover/https://prod.cdn-medias.jeuneafrique.com/medias/2014/08/30/008082014135214000000JA2796p038.jpg" alt="Fondation Zinsou">
                                     <h4>Fondation Zinsou</h4>
                                     <p>Centre d'art contemporain africain présentant des expositions d'artistes locaux et internationaux.</p>
                                 </div>
                                 <div class="attraction-card">
-                                    <img src="https://i.ibb.co/R3XjGHm5/ganvie.jpg" alt="Village de Ganvié">
+                                    <img src="https://upload.wikimedia.org/wikipedia/commons/8/88/Shia_Mosque_at_Ganvie_%2820948623844%29.jpg" alt="Village de Ganvié">
                                     <h4>Village de Ganvié</h4>
                                     <p>Surnommé la "Venise de l'Afrique", ce village lacustre sur pilotis vaut le détour (excursion d'une journée).</p>
                                 </div>
                                 <div class="attraction-card">
-                                    <img src="https://i.ibb.co/zs5B4s3L/route-esclaves.jpg" alt="Route des Esclaves">
+                                    <img src="https://dynamic-media-cdn.tripadvisor.com/media/photo-o/21/0d/ab/49/slave-route-view-from.jpg?w=1200&h=-1&s=1" alt="Route des Esclaves">
                                     <h4>Route des Esclaves</h4>
                                     <p>Site historique à Ouidah retraçant le parcours des esclaves vers les navires négriers (excursion d'une journée).</p>
                                 </div>
@@ -343,8 +352,7 @@
                     <p>Notre équipe est à votre disposition pour vous aider à préparer votre voyage et votre séjour à Cotonou.</p>
                     <div class="cta-buttons">
                         <a href="contact.html" class="btn btn-primary">Contactez-nous</a>
-                        <a href="download/guide-participant.pdf" class="btn btn-secondary" download>Télécharger le guide du participant</a>
-                    </div>
+                        </div>
                 </div>
             </div>
         </section>
@@ -402,22 +410,13 @@
         <i class="fas fa-arrow-up"></i>
     </a>
 
+    <script src="js/new-nav.js"></script>
     <script src="js/main.js"></script>
     <script src="js/i18n.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
     <script>
         document.addEventListener('DOMContentLoaded', function() {
-            // Menu mobile
-            const mobileMenuToggle = document.querySelector('.mobile-menu-toggle');
-            const nav = document.querySelector('nav');
             
-            if (mobileMenuToggle && nav) {
-                mobileMenuToggle.addEventListener('click', function(e) {
-                    e.preventDefault();
-                    mobileMenuToggle.classList.toggle('active');
-                    nav.classList.toggle('active');
-                    document.body.classList.toggle('menu-open');
-                });
             }
             
             // Onglets des infos pratiques
@@ -461,5 +460,6 @@
             checkInView(); // Check on load
         });
     </script>
+    <script src="js/language-switcher.js"></script>
 </body>
 </html> 
