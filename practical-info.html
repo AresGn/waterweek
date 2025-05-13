@@ -22,7 +22,7 @@
 <body>
             <header class="site-header">
     <div class="site-logo">
-        <img src="https://th.bing.com/th/id/OIP.sJpAXggz7mrdY75FTSmQ7QAAAA?cb=iwc1&rs=1&pid=ImgDetMain" alt="C2EA">
+        <img src="https://sbpe.bj/img/logos-liens-utiles/logo-gouv.png" alt="C2EA">
         <img src="https://bouba.mondoblog.org/files/2014/11/bouba.mondoblog.org_.png" alt="C2EA">
         <img src="https://i.ibb.co/8nLpXxbm/Logo-INE.png" alt="Water Week Logo">
         <img src="https://i.ibb.co/rGL6BZs2/logo-C2-EA.png" alt="C2EA">
@@ -416,28 +416,93 @@
     <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
     <script>
         document.addEventListener('DOMContentLoaded', function() {
-            
-            }
-            
             // Onglets des infos pratiques
             const tabButtons = document.querySelectorAll('.tab-btn');
             const tabPanes = document.querySelectorAll('.tab-pane');
             
+            // Fonction pour initialiser l'état des onglets
+            function initTabs() {
+                // S'assurer que le premier onglet est actif par défaut
+                const firstButton = document.querySelector('.tab-btn');
+                const firstPane = document.querySelector('.tab-pane');
+                
+                if (firstButton && firstPane) {
+                    // Réinitialiser tous les onglets et panneaux
+                    tabButtons.forEach(btn => btn.classList.remove('active'));
+                    tabPanes.forEach(pane => {
+                        pane.classList.remove('active');
+                        pane.style.opacity = '0';
+                        pane.style.visibility = 'hidden';
+                        pane.style.position = 'absolute';
+                    });
+                    
+                    // Activer le premier onglet
+                    firstButton.classList.add('active');
+                    firstPane.classList.add('active');
+                    firstPane.style.opacity = '1';
+                    firstPane.style.visibility = 'visible';
+                    firstPane.style.position = 'relative';
+                }
+            }
+            
+            // Initialiser les onglets au chargement
+            initTabs();
+            
             tabButtons.forEach(button => {
                 button.addEventListener('click', () => {
                     const tab = button.getAttribute('data-tab');
+                    const targetPane = document.getElementById(tab);
+                    
+                    if (!targetPane) return; // Vérifier que l'élément cible existe
                     
                     // Mise à jour des boutons actifs
                     tabButtons.forEach(btn => btn.classList.remove('active'));
                     button.classList.add('active');
                     
-                    // Affichage du contenu de l'onglet sélectionné
+                    // Masquer tous les panneaux d'abord
                     tabPanes.forEach(pane => {
                         pane.classList.remove('active');
+                        // Forcer le style pour mobile
+                        pane.style.opacity = '0';
+                        pane.style.visibility = 'hidden';
+                        pane.style.position = 'absolute';
                     });
-                    document.getElementById(tab).classList.add('active');
+                    
+                    // Petit délai pour la transition
+                    setTimeout(() => {
+                        // Afficher le panneau sélectionné
+                        targetPane.classList.add('active');
+                        // Forcer le style pour mobile
+                        targetPane.style.opacity = '1';
+                        targetPane.style.visibility = 'visible';
+                        targetPane.style.position = 'relative';
+                    }, 50);
+                    
+                    // Faire défiler le bouton actif dans la vue (correction pour mobile)
+                    scrollTabIntoView(button);
                 });
             });
+            
+            // Fonction pour faire défiler le bouton d'onglet actif dans la vue
+            function scrollTabIntoView(activeTab) {
+                if (window.innerWidth <= 768) {
+                    const tabsContainer = document.querySelector('.tab-buttons');
+                    const tabRect = activeTab.getBoundingClientRect();
+                    const containerRect = tabsContainer.getBoundingClientRect();
+                    
+                    // Vérifier si l'onglet est partiellement hors de la vue
+                    if (tabRect.left < containerRect.left || tabRect.right > containerRect.right) {
+                        // Calculer la position de défilement optimale
+                        const scrollLeft = tabsContainer.scrollLeft + tabRect.left - containerRect.left - (containerRect.width / 2) + (tabRect.width / 2);
+                        
+                        // Animer le défilement pour une meilleure expérience utilisateur
+                        tabsContainer.scrollTo({
+                            left: scrollLeft,
+                            behavior: 'smooth'
+                        });
+                    }
+                }
+            }
             
             // Animation au scroll
             const animateElements = document.querySelectorAll('.animate-on-scroll');

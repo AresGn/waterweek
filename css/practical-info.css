@@ -118,15 +118,24 @@
 
 .tab-content {
     padding: 2.5rem;
+    position: relative;
 }
 
 .tab-pane {
     display: none;
     animation: fadeIn 0.5s ease forwards;
+    width: 100%;
+    left: 0;
+    opacity: 0;
+    visibility: hidden;
+    position: absolute;
 }
 
 .tab-pane.active {
     display: block;
+    position: relative;
+    opacity: 1;
+    visibility: visible;
 }
 
 @keyframes fadeIn {
@@ -396,6 +405,7 @@
     
     .tab-buttons {
         justify-content: flex-start;
+        padding: 0 5px;
     }
     
     .theme-hero-content h1 {
@@ -410,11 +420,44 @@
 @media (max-width: 768px) {
     .tab-content {
         padding: 1.5rem;
+        min-height: 50vh; /* Hauteur minimale pour contenir les panneaux */
     }
     
     .tab-btn {
         padding: 1rem 1.5rem;
         font-size: 0.9rem;
+    }
+    
+    /* Amélioration des onglets sur mobiles */
+    .tab-buttons {
+        -webkit-overflow-scrolling: touch;
+        scrollbar-width: none; /* Firefox */
+        -ms-overflow-style: none; /* IE et Edge */
+    }
+    
+    .tab-buttons::-webkit-scrollbar {
+        display: none; /* Chrome, Safari, Opera */
+    }
+    
+    .tab-btn.active {
+        background-color: rgba(0, 120, 231, 0.1);
+        position: relative;
+    }
+    
+    /* S'assurer que les panneaux d'onglets s'affichent correctement */
+    .tab-pane {
+        position: absolute; 
+        opacity: 0;
+        visibility: hidden;
+        left: 0;
+        width: 100%;
+        transition: opacity 0.3s ease, visibility 0.3s ease;
+    }
+    
+    .tab-pane.active {
+        position: relative;
+        opacity: 1;
+        visibility: visible;
     }
     
     .cta-buttons {
@@ -443,6 +486,21 @@
 @media (max-width: 576px) {
     .accommodations-grid, .attractions-grid {
         grid-template-columns: 1fr;
+    }
+    
+    /* Améliorations supplémentaires pour très petits écrans */
+    .tab-btn {
+        padding: 0.8rem 1.2rem;
+        font-size: 0.85rem;
+    }
+    
+    .tab-btn.active {
+        box-shadow: 0 3px 10px rgba(0, 120, 231, 0.2);
+    }
+    
+    /* Assurer que le contenu est bien visible */
+    .tab-content {
+        padding: 1rem;
     }
 }
 
