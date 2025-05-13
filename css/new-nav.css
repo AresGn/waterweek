@@ -9,7 +9,7 @@
   background-color: white !important;
   box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1) !important;
   z-index: 1000 !important;
-  padding: 0.8rem 1rem !important;
+  padding: 1rem 1.5rem !important;
   display: flex !important;
   justify-content: space-between !important;
   align-items: center !important;
@@ -19,11 +19,21 @@
 .site-logo {
   display: flex !important;
   align-items: center !important;
+  flex-wrap: nowrap !important;
+  overflow-x: auto !important;
+  -webkit-overflow-scrolling: touch !important;
+  scrollbar-width: none !important;
+  -ms-overflow-style: none !important;
 }
 
 .site-logo img {
-  height: 40px !important;
+  height: 50px !important;
   width: auto !important;
+  margin-right: 5px !important;
+}
+
+.site-logo::-webkit-scrollbar {
+  display: none !important;
 }
 
 /* Main Navigation */
@@ -172,7 +182,7 @@
   
   .site-nav {
     position: fixed !important;
-    top: 63px !important; /* Adjust based on header height */
+    top: 72px !important; /* Ajusté pour le nouveau header plus grand (était 63px) */
     left: 0 !important;
     right: 0 !important;
     bottom: 0 !important;
@@ -259,7 +269,8 @@
 /* Small Screen Adjustments */
 @media (max-width: 576px) {
   .site-logo img {
-    height: 35px !important;
+    height: 40px !important;
+    margin-right: 3px !important;
   }
   
   .menu-toggle {
@@ -280,6 +291,6 @@
   }
   
   .site-nav {
-    top: 58px !important; /* Smaller header on smaller screens */
+    top: 65px !important;
   }
 } 
