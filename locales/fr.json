@@ -7,6 +7,7 @@
     "nav_program": "Programme",
     "nav_topics": "Thèmes",
     "nav_call_papers": "Appel à communications",
+    "nav_call_stands": "Appel à Stands",
     "nav_speakers": "Intervenants",
     "nav_info_media": "Infos & Médias",
     "nav_practical_info": "Infos pratiques",
@@ -48,10 +49,16 @@
     "call_papers_instructions_title": "Instructions de soumission",
     "call_papers_instructions_text": "Détails sur le processus de soumission, les formats acceptés et les critères d'évaluation.",
     "call_papers_deadline_title": "Date limite",
-    "call_papers_deadline_text": "10 mai 2025",
+    "call_papers_deadline_text": "20 mai 2025",
     "call_papers_format_title": "Format attendu pour les résumés",
     "call_papers_format_text": "Maximum 300 mots, incluant problématique, méthodologie, résultats attendus ou obtenus et conclusion. Les résumés doivent être soumis en français ou en anglais, au format Word.",
     "call_papers_submit_button": "Soumettre votre résumé",
+    
+    "call_papers_first_notification_title": "Première notification",
+    "call_papers_first_notification_text": "20 mai 2025",
+    
+    "call_papers_final_notification_title": "Notification définitive",
+    "call_papers_final_notification_text": "25 mai 2025",
     
     "program_title": "Programme prévisionnel",
     "program_day1": "Jour 1",
