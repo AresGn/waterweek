@@ -29,6 +29,7 @@ const newHeader = `<header class="site-header">
                 <div class="dropdown-menu">
                     <a href="themes.html" class="dropdown-item" data-i18n="nav_topics">Thèmes</a>
                     <a href="call-papers.html" class="dropdown-item" data-i18n="nav_call_papers">Appel à communications</a>
+                    <a href="call-stands.html" class="dropdown-item" data-i18n="nav_call_stands">Appel à Stands</a>
                     <a href="program.html" class="dropdown-item" data-i18n="nav_program">Programme</a>
                     <a href="speakers.html" class="dropdown-item" data-i18n="nav_speakers">Intervenants</a>
                 </div>
@@ -105,6 +106,7 @@ function updateFile(filePath) {
 const htmlFiles = [
   'index.html',
   'call-papers.html',
+  'call-stands.html',
   'contact.html',
   'gallery.html',
   'news.html',

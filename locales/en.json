@@ -7,6 +7,7 @@
     "nav_program": "Program",
     "nav_topics": "Topics",
     "nav_call_papers": "Call for Papers",
+    "nav_call_stands": "Exhibition Stands",
     "nav_speakers": "Speakers",
     "nav_info_media": "Info & Media",
     "nav_practical_info": "Practical Info",
@@ -48,10 +49,16 @@
     "call_papers_instructions_title": "Submission Instructions",
     "call_papers_instructions_text": "Details on the submission process, accepted formats, and evaluation criteria.",
     "call_papers_deadline_title": "Deadline",
-    "call_papers_deadline_text": "January 15, 2025",
+    "call_papers_deadline_text": "May 20, 2025",
     "call_papers_format_title": "Expected Format for Abstracts",
     "call_papers_format_text": "Maximum 300 words, including problem statement, methodology, expected results.",
     "call_papers_submit_button": "Submit Your Abstract",
+    
+    "call_papers_first_notification_title": "First Notification",
+    "call_papers_first_notification_text": "May 20, 2025",
+    
+    "call_papers_final_notification_title": "Final Notification",
+    "call_papers_final_notification_text": "May 25, 2025",
     
     "program_title": "Provisional Program",
     "program_day1": "Day 1",
