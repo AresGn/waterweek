@@ -376,7 +376,7 @@
 
 @media screen and (max-width: 768px) {
     .about-image {
-        height: 350px;
+        height: 450px;
     }
     
     .about-text p {
@@ -405,7 +405,7 @@
 
 @media screen and (max-width: 576px) {
     .about-image {
-        height: 250px;
+        height: 350px;
         margin-bottom: 1.5rem;
     }
     
@@ -964,7 +964,8 @@
     }
     
     .footer-logo {
-        max-width: 150px;
+        height: 40px;
+        width: 40px;
     }
     
     .footer-col h3 {

@@ -403,7 +403,7 @@ nav ul li a:hover {
     left: 0;
     width: 100%;
     height: 100%;
-    background: linear-gradient(135deg, rgba(14, 116, 144, 0.85), rgba(6, 182, 212, 0.75));
+    background: linear-gradient(135deg, rgba(14, 116, 144, 0.65), rgba(6, 182, 212, 0.55));
     z-index: 1;
 }
 
@@ -861,7 +861,7 @@ nav ul li a:hover {
     left: 0;
     width: 100%;
     height: 100%;
-    background: linear-gradient(135deg, rgba(14, 116, 144, 0.85), rgba(6, 182, 212, 0.75));
+    background: linear-gradient(135deg, rgba(14, 116, 144, 0.65), rgba(6, 182, 212, 0.55));
     z-index: 2;
 }
 
@@ -1949,6 +1949,15 @@ footer::before {
 .footer-col p {
     margin-bottom: var(--spacing-md);
     color: var(--medium-gray);
+    display: none; /* Cacher le texte sous le logo */
+}
+
+.footer-logo {
+    height: 40px;
+    width: 40px;
+    object-fit: contain;
+    margin-bottom: var(--spacing-md);
+    margin-right: var(--spacing-sm);
 }
 
 .footer-col ul {
@@ -2357,12 +2366,16 @@ footer::before {
 
 .about-image {
     position: relative;
-    height: 450px;
+    height: 550px;
     width: 100%;
     border-radius: var(--radius-lg);
     overflow: hidden;
     box-shadow: 0 15px 30px rgba(0, 0, 0, 0.1);
     margin-bottom: var(--spacing-md);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: rgba(255, 255, 255, 0.05);
 }
 
 @media (max-width: 1024px) {
@@ -2371,13 +2384,13 @@ footer::before {
     }
     
     .about-image {
-        height: 400px;
+        height: 500px;
     }
 }
 
 @media (max-width: 768px) {
     .about-image {
-        height: 350px;
+        height: 450px;
     }
 }
 
@@ -2396,15 +2409,17 @@ footer::before {
 }
 
 .about-image img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
+    width: auto;
+    height: auto;
+    max-width: 90%;
+    max-height: 90%;
+    object-fit: contain;
     transition: all 0.5s ease;
-    transform: scale(1.02);
+    border-radius: var(--radius-md);
 }
 
 .about-image:hover img {
-    transform: scale(1.08);
+    transform: scale(1.03);
 }
 
 .about-image::after {
@@ -2414,7 +2429,7 @@ footer::before {
     left: 0;
     width: 100%;
     height: 100%;
-    background: linear-gradient(45deg, rgba(8, 145, 178, 0.4), rgba(6, 182, 212, 0.2));
+    background: linear-gradient(45deg, rgba(8, 145, 178, 0.2), rgba(6, 182, 212, 0.1));
     opacity: 0.6;
     transition: opacity 0.3s ease;
     pointer-events: none;

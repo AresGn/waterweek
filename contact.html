@@ -41,7 +41,7 @@
             <li class="nav-item">
                 <a href="javascript:void(0);" class="nav-link has-dropdown" data-i18n="nav_program">Programme</a>
                 <div class="dropdown-menu">
-                    <a href="themes.html" class="dropdown-item" data-i18n="nav_topics">Thèmes</a>
+                    <a href="themes.html" class="dropdown-item" data-i18n="nav_topics">Thématique</a>
                     <a href="call-papers.html" class="dropdown-item" data-i18n="nav_call_papers">Appel à communications</a>
                     <a href="call-stands.html" class="dropdown-item" data-i18n="nav_call_stands">Appel à Stands</a>
                     <a href="program.html" class="dropdown-item" data-i18n="nav_program">Programme</a>
@@ -259,7 +259,7 @@
                     <ul>
                         <li><a href="index.html" data-i18n="nav_home">Accueil</a></li>
                         <li><a href="index.html#about" data-i18n="nav_about">À propos</a></li>
-                        <li><a href="themes.html" data-i18n="nav_topics">Thèmes</a></li>
+                        <li><a href="themes.html" data-i18n="nav_topics">Thématique</a></li>
                         <li><a href="call-papers.html" data-i18n="nav_call_papers">Appel à communications</a></li>
                         <li><a href="program.html" data-i18n="nav_program">Programme</a></li>
                     </ul>
@@ -299,9 +299,6 @@
     <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
     <script>
         document.addEventListener('DOMContentLoaded', function() {
-            
-            }
-            
             // Animation au scroll
             const animateElements = document.querySelectorAll('.animate-on-scroll');
             
@@ -339,66 +336,47 @@
                 });
             });
             
-            // Validation du formulaire
+            // Gestion du formulaire de contact
             const contactForm = document.getElementById('contactForm');
             
             if (contactForm) {
                 contactForm.addEventListener('submit', function(e) {
                     e.preventDefault();
                     
-                    // Validation simple
-                    let isValid = true;
-                    const requiredFields = contactForm.querySelectorAll('[required]');
+                    // Simuler l'envoi du formulaire
+                    const submitButton = this.querySelector('[type="submit"]');
+                    submitButton.disabled = true;
+                    submitButton.textContent = 'Envoi en cours...';
                     
-                    requiredFields.forEach(field => {
-                        if (!field.value.trim()) {
-                            isValid = false;
-                            field.classList.add('error');
-                        } else {
-                            field.classList.remove('error');
-                        }
-                    });
+                    // Après 2 secondes, afficher un message de succès
+                    setTimeout(() => {
+                        document.getElementById('formSuccess').style.display = 'block';
+                        contactForm.reset();
+                        submitButton.disabled = false;
+                        submitButton.textContent = 'Envoyer';
+                    }, 2000);
+                });
+            }
+            
+            // Gestion du formulaire de newsletter
+            const newsletterForm = document.getElementById('newsletterForm');
+            
+            if (newsletterForm) {
+                newsletterForm.addEventListener('submit', function(e) {
+                    e.preventDefault();
                     
-                    // Validation de l'email
-                    const emailField = document.getElementById('email');
-                    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+                    // Simuler l'envoi du formulaire
+                    const submitButton = this.querySelector('[type="submit"]');
+                    submitButton.disabled = true;
+                    submitButton.textContent = 'Inscription...';
                     
-                    if (emailField.value.trim() && !emailRegex.test(emailField.value)) {
-                        isValid = false;
-                        emailField.classList.add('error');
-                    }
-                    
-                    if (isValid) {
-                        // Ajout d'un champ caché pour le sujet
-                        const subjectField = document.getElementById('subject');
-                        const hiddenSubject = document.createElement('input');
-                        hiddenSubject.type = 'hidden';
-                        hiddenSubject.name = '_subject';
-                        hiddenSubject.value = 'Nouveau message - Semaine de l\'Eau 2025: ' + subjectField.options[subjectField.selectedIndex].text;
-                        contactForm.appendChild(hiddenSubject);
-                        
-                        // Configuration de la redirection
-                        const hiddenRedirect = document.createElement('input');
-                        hiddenRedirect.type = 'hidden';
-                        hiddenRedirect.name = '_next';
-                        
-                        // Construire l'URL de redirection dynamiquement
-                        const currentUrl = window.location.href;
-                        const baseUrl = currentUrl.substring(0, currentUrl.lastIndexOf('/') + 1);
-                        hiddenRedirect.value = baseUrl + 'merci.html';
-                        
-                        contactForm.appendChild(hiddenRedirect);
-                        
-                        // Désactiver le captcha
-                        const hiddenCaptcha = document.createElement('input');
-                        hiddenCaptcha.type = 'hidden';
-                        hiddenCaptcha.name = '_captcha';
-                        hiddenCaptcha.value = 'false';
-                        contactForm.appendChild(hiddenCaptcha);
-                        
-                        // Soumettre le formulaire
-                        contactForm.submit();
-                    }
+                    // Après 1.5 secondes, afficher un message de succès
+                    setTimeout(() => {
+                        document.getElementById('newsletterSuccess').style.display = 'block';
+                        newsletterForm.reset();
+                        submitButton.disabled = false;
+                        submitButton.textContent = 'S\'abonner';
+                    }, 1500);
                 });
             }
         });

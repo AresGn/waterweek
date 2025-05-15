@@ -27,7 +27,7 @@ const newHeader = `<header class="site-header">
             <li class="nav-item">
                 <a href="javascript:void(0);" class="nav-link has-dropdown" data-i18n="nav_program">Programme</a>
                 <div class="dropdown-menu">
-                    <a href="themes.html" class="dropdown-item" data-i18n="nav_topics">Thèmes</a>
+                    <a href="themes.html" class="dropdown-item" data-i18n="nav_topics">Thématique</a>
                     <a href="call-papers.html" class="dropdown-item" data-i18n="nav_call_papers">Appel à communications</a>
                     <a href="call-stands.html" class="dropdown-item" data-i18n="nav_call_stands">Appel à Stands</a>
                     <a href="program.html" class="dropdown-item" data-i18n="nav_program">Programme</a>
