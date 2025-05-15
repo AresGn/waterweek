@@ -5,7 +5,7 @@
     "nav_home": "Accueil",
     "nav_about": "À propos",
     "nav_program": "Programme",
-    "nav_topics": "Thèmes",
+    "nav_topics": "Thématique",
     "nav_call_papers": "Appel à communications",
     "nav_call_stands": "Appel à Stands",
     "nav_speakers": "Intervenants",
@@ -35,7 +35,7 @@
     "about_organizers_title": "Organisateurs",
     "about_organizers_text": "C2EA, INE/UAC, IAHS, FRIEND AOC - avec description de chaque entité et son rôle.",
     
-    "themes_title": "Thèmes",
+    "themes_title": "Thématiques",
     "theme_1_title": "Ressources en eau et écosystèmes transfrontaliers",
     "theme_1_text": "Gestion des bassins partagés, coopération internationale, préservation des écosystèmes aquatiques.",
     "theme_2_title": "Innovations dans le traitement et la réutilisation de l'eau",

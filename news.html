@@ -41,7 +41,7 @@
             <li class="nav-item">
                 <a href="javascript:void(0);" class="nav-link has-dropdown" data-i18n="nav_program">Programme</a>
                 <div class="dropdown-menu">
-                    <a href="themes.html" class="dropdown-item" data-i18n="nav_topics">Thèmes</a>
+                    <a href="themes.html" class="dropdown-item" data-i18n="nav_topics">Thématique</a>
                     <a href="call-papers.html" class="dropdown-item" data-i18n="nav_call_papers">Appel à communications</a>
                     <a href="call-stands.html" class="dropdown-item" data-i18n="nav_call_stands">Appel à Stands</a>
                     <a href="program.html" class="dropdown-item" data-i18n="nav_program">Programme</a>
@@ -197,13 +197,14 @@
         <div class="container">
             <div class="footer-container">
                 <div class="footer-col">
-                    <img src="https://i.ibb.co/8nLpXxbm/Logo-INE.png" alt="Water Week Logo" class="footer-logo">
-                    <p>La Semaine de l'Eau est un événement international qui rassemble experts et chercheurs autour des enjeux liés à l'eau dans le contexte des changements climatiques.</p>
-                    <div class="social-links">
-                        <a href="https://www.facebook.com/share/16B1WdQbLX/" class="social-link" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
-                        <a href="#" class="social-link" aria-label="Twitter"><i class="fab fa-twitter"></i></a>
-                        <a href="#" class="social-link" aria-label="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
-                        <a href="#" class="social-link" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+                    <div style="display: flex; align-items: center;">
+                        <img src="https://i.ibb.co/8nLpXxbm/Logo-INE.png" alt="Water Week Logo" class="footer-logo">
+                        <div class="social-links">
+                            <a href="https://www.facebook.com/share/16B1WdQbLX/" class="social-link" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
+                            <a href="#" class="social-link" aria-label="Twitter"><i class="fab fa-twitter"></i></a>
+                            <a href="#" class="social-link" aria-label="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
+                            <a href="#" class="social-link" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+                        </div>
                     </div>
                 </div>
                 <div class="footer-col">
@@ -211,7 +212,7 @@
                     <ul>
                         <li><a href="index.html" data-i18n="nav_home">Accueil</a></li>
                         <li><a href="index.html#about" data-i18n="nav_about">À propos</a></li>
-                        <li><a href="themes.html" data-i18n="nav_topics">Thèmes</a></li>
+                        <li><a href="themes.html" data-i18n="nav_topics">Thématique</a></li>
                         <li><a href="call-papers.html" data-i18n="nav_call_papers">Appel à communications</a></li>
                         <li><a href="program.html" data-i18n="nav_program">Programme</a></li>
                     </ul>
@@ -251,8 +252,6 @@
     <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
     <script>
         document.addEventListener('DOMContentLoaded', function() {
-            
-            }
             
             // Filtrage des actualités
             const newsFilters = document.querySelectorAll('.news-filter');
