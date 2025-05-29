@@ -28,6 +28,7 @@ const newHeader = `<header class="site-header">
                 <a href="javascript:void(0);" class="nav-link has-dropdown" data-i18n="nav_program">Programme</a>
                 <div class="dropdown-menu">
                     <a href="themes.html" class="dropdown-item" data-i18n="nav_topics">Thématique</a>
+                    <a href="panelistes.html" class="dropdown-item">Panélistes</a>
                     <a href="call-papers.html" class="dropdown-item" data-i18n="nav_call_papers">Appel à communications</a>
                     <a href="call-stands.html" class="dropdown-item" data-i18n="nav_call_stands">Appel à Stands</a>
                     <a href="program.html" class="dropdown-item" data-i18n="nav_program">Programme</a>
@@ -114,7 +115,8 @@ const htmlFiles = [
   'practical-info.html',
   'program.html',
   'speakers.html',
-  'themes.html'
+  'themes.html',
+  'panelistes.html'
 ];
 
 // Traiter chaque fichier
